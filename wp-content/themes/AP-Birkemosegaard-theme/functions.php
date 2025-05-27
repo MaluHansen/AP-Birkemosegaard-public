@@ -41,3 +41,37 @@ function theme_features() {
     add_theme_support('woocommerce');
 }
 add_action('after_setup_theme', 'theme_features');
+
+
+
+
+
+add_action('pre_get_posts', 'custom_product_filters');
+function custom_product_filters($query) {
+    if (!is_admin() && $query->is_main_query() && is_post_type_archive('product')) {
+
+
+        // Taxonomy query (kategori og brand)
+        $tax_query = [];
+
+        if (!empty($_GET['product_cat'])) {
+            $tax_query[] = [
+                'taxonomy' => 'product_cat',
+                'field' => 'slug',
+                'terms' => sanitize_text_field($_GET['product_cat'])
+            ];
+        }
+
+         if (!empty($_GET['brand'])) {
+            $tax_query[] = [
+                'taxonomy' => 'product_brand',
+                'field' => 'slug',
+                'terms' => sanitize_text_field($_GET['brand'])
+            ];
+        }
+
+        if (!empty($tax_query)) {
+            $query->set('tax_query', $tax_query);
+        }
+    }
+}
