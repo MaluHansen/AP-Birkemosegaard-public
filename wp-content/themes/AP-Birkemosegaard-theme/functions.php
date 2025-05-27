@@ -75,3 +75,10 @@ function custom_product_filters($query) {
         }
     }
 }
+
+// function fjern_woo_metaboxes_i_admin() {
+//     remove_meta_box('postexcerpt', 'product', 'normal'); // kort beskrivelse
+//     remove_meta_box('commentsdiv', 'product', 'normal'); // reviews (kommentarindstillinger)
+//     remove_post_type_support('product', 'editor');
+// }
+// add_action('add_meta_boxes', 'fjern_woo_metaboxes_i_admin', 99);
