@@ -32,20 +32,33 @@ $parentCat = get_term( $category->parent, 'product_cat' );
 
                 <h1 class="product-h1"><?php the_title(); ?></h1>
 
-                <div class="oko-icons">
-                    <img src="./assets/styles/ecology_eu.svg" alt="">
-                    <img src="./assets/styles/ecology_dk.svg" alt="">
-                    <img src="./assets/styles/demeter.svg" alt="">
-                </div>
+                <?php
+                $eco_marks = get_the_terms( get_the_ID(), 'oko-maerke' );
+
+                if ( $eco_marks && ! is_wp_error( $eco_marks ) ) :
+                    echo '<div class="oko-icons">';
+                    foreach ( $eco_marks as $mark ) {
+                        $icon = get_field('eco_icon', 'oko-maerke_' . $mark->term_id);
+                        if ( $icon ) {
+                            echo '<img src="' . esc_url($icon['url']) . '" alt="' . esc_attr($mark->name) . '">';
+                        } else {
+                            echo '<span>' . esc_html($mark->name) . '</span>';
+                        }
+                    }
+                    echo '</div>';
+                endif;
+                ?>
+               
                 <p class="detaljer">800 g</p>
                 <p class="product-price"><?php echo $product->get_price_html(); ?></p>
-                <div class="product-variants">
+                <?php  if  ?>
+                <!-- <div class="product-variants">
                     <p>Variant: <b>800g</b></p>
                     <div class="variant-btns">
                         <div></div>
                         <div></div>
                     </div>
-                </div>
+                </div> -->
                 <div class="quantity-btn">
 
                 </div>
