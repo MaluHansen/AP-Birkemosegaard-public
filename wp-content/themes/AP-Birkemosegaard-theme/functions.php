@@ -14,7 +14,8 @@ function birkemosegaard_files(){
     $css_files = array(
         'general-css',
         'header',
-        'footer'
+        'footer',
+        'single-product'
     );
     foreach ($css_files as $cssFileName){
         $cssFilePath = get_theme_file_uri() . '/assets/css/' . $cssFileName . '.css';
@@ -25,7 +26,8 @@ function birkemosegaard_files(){
     $js_files = array(
         'cart-modal',
         'login-popup',
-        'password-visibility'
+        'password-visibility',
+        'product-tabs'
     );
     foreach ($js_files as $jsFileName){
         $jsFilePath = get_theme_file_uri() . '/assets/js/' . $jsFileName . '.js';
@@ -41,6 +43,7 @@ function theme_features() {
     add_theme_support('woocommerce');
 }
 add_action('after_setup_theme', 'theme_features');
+
 
 
 

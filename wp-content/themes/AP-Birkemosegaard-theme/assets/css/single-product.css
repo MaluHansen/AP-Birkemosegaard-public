@@ -1,0 +1,78 @@
+.product{
+    margin: var(--standard) var(--large);
+}
+.product-container{
+    display: flex;
+    gap: var(--standard);
+    margin-bottom: var(--small);
+}
+
+.product-img{
+    width: 50%;
+    max-width: 544px;
+    
+}
+.product-img img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center center;
+    border: 1px solid var(--sand300);
+    border-radius: 12px;
+}
+
+.oko-icons{
+    display: flex;
+    height: 1.5rem;
+    gap: 1rem;
+}
+
+.variant-btns{
+    display: flex;
+    gap: 1rem;
+}
+.variant-btns div{
+    background-color: var(--green100);
+    width: 4rem;
+    height: 4rem;
+}
+
+.tabs {
+    display: flex;
+}
+
+.tab-btn {
+    padding: 0.75rem 2.5rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    margin-bottom: -2px;
+    background: transparent;
+    font-size: 1rem;
+    color: var(--grey);
+    font-weight: bold;
+}
+
+.tab-btn.active-tab {
+    border: 2px solid var(--green600);
+    border-bottom-color: transparent;
+    border-radius: 6px 6px 0px 0px;
+    color: var(--green900);
+    background: var(--white);
+    
+}
+
+.tab-content {
+    display: none;
+    padding: 1rem 2rem;
+}
+
+.tab-content.active-tab {
+    display: block;
+    border-top: 2px solid var(--green600);
+   
+    
+}
+
+.related-products h2{
+    text-align: center;
+}

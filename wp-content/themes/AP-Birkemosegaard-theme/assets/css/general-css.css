@@ -64,6 +64,10 @@ font-weight: 700;
 h1 {
     font-size: 3rem;
 }
+.product-h1{
+    font-family: "Lato", sans-serif;
+    color: var(--green900);
+}
 
 h2 {
     font-size: 2.25rem;
@@ -207,5 +211,29 @@ span.checkbox-icon{
 }
 .checkbox-custom input[type="checkbox"]{
     display: none;
+}
+/*—————————————————————————————————————————————————————————————————————————————————*/
+
+/*——————————————————————————————————— Breadcrumbs —————————————————————————————————*/
+.breadcrumbs-product{
+    list-style: none;
+    padding: unset;
+    margin: 2rem 4rem;
+}
+.breadcrumbs-product li{
+    display: inline-flex;
+    align-items: center;
+    color: var(--green900);
+}
+.breadcrumbs-product li:last-of-type{
+    font-weight: 600;
+}
+.breadcrumbs-product a{
+    text-decoration: none;
+    color: var(--green900);
+}
+.breadcrumbs-product a:hover{
+    text-decoration: underline;
+    color: var(--green600);
 }
 /*—————————————————————————————————————————————————————————————————————————————————*/
