@@ -36,6 +36,7 @@ function birkemosegaard_files(){
     };
 }
 add_action('wp_enqueue_scripts', 'birkemosegaard_files');
+add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 function theme_features() {
     add_theme_support('title-tag');

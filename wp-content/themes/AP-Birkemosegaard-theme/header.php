@@ -28,7 +28,7 @@
             <li><a href="#">Om gården</a></li>
             <li><a href="#">Restaurant & Catering</a></li>
             <li><a href="#">Afhentning & Levering</a></li>
-            <li><a href="#">Kontakt</a></li>
+            <li><a href="<?php echo site_url('/cart') ?>">Kontakt</a></li>
         </ul>
         <div class="global-menu-icons">
             

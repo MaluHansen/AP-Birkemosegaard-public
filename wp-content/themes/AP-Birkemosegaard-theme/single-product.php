@@ -63,15 +63,41 @@ $parentCat = get_term( $category->parent, 'product_cat' );
                     </div>
                <?php } ?>
                 
-                <div class="quantity-btn">
+<!-- Tilføj til kurv-formular -->
+<form class="custom-cart-form cart" method="post" enctype="multipart/form-data">
+    
+    <!-- Wrapper omkring quantity og knapper -->
+    <div class="quantity-wrapper">
+        
+        <!-- Minus-knap (styres med JS) -->
+        <button type="button" class="qty-btn minus">−</button>
+        
+        <!-- Synlig mængde (kun visning, ikke indsendt til WooCommerce) -->
+        <span class="qty-display">1</span>
+        
+        <!-- Skjult input der sender mængde til WooCommerce -->
+        <input type="hidden" name="quantity" value="1">
+        <!-- ⚠️ VIGTIGT: 'name="quantity"' SKAL være præcis dette navn -->
 
-                </div>
-                <button class="btn-filled add-to-cart">Tilføj til kurv</button>
-                <?php
-if ( $product->is_purchasable() ) {
-    wc_get_template( 'single-product/add-to-cart/simple.php' );
-}
-?>
+        <!-- Plus-knap (styres med JS) -->
+        <button type="button" class="qty-btn plus">+</button>
+    </div>
+
+    <!-- Selve "Tilføj til kurv"-knappen -->
+    <button type="submit" 
+            name="add-to-cart" 
+            value="<?php echo esc_attr( $product->get_id() ); ?>" 
+            class="custom-add-to-cart-button">
+        Tilføj til kurv
+    </button>
+    <!-- ⚠️ VIGTIGT: 'name="add-to-cart"' SKAL hedde det her for WooCommerce -->
+
+</form>
+
+
+
+
+               
 
             </div>
         </div>

@@ -76,3 +76,26 @@
 .related-products h2{
     text-align: center;
 }
+
+
+.quantity-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.qty-btn {
+    background: #f6f3ea;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.qty-display {
+    min-width: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
