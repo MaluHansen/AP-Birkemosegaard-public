@@ -78,5 +78,6 @@
         <img class="payment-icons" src="<?php echo get_template_directory_uri(); ?>/assets/img/betalingsmetoder.png" alt="">
     </div>
 </footer>
+<?php wp_footer(); ?>
 </body>
 </html>

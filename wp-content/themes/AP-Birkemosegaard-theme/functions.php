@@ -12,7 +12,7 @@ function birkemosegaard_files(){
 
     // Css og js filer registreres i et array for ikke at skulle queue hver fil enkeltvis
     $css_files = array(
-        'main-css',
+        'general-css',
         'header',
         'footer'
     );
@@ -46,39 +46,4 @@ add_action('after_setup_theme', 'theme_features');
 
 
 
-add_action('pre_get_posts', 'custom_product_filters');
-function custom_product_filters($query) {
-    if (!is_admin() && $query->is_main_query() && is_post_type_archive('product')) {
 
-
-        // Taxonomy query (kategori og brand)
-        $tax_query = [];
-
-        if (!empty($_GET['product_cat'])) {
-            $tax_query[] = [
-                'taxonomy' => 'product_cat',
-                'field' => 'slug',
-                'terms' => sanitize_text_field($_GET['product_cat'])
-            ];
-        }
-
-         if (!empty($_GET['brand'])) {
-            $tax_query[] = [
-                'taxonomy' => 'product_brand',
-                'field' => 'slug',
-                'terms' => sanitize_text_field($_GET['brand'])
-            ];
-        }
-
-        if (!empty($tax_query)) {
-            $query->set('tax_query', $tax_query);
-        }
-    }
-}
-
-// function fjern_woo_metaboxes_i_admin() {
-//     remove_meta_box('postexcerpt', 'product', 'normal'); // kort beskrivelse
-//     remove_meta_box('commentsdiv', 'product', 'normal'); // reviews (kommentarindstillinger)
-//     remove_post_type_support('product', 'editor');
-// }
-// add_action('add_meta_boxes', 'fjern_woo_metaboxes_i_admin', 99);
