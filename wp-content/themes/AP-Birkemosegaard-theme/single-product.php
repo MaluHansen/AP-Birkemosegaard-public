@@ -35,9 +35,9 @@ $parentCat = get_term( $category->parent, 'product_cat' );
                 <?php
                 $eco_marks = get_the_terms( get_the_ID(), 'oko-maerke' );
 
-                if ( $eco_marks && ! is_wp_error( $eco_marks ) ) :
-                    echo '<div class="oko-icons">';
-                    foreach ( $eco_marks as $mark ) {
+                if ( $eco_marks && ! is_wp_error( $eco_marks ) ) : ?>
+                    <div class="oko-icons">
+                    <?php foreach ( $eco_marks as $mark ) {
                         $icon = get_field('eco_icon', 'oko-maerke_' . $mark->term_id);
                         if ( $icon ) {
                             echo '<img src="' . esc_url($icon['url']) . '" alt="' . esc_attr($mark->name) . '">';
@@ -49,16 +49,20 @@ $parentCat = get_term( $category->parent, 'product_cat' );
                 endif;
                 ?>
                
-                <p class="detaljer">800 g</p>
+                <p class="detaljer"><?php echo esc_html( get_field('produkt_maengde') ); ?></p>
+
                 <p class="product-price"><?php echo $product->get_price_html(); ?></p>
-                <?php  if  ?>
-                <!-- <div class="product-variants">
-                    <p>Variant: <b>800g</b></p>
-                    <div class="variant-btns">
-                        <div></div>
-                        <div></div>
+
+                <?php  if ($product->is_type('variable')){ ?>
+                    <div class="product-variants">
+                        <p>Variant: <b>800g</b></p>
+                        <div class="variant-btns">
+                            <div></div>
+                            <div></div>
+                        </div>
                     </div>
-                </div> -->
+               <?php } ?>
+                
                 <div class="quantity-btn">
 
                 </div>
