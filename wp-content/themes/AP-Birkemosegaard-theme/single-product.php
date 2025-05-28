@@ -67,6 +67,11 @@ $parentCat = get_term( $category->parent, 'product_cat' );
 
                 </div>
                 <button class="btn-filled add-to-cart">Tilføj til kurv</button>
+                <?php
+if ( $product->is_purchasable() ) {
+    wc_get_template( 'single-product/add-to-cart/simple.php' );
+}
+?>
 
             </div>
         </div>
