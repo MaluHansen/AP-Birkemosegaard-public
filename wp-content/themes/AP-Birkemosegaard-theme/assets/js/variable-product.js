@@ -22,3 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+
+
+// let variantBtn = document.querySelector(".open-variant-modal");
+// let variantModal = document.querySelector(".variant-modal");
+// let toggleVariantModal = (show) => {
+//     variantModal.style.display = show ? "block" : "none";
+// };
+// variantBtn.addEventListener("click", () => toggleVariantModal(true));
+

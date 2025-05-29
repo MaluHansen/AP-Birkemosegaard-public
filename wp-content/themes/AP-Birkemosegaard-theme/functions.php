@@ -16,7 +16,8 @@ function birkemosegaard_files(){
         'header',
         'footer',
         'single-product',
-        'card-product'
+        'cards',
+        'archive'
     );
     foreach ($css_files as $cssFileName){
         $cssFilePath = get_theme_file_uri() . '/assets/css/' . $cssFileName . '.css';
@@ -29,8 +30,8 @@ function birkemosegaard_files(){
         'login-popup',
         'password-visibility',
         'product-tabs',
-        'update-quantity',
-        'variable-product'
+        'variable-product',
+        'update-quantity'
     );
     foreach ($js_files as $jsFileName){
         $jsFilePath = get_theme_file_uri() . '/assets/js/' . $jsFileName . '.js';
@@ -42,16 +43,38 @@ function birkemosegaard_files(){
 add_action('wp_enqueue_scripts', 'birkemosegaard_files');
 add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
+
 function theme_features() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
-    add_theme_support('woocommerce');
+    
 }
 add_action('after_setup_theme', 'theme_features');
 
 
+add_theme_support('woocommerce');
+function mit_tema_woocommerce_support() {
+    // WooCommerce scripts
+    if (class_exists('WooCommerce')) {
+        wp_enqueue_script('wc-add-to-cart');
+        wp_enqueue_script('wc-cart-fragments');
+        wp_enqueue_script('woocommerce');
+        wp_enqueue_script('wc-add-to-cart-variation');
+    }
+}
+add_action('wp_enqueue_scripts', 'mit_tema_woocommerce_support');
 
+add_filter('woocommerce_add_to_cart_fragments', 'opdater_kurv_ikon');
 
+function opdater_kurv_ikon($fragments) {
+    ob_start(); ?>
+    <a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="Se kurv">
+        <?php echo WC()->cart->get_cart_contents_count(); ?> varer - <?php echo WC()->cart->get_cart_total(); ?>
+    </a>
+    <?php
+    $fragments['a.cart-contents'] = ob_get_clean();
+    return $fragments;
+}
 
 
 

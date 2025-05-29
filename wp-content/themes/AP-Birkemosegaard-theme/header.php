@@ -39,11 +39,11 @@
                 </button>
             </div>
 
-            <div>
-                <span class="material-symbols-rounded icon-nav" id="cart-icon">shopping_cart</span>
-                <!-- "cart-count count" skal her tilføjes da det er denne wc bruger til at opdatere count via AJAX-->
-                <p class="cart-count count"><?php echo WC()->cart->get_cart_contents_count(); ?></p> 
-            </div>
+<a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="Se kurv">
+    <?php echo WC()->cart->get_cart_contents_count(); ?> varer - <?php echo WC()->cart->get_cart_total(); ?>
+</a>
+
+            
             
             <div class="cart-modal">
                 <div class="cart-modal-content">

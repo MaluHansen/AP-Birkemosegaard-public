@@ -5,16 +5,16 @@ var closeModalIcon = document.getElementById("cart-modal-close");
 
 var cartModal = document.querySelector(".cart-modal");
 
-var toggleModal = (show) => {
+var toggleCartModal = (show) => {
     cartModal.style.display = show ? "block" : "none";
 };
 
-cartIcon.addEventListener("click", () => toggleModal(true));
-closeModalIcon.addEventListener("click", () => toggleModal(false));
+cartIcon.addEventListener("click", () => toggleCartModal(true));
+closeModalIcon.addEventListener("click", () => toggleCartModal(false));
 
 window.addEventListener("click", (e) => {
     if (e.target === cartModal) {
-        toggleModal(false);
+        toggleCartModal(false);
     } 
 });
 

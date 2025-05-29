@@ -1,26 +1,50 @@
-.produkterForside {
-  margin: var(--large);
-}
-.produkterForside h3 {
-  font-size: 1.5rem;
-}
-.produktGrid-forside {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-top: 2rem;
-}
-.produktCard {
+
+.card {
   border: 1px solid #ccc;
-  padding: 1.2rem;
-  position: relative;
   border-radius: 8px;
+  border: 1px solid var(--sand300);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.produktCard img {
-  max-height: 240px;
+.card-wrapper{
+  text-decoration: none;
+}
+.card-wrapper img{
   max-width: 100%;
+  height: auto;
 }
+.card-content{
+  padding: 0.5rem 1rem;
+}
+.card-heading{
+  font-family: "Lato", sans-serif;
+  color: var(--green900);
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+.btn-card{
+  margin: 1rem;
+  margin-top: 0;
+  width: auto;
+  font-weight: 600;
+}
+
+.oko-icons-card{
+  display: flex;
+  height: 1.25rem;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.product-price{
+ font-size: 1.25rem;
+ font-weight: 700;
+}
+
+/* 
+
+
 .wishlist {
   position: absolute;
   top: 0.3rem;
@@ -39,7 +63,7 @@
 .wishlist[aria-pressed="true"] img {
   filter: hue-rotate(0deg) saturate(1000%) brightness(100%) contrast(100%);
 }
-/* Animation til hjerteikon på produkter */
+
 @keyframes pop {
   0% {
     transform: scale(1);
@@ -116,7 +140,7 @@
 }
 
 .image-wrapper-forside {
-  margin: -1.2rem -1.2rem 1rem -1.2rem; /* trækker billedet ud over paddingen */
+  margin: -1.2rem -1.2rem 1rem -1.2rem;
   position: relative;
   overflow: hidden;
   border-top-left-radius: 8px;
@@ -135,4 +159,4 @@
 
 .zoom-billede:hover img {
   transform: scale(1.05);
-}
+} */

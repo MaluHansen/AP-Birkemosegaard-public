@@ -1,11 +1,7 @@
 <?php get_header(); ?>
 <main>
-<section class="produkterForside">
-  <div class="spaceBetweenforside">
-    <h2>Se vores nyeste produkter</h2>
-    <a href="#" class="visAlle">Se flere produkter ></a>
-  </div>
-  <div class="produktGrid-forside">
+<section class="products">
+  <div class="product-grid">
     <?php 
     // WP_Query for produkter
     $args = array(

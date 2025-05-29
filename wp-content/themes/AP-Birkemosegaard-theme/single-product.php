@@ -53,11 +53,25 @@ $parentCat = get_term( $category->parent, 'product_cat' );
 
                 <?php if ( ! $product->is_type('variable')) { ?>
                 <p class="product-price"><?php echo $product->get_price_html(); ?></p>
+                    <div class="qty-btn-wrapper">
+                        <button type="button" class="qty-btn minus">−</button>
+                        <span class="qty-display">1</span>
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="button" class="qty-btn plus">+</button>
+                    </div>
+                    <a href="?add-to-cart=<?php echo esc_attr( $product->get_id() ); ?>"
+                        data-quantity="1"
+                        class="btn-filled ajax_add_to_cart add_to_cart_button"
+                        data-product_id="<?php echo esc_attr( $product->get_id() ); ?>"
+                        data-product_sku="<?php echo esc_attr( $product->get_sku() ); ?>"
+                        aria-label="<?php echo esc_attr( $product->add_to_cart_description() ); ?>"
+                        rel="nofollow">
+                        Tilføj til kurv
+                    </a>
                <?php }; ?>
 
                 <?php if ($product->is_type('variable')) {
                     $available_variations = $product->get_available_variations();
-                    
                     ?>
                     <div class="selected-price">
                         <p class="vaegt-pris"><?php echo wc_price($product->get_price()); ?></p>
@@ -81,10 +95,7 @@ $parentCat = get_term( $category->parent, 'product_cat' );
                             </button>
                         <?php } ?>
                     </div>
-                <?php } ?>
-
-
-                <form class="cart custom-cart-form" method="post" enctype="multipart/form-data">
+                    <form class="cart custom-cart-form" method="post" enctype="multipart/form-data">
                     <div class="qty-btn-wrapper">
                         <button type="button" class="qty-btn minus">−</button>
                         <span class="qty-display">1</span>
@@ -96,8 +107,12 @@ $parentCat = get_term( $category->parent, 'product_cat' );
                     <input type="hidden" name="variation_id" class="variation_id" value="">
                     <input type="hidden" name="variation[pa_vaegt]" class="selected_vaegt_input" value="">
 
-                    <button type="submit" class="cart-btn btn-filled">Tilføj til kurv</button>
+                    <button type="submit" class="cart-btn btn-filled">Tilføj variant til kurv</button>
                 </form>
+                <?php } ?>
+
+
+
                
 
                
@@ -109,5 +124,7 @@ $parentCat = get_term( $category->parent, 'product_cat' );
     <section class="related-products">
         <h2>Vi tror du vil syntes om</h2>
     </section>
+
+    
 </main>
 <?php get_footer(); ?>

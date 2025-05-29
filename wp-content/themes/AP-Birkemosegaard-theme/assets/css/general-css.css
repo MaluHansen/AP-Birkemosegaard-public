@@ -102,7 +102,9 @@ p {
 .detaljer {
     font-size: 1rem;
     color: var(--grey);
+    margin-bottom: 8px;
 }
+
 /*—————————————————————————————————————————————————————————————————————————————————*/
 
 /*————————————————————————————————————— Buttons —————————————————————————————————————*/
@@ -169,6 +171,7 @@ p {
 }
 .form-field label{
     position: absolute;
+    z-index: 0;
     background: var(--white);
     color: var(--grey);
     padding: 0 4px;

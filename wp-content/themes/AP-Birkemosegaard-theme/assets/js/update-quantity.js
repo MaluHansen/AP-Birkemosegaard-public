@@ -18,9 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-
-// https://wordpress.stackexchange.com/questions/312047/extra-items-added-to-cart-on-refresh-woocommerce
 if ( window.history.replaceState ) {
 window.history.replaceState( null, null, window.location.href );
 }
+// https://wordpress.stackexchange.com/questions/312047/extra-items-added-to-cart-on-refresh-woocommerce
+
