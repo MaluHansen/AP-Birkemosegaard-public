@@ -27,15 +27,57 @@
     gap: 1rem;
 }
 
-.variant-btns{
+.variant-btns {
     display: flex;
     gap: 1rem;
+    margin-bottom: 1rem;
 }
-.variant-btns div{
-    background-color: var(--green100);
+.variation-button {
     width: 4rem;
     height: 4rem;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
+
+.variation-button.selected {
+    border-color: #8b9440;
+    box-shadow: 0 0 0 2px #8b9440;
+}
+
+/* .variation-button.selected::after {
+    content: "✓";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #8b9440;
+    color: white;
+    font-size: 14px;
+    padding: 2px 6px;
+    border-radius: 3px;
+} */
+
+.selected-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 1rem;
+}
+.vaegt-label {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #4b4c1c;
+}
+
+
+
+
 
 .tabs {
     display: flex;
@@ -78,24 +120,37 @@
 }
 
 
-.quantity-wrapper {
+.qty-btn-wrapper {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 18px;
+    background: var(--sand200);
+    border-radius: 6px;
+    width: fit-content;
 }
 
 .qty-btn {
-    background: #f6f3ea;
-    border: 1px solid #ddd;
-    padding: 6px 12px;
-    border-radius: 6px;
+    background: none;
+    border: none;
+    padding: 12px 18px;
     cursor: pointer;
+    font-size: 20px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-right: 1px solid #e1dbc9;
+}
+
+.qty-btn.plus {
+    border-left: 1px solid #e1dbc9;
+    border-right: none;
 }
 
 .qty-display {
-    min-width: 20px;
+    padding: 12px 24px;
     text-align: center;
-    font-weight: bold;
+    min-width: 24px;
 }
+
 

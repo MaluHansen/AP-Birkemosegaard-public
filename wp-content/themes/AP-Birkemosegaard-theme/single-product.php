@@ -51,69 +51,60 @@ $parentCat = get_term( $category->parent, 'product_cat' );
                
                 <p class="detaljer"><?php echo esc_html( get_field('produkt_maengde') ); ?></p>
 
+                <?php if ( ! $product->is_type('variable')) { ?>
                 <p class="product-price"><?php echo $product->get_price_html(); ?></p>
+               <?php }; ?>
 
-                <?php  if ($product->is_type('variable')){ ?>
-                    <div class="product-variants">
-                        <p>Variant: <b>800g</b></p>
-                        <div class="variant-btns">
-                            <div></div>
-                            <div></div>
-                        </div>
+                <?php if ($product->is_type('variable')) {
+                    $available_variations = $product->get_available_variations();
+                    
+                    ?>
+                    <div class="selected-price">
+                        <p class="vaegt-pris"><?php echo wc_price($product->get_price()); ?></p>
                     </div>
-               <?php } ?>
-                
-<!-- Tilføj til kurv-formular -->
-<form class="custom-cart-form cart" method="post" enctype="multipart/form-data">
-    
-    <!-- Wrapper omkring quantity og knapper -->
-    <div class="quantity-wrapper">
-        
-        <!-- Minus-knap (styres med JS) -->
-        <button type="button" class="qty-btn minus">−</button>
-        
-        <!-- Synlig mængde (kun visning, ikke indsendt til WooCommerce) -->
-        <span class="qty-display">1</span>
-        
-        <!-- Skjult input der sender mængde til WooCommerce -->
-        <input type="hidden" name="quantity" value="1">
-        <!-- ⚠️ VIGTIGT: 'name="quantity"' SKAL være præcis dette navn -->
 
-        <!-- Plus-knap (styres med JS) -->
-        <button type="button" class="qty-btn plus">+</button>
-    </div>
+                    <p class="vaegt-label">Variant: <span class="selected-vaegt"></span></p>
 
-    <!-- Selve "Tilføj til kurv"-knappen -->
-    <button type="submit" 
-            name="add-to-cart" 
-            value="<?php echo esc_attr( $product->get_id() ); ?>" 
-            class="custom-add-to-cart-button">
-        Tilføj til kurv
-    </button>
-    <!-- ⚠️ VIGTIGT: 'name="add-to-cart"' SKAL hedde det her for WooCommerce -->
-
-</form>
+                    <div class="variant-btns">
+                        <?php foreach ($available_variations as $variation) {
+                            $variation_id = $variation['variation_id'];
+                            $variation_obj = wc_get_product($variation_id);
+                            $vaegt = $variation_obj->get_attribute('pa_vaegt');
+                            $pris = wc_price($variation_obj->get_price());
+                            $image_url = wp_get_attachment_image_url($variation_obj->get_image_id());
+                            ?>
+                            <button class="variation-button"
+                                    style="background-image: url('<?php echo esc_url($image_url); ?>');"
+                                    data-variation-id="<?php echo esc_attr($variation_id); ?>"
+                                    data-vaegt="<?php echo esc_attr($vaegt); ?>"
+                                    data-price="<?php echo esc_attr($pris); ?>">
+                            </button>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
 
 
+                <form class="cart custom-cart-form" method="post" enctype="multipart/form-data">
+                    <div class="qty-btn-wrapper">
+                        <button type="button" class="qty-btn minus">−</button>
+                        <span class="qty-display">1</span>
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="button" class="qty-btn plus">+</button>
+                    </div>
 
+                    <input type="hidden" name="add-to-cart" value="<?php echo ($product->get_id()); ?>">
+                    <input type="hidden" name="variation_id" class="variation_id" value="">
+                    <input type="hidden" name="variation[pa_vaegt]" class="selected_vaegt_input" value="">
+
+                    <button type="submit" class="cart-btn btn-filled">Tilføj til kurv</button>
+                </form>
+               
 
                
 
             </div>
         </div>
-        
-        <!-- <div class="product-detail-tabs">
-            <div class="tabs">
-                <button class="tab-btn active-tab" data-tab="1">Om produktet</button>
-                <button class="tab-btn" data-tab="2">Næringsindhold</button>
-                <button class="tab-btn" data-tab="3">Ingredienser</button>
-            </div>
-                <div class="tab-content active-tab" data-content="1">content 1</div>
-                <div class="tab-content" data-content="2">content 2</div>
-                <div class="tab-content" data-content="3">content 3</div>
-            
-        </div> -->
-        <!-- <hr> -->
+
     </section>
     <section class="related-products">
         <h2>Vi tror du vil syntes om</h2>

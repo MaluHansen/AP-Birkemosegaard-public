@@ -15,7 +15,8 @@ function birkemosegaard_files(){
         'general-css',
         'header',
         'footer',
-        'single-product'
+        'single-product',
+        'card-product'
     );
     foreach ($css_files as $cssFileName){
         $cssFilePath = get_theme_file_uri() . '/assets/css/' . $cssFileName . '.css';
@@ -27,13 +28,16 @@ function birkemosegaard_files(){
         'cart-modal',
         'login-popup',
         'password-visibility',
-        'product-tabs'
+        'product-tabs',
+        'update-quantity',
+        'variable-product'
     );
     foreach ($js_files as $jsFileName){
         $jsFilePath = get_theme_file_uri() . '/assets/js/' . $jsFileName . '.js';
 
         wp_enqueue_script($jsFileName, $jsFilePath, array(), null, true);
     };
+
 }
 add_action('wp_enqueue_scripts', 'birkemosegaard_files');
 add_filter( 'woocommerce_enqueue_styles', '__return_false' );

@@ -18,23 +18,3 @@ window.addEventListener("click", (e) => {
     } 
 });
 
-
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".quantity-wrapper").forEach(wrapper => {
-        const display = wrapper.querySelector(".qty-display");
-        const input = wrapper.querySelector("input[name='quantity']");
-
-        wrapper.addEventListener("click", function (e) {
-            if (!e.target.classList.contains("qty-btn")) return;
-
-            let qty = parseInt(input.value);
-            qty = isNaN(qty) ? 1 : qty;
-
-            if (e.target.classList.contains("plus")) qty++;
-            if (e.target.classList.contains("minus") && qty > 1) qty--;
-
-            input.value = qty;
-            display.textContent = qty;
-        });
-    });
-});

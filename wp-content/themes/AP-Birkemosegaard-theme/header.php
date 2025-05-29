@@ -39,17 +39,40 @@
                 </button>
             </div>
 
-            <span class="material-symbols-rounded icon-nav" id="cart-icon">shopping_cart</span>
+            <div>
+                <span class="material-symbols-rounded icon-nav" id="cart-icon">shopping_cart</span>
+                <!-- "cart-count count" skal her tilføjes da det er denne wc bruger til at opdatere count via AJAX-->
+                <p class="cart-count count"><?php echo WC()->cart->get_cart_contents_count(); ?></p> 
+            </div>
+            
             <div class="cart-modal">
                 <div class="cart-modal-content">
                     <div class="cart-modal-header">
                         <p>kurv</p>
                         <span class="material-symbols-rounded icon-nav" id="cart-modal-close">close</span>
                     </div>
+                    <div class="cart-modal-body">
+                        <?php woocommerce_mini_cart(); ?>
+                    </div>
                     
                 </div>
             </div>
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <span class="material-symbols-rounded icon-nav" id="profile-icon">account_circle</span>
             <div class="login-popup">
                 <h4>Log ind</h4>
