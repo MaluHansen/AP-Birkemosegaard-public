@@ -77,4 +77,3 @@ function opdater_kurv_ikon($fragments) {
 }
 
 
-

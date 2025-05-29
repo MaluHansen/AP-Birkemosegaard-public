@@ -1,9 +1,16 @@
 .products {
-  margin: var(--large);
+  display: flex;
 }
 .product-grid{
+  margin: var(--large);
+
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 1rem;
+}
+.product-filters{
+  width: 25%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
