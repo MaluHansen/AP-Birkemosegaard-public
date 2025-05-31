@@ -44,15 +44,16 @@ add_action('wp_enqueue_scripts', 'birkemosegaard_files');
 add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 
+
 function theme_features() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
-    
+    add_theme_support('woocommerce');
 }
 add_action('after_setup_theme', 'theme_features');
 
 
-add_theme_support('woocommerce');
+
 function mit_tema_woocommerce_support() {
     // WooCommerce scripts
     if (class_exists('WooCommerce')) {
@@ -77,3 +78,58 @@ function opdater_kurv_ikon($fragments) {
 }
 
 
+add_filter('loop_shop_per_page', function(){
+    return -1; // Ændr dette tal til det ønskede antal
+});
+
+add_filter('woocommerce_catalog_orderby', 'custom_catalog_orderby');
+function custom_catalog_orderby($sortby) {
+    // Fjern uønskede og tilføj egne muligheder
+    $sortby = array(
+        'menu_order' => 'Standard sortering',
+        'popularity' => 'Mest populære',
+        'date'       => 'Nyeste',
+        'price'      => 'Pris: Lav til høj',
+        'price-desc' => 'Pris: Høj til lav',
+    );
+    return $sortby;
+}
+
+
+add_action('woocommerce_product_query', function($query) {
+  $tax_query = $query->get('tax_query') ?: [];
+
+  // Kategori
+  if (!empty($_GET['fcat']) && is_array($_GET['fcat'])) {
+    $tax_query[] = [
+      'taxonomy' => 'product_cat',
+      'field'    => 'slug',
+      'terms'    => array_map('sanitize_text_field', $_GET['fcat']),
+      'operator' => 'IN',
+    ];
+  }
+
+  // Brand
+  if (!empty($_GET['fbrand']) && is_array($_GET['fbrand'])) {
+    $tax_query[] = [
+      'taxonomy' => 'product_brand',
+      'field'    => 'slug',
+      'terms'    => array_map('sanitize_text_field', $_GET['fbrand']),
+      'operator' => 'IN',
+    ];
+  }
+
+  // Øko-mærke
+  if (!empty($_GET['foko']) && is_array($_GET['foko'])) {
+    $tax_query[] = [
+      'taxonomy' => 'oko-maerke',
+      'field'    => 'slug',
+      'terms'    => array_map('sanitize_text_field', $_GET['foko']),
+      'operator' => 'IN',
+    ];
+  }
+
+  if (!empty($tax_query)) {
+    $query->set('tax_query', $tax_query);
+  }
+});

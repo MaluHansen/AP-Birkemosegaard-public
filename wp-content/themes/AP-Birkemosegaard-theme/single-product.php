@@ -19,6 +19,7 @@ $parentCat = get_term( $category->parent, 'product_cat' );
         <li><?php the_title(); ?></li>
     </ul>
 
+
     <section class="product">
         <div class="product-container">
             <div class="product-img">
@@ -51,24 +52,45 @@ $parentCat = get_term( $category->parent, 'product_cat' );
                
                 <p class="detaljer"><?php echo esc_html( get_field('produkt_maengde') ); ?></p>
 
-                <?php if ( ! $product->is_type('variable')) { ?>
-                <p class="product-price"><?php echo $product->get_price_html(); ?></p>
-                    <div class="qty-btn-wrapper">
-                        <button type="button" class="qty-btn minus">−</button>
-                        <span class="qty-display">1</span>
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="button" class="qty-btn plus">+</button>
-                    </div>
-                    <a href="?add-to-cart=<?php echo esc_attr( $product->get_id() ); ?>"
-                        data-quantity="1"
-                        class="btn-filled ajax_add_to_cart add_to_cart_button"
-                        data-product_id="<?php echo esc_attr( $product->get_id() ); ?>"
-                        data-product_sku="<?php echo esc_attr( $product->get_sku() ); ?>"
-                        aria-label="<?php echo esc_attr( $product->add_to_cart_description() ); ?>"
-                        rel="nofollow">
-                        Tilføj til kurv
-                    </a>
-               <?php }; ?>
+
+<?php
+if ( $product->get_type() === 'custom' ) {
+    $bundle_ids = get_post_meta( $product->get_id(), '_custom_bundle_products', true );
+
+    if ( ! empty( $bundle_ids ) && is_array( $bundle_ids ) ) {
+        echo '<div class="product-bundle-list"><h3>Indeholder:</h3><ul>';
+        foreach ( $bundle_ids as $id ) {
+            $bundle_product = wc_get_product( $id );
+            if ( $bundle_product ) {
+                echo '<li>' . esc_html( $bundle_product->get_name() ) . '</li>';
+            }
+        }
+        echo '</ul></div>';
+    }
+}
+?>
+
+
+
+<?php if ( ! $product->is_type('variable') ) { ?>
+  <p class="product-price"><?php echo $product->get_price_html(); ?></p>
+  <form class="cart custom-cart-form" method="post" enctype="multipart/form-data">
+    <div class="qty-btn-wrapper">
+      <button type="button" class="qty-btn minus">−</button>
+      <span class="qty-display">1</span>
+      <input type="hidden" name="quantity" value="1">
+      <button type="button" class="qty-btn plus">+</button>
+    </div>
+
+    <input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>">
+<button type="submit"
+    class="btn-filled"
+    aria-label="<?php echo esc_attr($product->add_to_cart_description()); ?>">
+    Tilføj til kurv
+</button>
+  </form>
+<?php } ?>
+
 
                 <?php if ($product->is_type('variable')) {
                     $available_variations = $product->get_available_variations();
@@ -110,8 +132,6 @@ $parentCat = get_term( $category->parent, 'product_cat' );
                     <button type="submit" class="cart-btn btn-filled">Tilføj variant til kurv</button>
                 </form>
                 <?php } ?>
-
-
 
                
 

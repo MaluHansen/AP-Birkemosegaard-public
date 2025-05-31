@@ -1,128 +1,140 @@
-<?php get_header(); ?>
+<?php get_header();?>
 <main>
-<section class="products">
-  <div class="product-filters">
-
-    <form method="get" action="">
-
-      <!-- Kategorifilter -->
-      <fieldset>
-        <legend>Kategorier</legend>
-        <?php
-        $selected_cats = $_GET['fcat'] ?? [];
-        if (!is_array($selected_cats)) $selected_cats = [$selected_cats];
-
-        $categories = get_terms([
-          'taxonomy' => 'product_cat',
-          'hide_empty' => false,
-          'parent'     => 0
-        ]);
-        foreach ($categories as $cat) {
-          $checked = in_array($cat->slug, $selected_cats) ? 'checked' : '';
-          echo "<label><input type='checkbox' name='fcat[]' value='{$cat->slug}' $checked> {$cat->name}</label><br>";
-        }
-        ?>
-      </fieldset>
-
-      <!-- Brandfilter -->
-      <fieldset>
-        <legend>Brands</legend>
-        <?php
-        $selected_brands = $_GET['fbrand'] ?? [];
-        if (!is_array($selected_brands)) $selected_brands = [$selected_brands];
-
-        $brands = get_terms([
-          'taxonomy' => 'product_brand',
-          'hide_empty' => true,
-        ]);
-        foreach ($brands as $brand) {
-          $checked = in_array($brand->slug, $selected_brands) ? 'checked' : '';
-          echo "<label><input type='checkbox' name='fbrand[]' value='{$brand->slug}' $checked> {$brand->name}</label><br>";
-        }
-        ?>
-      </fieldset>
-
-      <!-- Sortering -->
-      <label for="orderby">Sorter efter:</label>
-      <select name="orderby" id="orderby">
-        <option value="date" <?php selected($_GET['orderby'] ?? '', 'date'); ?>>Nyeste</option>
-        <option value="title" <?php selected($_GET['orderby'] ?? '', 'title'); ?>>Navn (A–Å)</option>
-        <option value="price_asc" <?php selected($_GET['orderby'] ?? '', 'price_asc'); ?>>Pris (lav til høj)</option>
-        <option value="price_desc" <?php selected($_GET['orderby'] ?? '', 'price_desc'); ?>>Pris (høj til lav)</option>
-      </select>
-
-      <button type="submit">Filtrer</button>
-    </form>
-  </div>
-
-  <div class="product-grid">
+  <h1><?php woocommerce_page_title();?></h1>
+  <?php woocommerce_catalog_ordering(); ?>
+  <section class="products">
+  
+    <div class="product-filters">
+      <a href="<?php echo site_url('/shop') ?>">Ryd filtre</a>
+<form id="product-filter-form" method="get" action="<?php echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>">
+  <div class="filter-section">
+    <p><strong>Kategorier:</strong></p>
     <?php
-    $args = array(
-      'post_type' => 'product',
-      'posts_per_page' => -1
-    );
+    $selected = isset($_GET['fcat']) ? (array) $_GET['fcat'] : [];
 
-    // Sortering
-    $orderby = 'date';
-    $order = 'DESC';
+    $parent_terms = get_terms(array(
+      'taxonomy'   => 'product_cat',
+      'hide_empty' => true,
+      'parent'     => 0,
+    ));
 
-    if (!empty($_GET['orderby'])) {
-        switch ($_GET['orderby']) {
-            case 'title':
-                $orderby = 'title';
-                $order = 'ASC';
-                break;
-            case 'price_asc':
-                $orderby = 'meta_value_num';
-                $order = 'ASC';
-                $args['meta_key'] = '_price';
-                break;
-            case 'price_desc':
-                $orderby = 'meta_value_num';
-                $order = 'DESC';
-                $args['meta_key'] = '_price';
-                break;
+    foreach ($parent_terms as $parent) {
+      $child_terms = get_terms(array(
+        'taxonomy'   => 'product_cat',
+        'hide_empty' => true,
+        'parent'     => $parent->term_id,
+      ));
+
+      if (empty($child_terms)) continue;
+
+      // Åben automatisk accordion hvis parent eller nogen child er valgt
+      $is_open = in_array($parent->slug, $selected);
+      foreach ($child_terms as $child) {
+        if (in_array($child->slug, $selected)) {
+          $is_open = true;
+          break;
         }
+      }
+
+      echo "<details " . ($is_open ? 'open' : '') . ">";
+      echo "<summary><strong>{$parent->name}</strong></summary>";
+      echo "<ul style='margin-left: 1rem;'>";
+
+      // ✅ "Vis alle" (parent)
+      $checked_parent = in_array($parent->slug, $selected) ? 'checked' : '';
+      echo "<li>
+              <label>
+                <input type='checkbox' name='fcat[]' value='{$parent->slug}' $checked_parent> Vis alle
+              </label>
+            </li>";
+
+      // ✅ Childs
+      foreach ($child_terms as $child) {
+        $checked = in_array($child->slug, $selected) ? 'checked' : '';
+        echo "<li>
+                <label>
+                  <input type='checkbox' name='fcat[]' value='{$child->slug}' $checked> {$child->name}
+                </label>
+              </li>";
+      }
+
+      echo "</ul>";
+      echo "</details><br>";
     }
-
-    $args['orderby'] = $orderby;
-    $args['order'] = $order;
-
-    // Filtrering via tax_query
-    $tax_query = [];
-
-    if (!empty($_GET['fcat']) && is_array($_GET['fcat'])) {
-      $tax_query[] = [
-        'taxonomy' => 'product_cat',
-        'field'    => 'slug',
-        'terms'    => array_map('sanitize_text_field', $_GET['fcat']),
-        'operator' => 'IN',
-      ];
-    }
-
-    if (!empty($_GET['fbrand']) && is_array($_GET['fbrand'])) {
-      $tax_query[] = [
-        'taxonomy' => 'product_brand',
-        'field'    => 'slug',
-        'terms'    => array_map('sanitize_text_field', $_GET['fbrand']),
-        'operator' => 'IN',
-      ];
-    }
-
-    if (!empty($tax_query)) {
-      $args['tax_query'] = $tax_query;
-    }
-
-    // WP_Query
-    $loop = new WP_Query($args);
-
-    while ($loop->have_posts()) : $loop->the_post();
-      get_template_part('template-parts/card', 'product');
-    endwhile;
-
-    wp_reset_postdata();
     ?>
   </div>
-</section>
+  <!-- Brand Filter -->
+<div class="filter-section">
+  <p><strong>Brands</strong></p>
+  <ul>
+    <?php
+    $selected_brands = isset($_GET['fbrand']) ? (array) $_GET['fbrand'] : [];
+
+    $brands = get_terms(array(
+      'taxonomy'   => 'product_brand',
+      'hide_empty' => true,
+    ));
+
+    foreach ($brands as $brand) {
+      $checked = in_array($brand->slug, $selected_brands) ? 'checked' : '';
+      echo "<li>
+              <label>
+                <input type='checkbox' name='fbrand[]' value='{$brand->slug}' $checked> {$brand->name}
+              </label>
+            </li>";
+    }
+    ?>
+  </ul>
+</div>
+
+<div class="filter-section">
+  <p><strong>Øko-mærke</strong></p>
+  <ul>
+    <?php
+    $selected_eco = isset($_GET['foko']) ? (array) $_GET['foko'] : [];
+
+    $eco_labels = get_terms(array(
+      'taxonomy'   => 'oko-maerke',
+      'hide_empty' => true,
+    ));
+
+    foreach ($eco_labels as $label) {
+      $checked = in_array($label->slug, $selected_eco) ? 'checked' : '';
+      echo "<li>
+              <label>
+                <input type='checkbox' name='foko[]' value='{$label->slug}' $checked> {$label->name}
+              </label>
+            </li>";
+    }
+    ?>
+  </ul>
+</div>
+
+
+
+
+
+  <button type="submit">Filtrér</button>
+</form>
+
+
+
+
+    </div>
+
+    <div class="product-grid">
+      
+      <?php
+      while(have_posts()){
+        the_post();
+        get_template_part('template-parts/card', 'product');
+      };
+        
+
+
+      wp_reset_postdata();
+      ?>
+    </div>
+  </section>
 </main>
 <?php get_footer(); ?>

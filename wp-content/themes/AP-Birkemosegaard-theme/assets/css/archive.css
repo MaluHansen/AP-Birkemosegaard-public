@@ -3,7 +3,7 @@
 }
 .product-grid{
   margin: var(--large);
-
+height: fit-content;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem 1rem;
@@ -13,4 +13,27 @@
   height: auto;
   display: flex;
   flex-direction: column;
+}
+
+
+details {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+details[open] summary::after {
+  content: "▲";
+  float: right;
+}
+summary::after {
+  content: "▼";
+  float: right;
 }

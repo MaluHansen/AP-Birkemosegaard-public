@@ -33,3 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
 // };
 // variantBtn.addEventListener("click", () => toggleVariantModal(true));
 
+const form = document.getElementById('product-filter-form');
+
+  // Auto-submit på ændring af inputs
+  form.querySelectorAll('input[type="checkbox"]').forEach(el => {
+    el.addEventListener('change', () => {
+      form.submit();
+    });
+  });
