@@ -4,43 +4,38 @@ document.addEventListener("DOMContentLoaded", function () {
   const vaegtEl = document.querySelector(".selected-vaegt");
   const variationInput = document.querySelector(".variation_id");
   const vaegtInput = document.querySelector(".selected_vaegt_input");
+  const addToCartBtn = document.querySelector('.custom-add-to-cart');
+  const errorMsg = document.querySelector('.variant-error-message');
 
   buttons.forEach(button => {
     button.addEventListener("click", function () {
         buttons.forEach(btn => btn.classList.remove("selected"));
         this.classList.add("selected");
 
-        const pris = this.getAttribute("data-price");
-        const vaegt = this.getAttribute("data-vaegt");
-        const variationID = this.getAttribute("data-variation-id");
-
-        if (priceEl) priceEl.innerHTML = pris;
-        if (vaegtEl) vaegtEl.innerHTML = vaegt;
-
-        if (variationInput) variationInput.value = variationID;
-        if (vaegtInput) vaegtInput.value = vaegt;
+        priceEl.innerHTML = this.getAttribute("data-price");
+        vaegtEl.innerHTML = this.getAttribute("data-vaegt");
+        variationInput.value = this.getAttribute("data-variation-id");
+        vaegtInput.value = this.getAttribute("data-vaegt");
     });
   });
 
-  let form = document.querySelector('.custom-cart-form')
-  // Hvis det er et variabelt produkt, og ingen variation er valgt
-  if (variationInput && variationInput.value === '' && form.classList.contains('variable')) {
 
-    
-    // Tilføj shake for at vise, at en variation skal vælges
-    buttons.forEach(button => {
-        button.classList.add('shake'); 
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener('click', function (e) {
+      if (!variationInput || variationInput.value === '') {
+        e.preventDefault();
+
+        buttons.forEach(button => button.classList.add('shake'));
+        setTimeout(() => {
+          buttons.forEach(button => button.classList.remove('shake'));
+        }, 500);
+
+        errorMsg.classList.add('error-message-show')
+        setTimeout(() => {
+          errorMsg.classList.remove('error-message-show')
+        }, 2000);
+      }
     });
-
-    // Fjern shake efter 500ms
-    setTimeout(() => {
-        buttons.forEach(button => {
-            button.classList.remove('shake'); 
-        });
-    }, 500); 
-
-    return;
   }
   
 });
-

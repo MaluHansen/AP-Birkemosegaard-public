@@ -21,58 +21,95 @@
     border-radius: 12px;
 }
 
-.oko-icons{
+.product-info{
     display: flex;
-    height: 1.5rem;
-    gap: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product-info-info{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.variant-btns {
+
+.oko-icons{
     display: flex;
     gap: 1rem;
-    margin-bottom: 1rem;
+}
+.oko-icons img{
+    height: 1.5rem;
+}
+.custom-cart-form{
+    display: flex;
+    gap: 2rem;
+}
+.variant-btns {
+    margin-bottom: 2rem;
 }
 .variation-button {
     width: 4rem;
     height: 4rem;
+    margin-right: 0.5rem;
     background-size: cover;
     background-position: center;
     border: 2px solid transparent;
-    border-radius: 8px;
+    border-radius: 6px;
     position: relative;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .variation-button.selected {
-    border-color: #8b9440;
-    box-shadow: 0 0 0 2px #8b9440;
+    border-color: var(--green600);
+}
+.variant-error-message{
+    display: flex;
+    opacity: 0;
+    background-color: var(--pink);
+    border-radius: 6px;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.variant-error-message.error-message-show{
+    opacity: 1;
+}
+span.error-icon, .variant-error-message p{
+    color: var(--red);
+    font-variation-settings:
+    'FILL' 1;
+    margin: unset;
+}
+.shake {
+    animation: shake 0.5s ease;
+    border-color: var(--red);
+}
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
 }
 
-/* .variation-button.selected::after {
-    content: "✓";
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #8b9440;
-    color: white;
-    font-size: 14px;
-    padding: 2px 6px;
-    border-radius: 3px;
-} */
-
-.selected-price {
+.vaegt-pris, .product-price {
     font-size: 2rem;
     font-weight: bold;
-    color: #000;
     margin-bottom: 1rem;
 }
 .vaegt-label {
     font-weight: bold;
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: #4b4c1c;
 }
 
 

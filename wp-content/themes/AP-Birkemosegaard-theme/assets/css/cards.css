@@ -32,11 +32,13 @@
 
 .oko-icons-card{
   display: flex;
-  height: 1rem;
   gap: 12px;
   margin-bottom: 6px;
 }
-.product-price{
+.oko-icons-card img{
+  height: 1rem;
+}
+.product-price-card{
  font-size: 1.25rem;
  font-weight: 800;
 }

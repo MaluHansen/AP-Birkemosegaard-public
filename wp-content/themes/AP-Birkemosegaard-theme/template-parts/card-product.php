@@ -8,10 +8,12 @@
     
     <div class="card-content">
     <h3 class="card-heading"><?php echo $product->get_name(); ?></h3>
+    <div class="oko-icons-card">
+      <?php get_template_part('template-parts/eco-marks'); ?>
+    </div>
     
-    <?php get_template_part('template-parts/eco-marks'); ?>
-    <p class="detaljer"><?php echo esc_html( get_field('produkt_maengde') ); ?></p>
-    <p class="product-price"><?php echo $product->get_price_html(); ?></p>
+    <p class="detaljer-card"><?php echo esc_html( get_field('produkt_maengde') ); ?></p>
+    <p class="product-price-card"><?php echo $product->get_price_html(); ?></p>
     </div>
   </a>
   <div class="card-btn-wrapper">

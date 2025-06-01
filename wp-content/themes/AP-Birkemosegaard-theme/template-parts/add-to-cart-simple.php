@@ -1,10 +1,10 @@
 <?php
 $product = wc_get_product(get_the_ID());
 ?>
-<div class="custom-cart-form" data-product-id="<?= esc_attr($product->get_id()); ?>">
+<div class="custom-cart-form-div" data-product-id="<?= esc_attr($product->get_id()); ?>">
     <? 
     if(is_single()){ ?>
-      <form class="cart custom-cart-form" method="post" enctype="multipart/form-data">
+      <form class="custom-cart-form" method="post" enctype="multipart/form-data">
           <div class="qty-btn-wrapper">
               <button type="button" class="qty-btn minus">−</button>
               <span class="qty-display">1</span>

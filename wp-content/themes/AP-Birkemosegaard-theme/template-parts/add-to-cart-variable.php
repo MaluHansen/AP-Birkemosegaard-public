@@ -6,10 +6,12 @@ $available_variations = $product->get_available_variations();
     <p class="vaegt-pris"><?= wc_price($product->get_price()); ?></p>
 </div>
 
-<p class="vaegt-label">Variant: <span class="selected-vaegt"></span></p>
+
 
 <div class="variant-btns">
-    <?php foreach ($available_variations as $variation):
+    
+    <p class="vaegt-label">Variant: <span class="selected-vaegt"></span></p>
+    <?php foreach ($available_variations as $variation){
         $variation_id = $variation['variation_id'];
         $variation_obj = wc_get_product($variation_id);
         $vaegt = $variation_obj->get_attribute('pa_vaegt');
@@ -22,14 +24,15 @@ $available_variations = $product->get_available_variations();
                 data-vaegt="<?= esc_attr($vaegt); ?>"
                 data-price="<?= esc_attr($pris); ?>">
         </button>
-    <?php endforeach; ?>
-    <div class="variant-validation-message" style="display: none; color: red; font-size: 0.9rem; margin-top: 0.5rem;">
-    Vælg venligst en variant
+    <?php }; ?>
+
+    <div class="variant-error-message">
+        <span class="material-symbols-rounded error-icon">error</span>
+        <p>Vælg venligst en variant</p>
+    </div>
 </div>
 
-</div>
-
-<form class="cart custom-cart-form variable" method="post" enctype="multipart/form-data">
+<form class="custom-cart-form variable" method="post" enctype="multipart/form-data">
     <div class="qty-btn-wrapper">
         <button type="button" class="qty-btn minus">−</button>
         <span class="qty-display">1</span>
