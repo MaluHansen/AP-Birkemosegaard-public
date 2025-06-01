@@ -33,17 +33,11 @@ $available_variations = $product->get_available_variations();
 </div>
 
 <form class="custom-cart-form variable" method="post" enctype="multipart/form-data">
-    <div class="qty-btn-wrapper">
-        <button type="button" class="qty-btn minus">−</button>
-        <span class="qty-display">1</span>
-        <input type="hidden" name="quantity" value="1">
-        <button type="button" class="qty-btn plus">+</button>
-    </div>
+    <?php get_template_part('template-parts/qty-btn'); ?>
     <input type="hidden" name="add-to-cart" value="<?= esc_attr($product->get_id()); ?>">
     <input type="hidden" name="variation_id" class="variation_id" value="">
     <input type="hidden" name="variation[pa_vaegt]" class="selected_vaegt_input" value="">
-<button class="btn-filled custom-add-to-cart" data-product-id="<?= esc_attr($product->get_id()); ?>">
-    <span class="material-symbols-rounded btn-img-icon">add_shopping_cart</span> Tilføj til kurv
-</button>
-
+    <button class="btn-filled custom-add-to-cart" data-product-id="<?= esc_attr($product->get_id()); ?>">
+        <span class="material-symbols-rounded btn-img-icon">add_shopping_cart</span> Tilføj til kurv
+    </button>
 </form>

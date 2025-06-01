@@ -62,11 +62,10 @@
                         <p>kurv</p>
                         <span class="material-symbols-rounded icon-nav" id="cart-modal-close">close</span>
                     </div>
-<div class="cart-modal-body">
-    <a href="<?php echo wc_get_cart_url(); ?>" class="go-to-cart-link">Gå til kurv</a>
-  <?php get_template_part('template-parts/mini-cart'); ?>
-  
-</div>
+                    <div class="cart-modal-body">
+                    <?php get_template_part('template-parts/mini-cart'); ?>
+                    
+                    </div>
                     
                 </div>
             </div>
