@@ -15,20 +15,28 @@
             <li><a <?php if(is_front_page()) echo 'class="active"';?>  href="<?php echo esc_url(site_url());?>">Forside</a></li>
             <li class="products-dropdown">
                 <a <?php if(is_shop()) echo 'class="active"';?>  href="<?php echo get_permalink( wc_get_page_id('shop')); ?>" aria-haspopup="true" aria-expanded="false">Produkter</a>
-                <ul class="products-dropdown-container">
-                    <li><a href="#">placeholder</a></li>
-                    <li><a href="#">placeholder</a></li>
-                    <li><a href="#">placeholder</a></li>
-                    <li><a href="#">placeholder</a></li>
-                    <li><a href="#">placeholder</a></li>
-                    <li><a href="#">placeholder</a></li>
+               <ul class="products-dropdown-container">
+                    <?php
+                    $parent_categories = get_terms([
+                        'taxonomy'   => 'product_cat',
+                        'hide_empty' => true,
+                        'parent'     => 0,
+                    ]);
+
+                    foreach ($parent_categories as $cat) {
+                        $cat_link = get_term_link($cat);
+                        if (!is_wp_error($cat_link)) {
+                        echo '<li><a href="' . esc_url($cat_link) . '">' . esc_html($cat->name) . '</a></li>';
+                        }
+                    }
+                    ?>
                 </ul>
             </li>
             <li><a href="#">Opskrifter</a></li>
             <li><a href="#">Om gården</a></li>
             <li><a href="#">Restaurant & Catering</a></li>
             <li><a href="#">Afhentning & Levering</a></li>
-            <li><a href="<?php echo site_url('/cart') ?>">Kontakt</a></li>
+            <li><a href="<?php echo esc_url(site_url('/cart'));?>">Kontakt</a></li>
         </ul>
         <div class="global-menu-icons">
             
@@ -39,11 +47,14 @@
                 </button>
             </div>
 
-<a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="Se kurv">
-    <?php echo WC()->cart->get_cart_contents_count(); ?> varer - <?php echo WC()->cart->get_cart_total(); ?>
-</a>
 
-            
+
+<div class="cart">
+  <span class="material-symbols-rounded icon-nav" id="cart-icon">shopping_cart</span>
+  <span class="cart-count cart-contents">
+    <?php echo WC()->cart->get_cart_contents_count(); ?>
+  </span>
+</div>
             
             <div class="cart-modal">
                 <div class="cart-modal-content">
@@ -51,9 +62,11 @@
                         <p>kurv</p>
                         <span class="material-symbols-rounded icon-nav" id="cart-modal-close">close</span>
                     </div>
-                    <div class="cart-modal-body">
-                        <?php woocommerce_mini_cart(); ?>
-                    </div>
+<div class="cart-modal-body">
+    <a href="<?php echo wc_get_cart_url(); ?>" class="go-to-cart-link">Gå til kurv</a>
+  <?php get_template_part('template-parts/mini-cart'); ?>
+  
+</div>
                     
                 </div>
             </div>

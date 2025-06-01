@@ -166,6 +166,19 @@ span.icon-nav:hover{
     height: 100%;
     padding: 32px;
     margin-left: auto;
+      display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* Lås scroll på hele siden */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Sørg for at kun denne del er scrollbar */
+.cart-modal-body {
+  overflow-y: auto;
+  flex: 1;
 }
 .cart-modal-header{
     display: flex;

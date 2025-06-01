@@ -17,7 +17,10 @@ function birkemosegaard_files(){
         'footer',
         'single-product',
         'cards',
-        'archive'
+        'archive',
+        'cart',
+        'test',
+        'index'
     );
     foreach ($css_files as $cssFileName){
         $cssFilePath = get_theme_file_uri() . '/assets/css/' . $cssFileName . '.css';
@@ -31,7 +34,9 @@ function birkemosegaard_files(){
         'password-visibility',
         'product-tabs',
         'variable-product',
-        'update-quantity'
+        'update-quantity',
+        'test',
+        'archive'
     );
     foreach ($js_files as $jsFileName){
         $jsFilePath = get_theme_file_uri() . '/assets/js/' . $jsFileName . '.js';
@@ -41,7 +46,6 @@ function birkemosegaard_files(){
 
 }
 add_action('wp_enqueue_scripts', 'birkemosegaard_files');
-add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 
 
@@ -65,17 +69,19 @@ function mit_tema_woocommerce_support() {
 }
 add_action('wp_enqueue_scripts', 'mit_tema_woocommerce_support');
 
-add_filter('woocommerce_add_to_cart_fragments', 'opdater_kurv_ikon');
-
-function opdater_kurv_ikon($fragments) {
-    ob_start(); ?>
-    <a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="Se kurv">
-        <?php echo WC()->cart->get_cart_contents_count(); ?> varer - <?php echo WC()->cart->get_cart_total(); ?>
-    </a>
+add_filter('woocommerce_add_to_cart_fragments', function($fragments) {
+    ob_start();
+    ?>
+    <span class="cart-count cart-contents">
+        <?php echo WC()->cart->get_cart_contents_count(); ?>
+    </span>
     <?php
-    $fragments['a.cart-contents'] = ob_get_clean();
+    $fragments['.cart-contents'] = ob_get_clean();
+    unset($fragments['a.added_to_cart']);
+    unset($fragments['div.woocommerce-message']);
     return $fragments;
-}
+});
+
 
 
 add_filter('loop_shop_per_page', function(){
@@ -86,7 +92,7 @@ add_filter('woocommerce_catalog_orderby', 'custom_catalog_orderby');
 function custom_catalog_orderby($sortby) {
     // Fjern uønskede og tilføj egne muligheder
     $sortby = array(
-        'menu_order' => 'Standard sortering',
+        'menu_order' => 'Sorter efter',
         'popularity' => 'Mest populære',
         'date'       => 'Nyeste',
         'price'      => 'Pris: Lav til høj',
@@ -133,3 +139,4 @@ add_action('woocommerce_product_query', function($query) {
     $query->set('tax_query', $tax_query);
   }
 });
+

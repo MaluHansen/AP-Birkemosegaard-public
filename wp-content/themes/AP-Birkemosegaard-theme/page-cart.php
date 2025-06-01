@@ -1,5 +1,7 @@
 <?php get_header(); ?>
-<main class="cart-page">
-    
+
+<main>
+
 </main>
+
 <?php get_footer(); ?>

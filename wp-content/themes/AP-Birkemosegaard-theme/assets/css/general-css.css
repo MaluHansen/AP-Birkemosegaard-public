@@ -47,7 +47,6 @@
   'opsz' 24;
 }
 
-
 /*——————————————————————————————————— Fonts ———————————————————————————————————*/
 h1,
 h2,
@@ -127,7 +126,7 @@ p {
 }
 
 .btn-filled:hover {
-  background-color: var(--green500);
+    background-color: var(--green500);
     transition: 0.3s;
     box-shadow: var(--boxShadow);
 }
@@ -136,14 +135,19 @@ p {
   background-color: var(--green700);
 }
 
-.btn-icon {
-    padding: 12px 24px;
+.card-btn-wrapper{
+  margin: 1rem;
+  margin-top: 0;
 }
+.card-btn-wrapper button{
+    width: 100%;
+}
+
 
 .btn-img-icon {
     width: 24px;
     height: 24px;
-    padding-right: 4px;
+    margin-right: 4px;
 }
 
 .btn-outline {
@@ -152,9 +156,35 @@ p {
     color: var(--green600);
 }
 
+.btn-outline:hover {
+    background-color: var(--green500);
+    transition: 0.3s;
+    color: var(--white);
+    box-shadow: var(--boxShadow);
+}
+
 .btn-disabled {
     background-color: var(--lightGrey);
     color: var(--grey);
+}
+
+.shake {
+    animation: shake 0.5s ease;
+    border: 2px solid red;
+}
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
 }
 /*—————————————————————————————————————————————————————————————————————————————————*/
 

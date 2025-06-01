@@ -1,0 +1,30 @@
+.mini-cart-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ccc;
+}
+.item-left img {
+  width: 80px;
+}
+.item-right {
+  flex: 1;
+}
+.qty-btn-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.checkout-btn {
+  background: var(--green);
+  color: white;
+  padding: 0.75rem 1rem;
+  display: block;
+  text-align: center;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+
+
+

@@ -1,14 +1,20 @@
 
-var cartIcon = document.getElementById("cart-icon");
+let cartIcon = document.querySelector("#cart-icon");
 
-var closeModalIcon = document.getElementById("cart-modal-close");
+let closeModalIcon = document.querySelector("#cart-modal-close");
 
-var cartModal = document.querySelector(".cart-modal");
+let cartModal = document.querySelector(".cart-modal");
 
-var toggleCartModal = (show) => {
-    cartModal.style.display = show ? "block" : "none";
+let toggleCartModal = (show) => {
+  cartModal.style.display = show ? "block" : "none";
+
+  // Lås body scroll
+  if (show) {
+    document.body.classList.add("modal-open");
+  } else {
+    document.body.classList.remove("modal-open");
+  }
 };
-
 cartIcon.addEventListener("click", () => toggleCartModal(true));
 closeModalIcon.addEventListener("click", () => toggleCartModal(false));
 
@@ -17,4 +23,3 @@ window.addEventListener("click", (e) => {
         toggleCartModal(false);
     } 
 });
-
