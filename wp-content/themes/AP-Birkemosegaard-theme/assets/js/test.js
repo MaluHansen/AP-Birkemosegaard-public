@@ -1,59 +1,104 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // --- Arkiv-knapper ---
-  document.querySelectorAll('.custom-add-to-cart').forEach(function (button) {
-    button.addEventListener('click', function () {
-      const productId = this.getAttribute('data-product-id');
+document.addEventListener("DOMContentLoaded", function () {
+  const forms = document.querySelectorAll(".custom-cart-form");
 
+  forms.forEach((form) => {
+    const qtyDisplay = form.querySelector(".qty-display");
+    const inputQty = form.querySelector('input[name="quantity"]');
+    const addToCartBtn = form.querySelector(".custom-add-to-cart");
+    const variationInput = form.querySelector(".variation_id");
+    const vaegtInput = form.querySelector(".selected_vaegt_input");
+    const variationButtons = form.querySelectorAll(".variation-button");
+
+    // --- Quantity justering ---
+    const btnMinus = form.querySelector(".qty-btn.minus");
+    const btnPlus = form.querySelector(".qty-btn.plus");
+
+    if (btnMinus && btnPlus && inputQty && qtyDisplay) {
+      btnMinus.addEventListener("click", () => {
+        let qty = parseInt(inputQty.value) || 1;
+        if (qty > 1) {
+          qty--;
+          inputQty.value = qty;
+          qtyDisplay.textContent = qty;
+        }
+      });
+
+      btnPlus.addEventListener("click", () => {
+        let qty = parseInt(inputQty.value) || 1;
+        qty++;
+        inputQty.value = qty;
+        qtyDisplay.textContent = qty;
+      });
+    }
+
+    // --- Variant-knapper ---
+    variationButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        variationButtons.forEach((btn) => btn.classList.remove("selected"));
+        this.classList.add("selected");
+
+        const pris = this.getAttribute("data-price");
+        const vaegt = this.getAttribute("data-vaegt");
+        const variationID = this.getAttribute("data-variation-id");
+
+        const priceEl = document.querySelector(".vaegt-pris");
+        const vaegtEl = document.querySelector(".selected-vaegt");
+
+        if (priceEl) priceEl.innerHTML = pris;
+        if (vaegtEl) vaegtEl.innerHTML = vaegt;
+
+        if (variationInput) variationInput.value = variationID;
+        if (vaegtInput) vaegtInput.value = vaegt;
+      });
+    });
+
+    // --- Add to cart ---
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const productId = this.getAttribute("data-product-id");
+        const quantity = inputQty ? inputQty.value : 1;
+        const variationID = variationInput ? variationInput.value : null;
+        const variationKey = vaegtInput ? "pa_vaegt" : null;
+        const vaegt = vaegtInput ? vaegtInput.value : null;
+
+        // Hvis det er en variable form og ingen variant er valgt
+        if (variationInput && variationID === "") {
+          variationButtons.forEach((btn) => btn.classList.add("shake"));
+          setTimeout(() => {
+            variationButtons.forEach((btn) => btn.classList.remove("shake"));
+          }, 500);
+          return;
+        }
+
+        // Byg URL
+        let url = `/?add-to-cart=${productId}&quantity=${quantity}`;
+        if (variationID && vaegt) {
+          url += `&variation_id=${variationID}&variation[${variationKey}]=${encodeURIComponent(vaegt)}`;
+        }
+
+        fetch(url, {
+          method: "GET",
+          credentials: "same-origin",
+        }).then(() => {
+          document.body.dispatchEvent(new Event("wc_fragment_refresh"));
+        });
+      });
+    }
+  });
+
+  // --- Arkiv knapper uden form (fx ikke single) ---
+  document.querySelectorAll(".custom-add-to-cart:not(form *)").forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      const productId = this.getAttribute("data-product-id");
       fetch(`/?add-to-cart=${productId}`, {
-        method: 'GET',
-        credentials: 'same-origin'
+        method: "GET",
+        credentials: "same-origin",
       }).then(() => {
-        document.body.dispatchEvent(new Event('wc_fragment_refresh'));
-        // TODO: Vis evt. brugerfeedback her
+        document.body.dispatchEvent(new Event("wc_fragment_refresh"));
       });
     });
   });
-
-  // --- Single product med quantity ---
-  const form = document.querySelector('.custom-cart-form');
-  if (form) {
-    const qtyDisplay = form.querySelector('.qty-display');
-    const inputQty = form.querySelector('input[name="quantity"]');
-    const addToCartBtn = form.querySelector('.custom-single-add-to-cart');
-
-    // Quantity justering
-    form.querySelector('.qty-btn.minus').addEventListener('click', () => {
-      let qty = parseInt(inputQty.value);
-      if (qty > 1) {
-        qty--;
-        inputQty.value = qty;
-        qtyDisplay.textContent = qty;
-      }
-    });
-
-    form.querySelector('.qty-btn.plus').addEventListener('click', () => {
-      let qty = parseInt(inputQty.value);
-      qty++;
-      inputQty.value = qty;
-      qtyDisplay.textContent = qty;
-    });
-
-    // Tilføj til kurv med qty
-    addToCartBtn.addEventListener('click', () => {
-      const productId = form.getAttribute('data-product-id');
-      const qty = inputQty.value;
-
-      fetch(`/?add-to-cart=${productId}&quantity=${qty}`, {
-        method: 'GET',
-        credentials: 'same-origin'
-      }).then(() => {
-        document.body.dispatchEvent(new Event('wc_fragment_refresh'));
-        // TODO: Feedback til bruger
-      });
-    });
-  }
 });
-if ( window.history.replaceState ) {
-window.history.replaceState( null, null, window.location.href );
-}
-// https://wordpress.stackexchange.com/questions/312047/extra-items-added-to-cart-on-refresh-woocommerce

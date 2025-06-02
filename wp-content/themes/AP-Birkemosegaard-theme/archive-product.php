@@ -130,7 +130,7 @@
       <?php
       while (have_posts()) {
         the_post();
-        get_template_part('template-parts/card', 'product');
+        get_template_part('template-parts/cards/card', 'product');
       }
       wp_reset_postdata();
       ?>

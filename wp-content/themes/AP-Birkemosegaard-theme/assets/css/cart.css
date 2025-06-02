@@ -1,27 +1,40 @@
-
-.item-left img {
-  width: 80px;
+/*------------Cart modal-----------*/
+.cart-modal{
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: var(--overlay);
 }
-.item-right {
+.cart-modal-content{
+  background-color: var(--white);
+  width: 50%;
+  height: 100%;
+  padding: 32px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* Lås scroll på hele siden */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Sørg for at kun denne del er scrollbar */
+.cart-modal-body {
+  overflow-y: auto;
   flex: 1;
 }
-.qty-btn-wrapper {
+.cart-modal-header{
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--green600);
 }
-.checkout-btn {
-  background: var(--green);
-  color: white;
-  padding: 0.75rem 1rem;
-  display: block;
-  text-align: center;
-  border-radius: 4px;
-  margin-top: 1rem;
-}
-
-
-
+/*---------------------------------*/
 
 /* Wrapper */
 .woocommerce-mini-cart {
@@ -36,6 +49,7 @@
   overflow-y: auto;
   z-index: 9999;
 }
+
 
 
 /* Item styling */

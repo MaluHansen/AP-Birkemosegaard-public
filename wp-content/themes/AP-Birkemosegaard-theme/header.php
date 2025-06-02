@@ -56,19 +56,9 @@
   </span>
 </div>
             
-            <div class="cart-modal">
-                <div class="cart-modal-content">
-                    <div class="cart-modal-header">
-                        <p>kurv</p>
-                        <span class="material-symbols-rounded icon-nav" id="cart-modal-close">close</span>
-                    </div>
-                    <div class="cart-modal-body">
-                    <?php get_template_part('template-parts/mini-cart'); ?>
-                    
-                    </div>
-                    
-                </div>
-            </div>
+<div class="cart-modal">
+<?php get_template_part('template-parts/mini-cart'); ?>
+</div>
     
 
 
