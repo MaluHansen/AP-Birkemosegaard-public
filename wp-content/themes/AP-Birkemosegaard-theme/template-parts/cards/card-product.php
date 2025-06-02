@@ -1,13 +1,27 @@
 <?php $product = wc_get_product( get_the_ID() );?>
 
 <div class="card">
+  
   <a class="card-wrapper" href="<?php the_permalink(); ?>">
+    
     <div class="card-img">
+      <?php     
+      // Hent WC_DateTime-objekt for produktets oprettelsesdato
+      $created_date = $product->get_date_created(); 
+          // Hvis produktet er oprettet inden for den sidste uge vis badge
+        if ($created_date->getTimestamp() >= strtotime( '-1 week' ) ) {
+        echo '<span class="badge">Nyhed</span>'; 
+        }?>
+
       <?php echo $product->get_image(); ?>
     </div>
     
     <div class="card-content">
-    <h3 class="card-heading"><?php echo $product->get_name(); ?></h3>
+      <div class="card-content-wrapper">
+          <h3 class="card-heading"><?php echo $product->get_name(); ?></h3>
+          <span class="material-symbols-rounded heart-icon">favorite</span>
+      </div>
+
     <div class="oko-icons-card">
       <?php get_template_part('template-parts/eco-marks'); ?>
     </div>

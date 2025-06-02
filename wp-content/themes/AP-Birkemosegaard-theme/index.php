@@ -2,19 +2,18 @@
 
 <main>
 <section class="heroForside">
+  <div class="heroBackground" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/Gårdbutik-udefra.jpg') ?>);"></div>
   <div class="heroContent">
     <h1 class="heroH1">Velkommen til Birkemosegaard</h1>
     <br>
     <p>Økologi, fællesskab og kærlighed til naturen -<br> fra jord til bord</p>
-    <a href="/#" class="btn-filled">Udforsk vores produkter</a>
+    <a href="<?php echo esc_url(site_url('/shop'));?>" class="btn-filled">Udforsk vores produkter</a>
   </div>
 </section>
- <button onclick="scrollToTop()" id="toTopBtn" title="Gå til toppen">
-   <i class="fa-solid fa-arrow-up"></i>
-</button>
+<?php get_template_part('template-parts/to-top-btn') ?>
 <section class="omgaardenForside">
   <div class="omgaardenImg">
-    <img src="/assets/img/Omgaardensektion.png" alt="Kung og Jesper i marken">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Ejere-mark.jpg" alt="Kung og Jesper i marken">
   </div>
   <div class="omgaardenContent">
     <h2>Hvem er vi?</h2>
@@ -24,7 +23,7 @@
     <p>
       Vi tror på gennemsigtighed, kvalitet og det nære møde mellem jord og bord. Derfor inviterer vi også dig til at komme tættere på, hvad vi laver - om det er gennem vores gårdbutik, markvandringer, events eller samarbejder med lokale aktører.
     </p>
-    <a href="/#" class="btn-filled">Læs mere om gården</a>
+    <a href="<?php echo esc_url(site_url('/om-gaarden'));?>" class="btn-filled">Læs mere om gården</a>
   </div>
 </section>
 <section class="bannerForside">
@@ -48,198 +47,99 @@
 
 <section class="produkterForside">
   <div class="spaceBetweenforside">
-  <h2>Se vores nyeste produkter</h2>
-  <a href="#" class="visAlle">Se flere produkter ></a>
+    <h2>Se vores nyeste produkter</h2>
+    <a href="<?php echo esc_url(site_url('/shop'));?>" class="visAlle">Se flere produkter <span class="material-symbols-rounded">keyboard_arrow_right</span></a>
   </div>
-  <div class="produktGrid-forside">
-    <div class="produktCard">
-  <div class="image-wrapper-forside">
-    <span class="badge">Nyhed</span>
-    <a href="/#" class="zoom-billede">
-      <img src="/assets/img/agurk.jpg" alt="Havremel - glutenfri" class="produkt-billede-forside">
-    </a>
-    <button class="wishlist" aria-pressed="false" > <img src="./assets/icons/Hvidhjerte.png" alt=""></button>
-  </div>
-  <h3>Havremel - glutenfri</h3>
-  <p class="vaegt">800 g</p>
-  <div class="ikoner">
-    <img src="/assets/img/demeter.png" alt="Demeter">
-    <img src="/assets/img/organic_eu.png" alt="Økologisk">
-    <img src="/assets/img/okologi.png" alt="Statskontrolleret økologi">
-  </div>
-  <p class="pris">52,50 kr.</p>
-  <div class="center-btn-forside">
-  <button class="btn-filled-forside ">Tilføj til kurv</button>
-  </div>
-</div>
-    <div class="produktCard">
-  <div class="image-wrapper-forside">
-    <span class="badge">Nyhed</span>
-    <a href="/#" class="zoom-billede">
-      <img src="/assets/img/hjertesalat.jpg" alt="Havremel - glutenfri" class="produkt-billede-forside">
-    </a>
-    <button class="wishlist" aria-pressed="false"><img src="./assets/icons/Hvidhjerte.png" alt=""></button>
-  </div>
-  <h3>Havremel - glutenfri</h3>
-  <p class="vaegt">800 g</p>
-  <div class="ikoner">
-    <img src="/assets/img/demeter.png" alt="Demeter">
-    <img src="/assets/img/organic_eu.png" alt="Økologisk">
-    <img src="/assets/img/okologi.png" alt="Statskontrolleret økologi">
-  </div>
-  <p class="pris">52,50 kr.</p>
-   <div class="center-btn-forside">
-  <button class="btn-filled-forside ">Tilføj til kurv</button>
-  </div>
-</div>
-   <div class="produktCard">
-  <div class="image-wrapper-forside">
-    <span class="badge">Nyhed</span>
-    <a href="/#" class="zoom-billede">
-      <img src="/assets/img/img_3842.jpg" alt="Havremel - glutenfri" class="produkt-billede-forside">
-    </a>
-    <button class="wishlist"><img src="./assets/icons/Hvidhjerte.png" alt=""></button>
-  </div>
-  <h3>Havremel - glutenfri</h3>
-  <p class="vaegt">800 g</p>
-  <div class="ikoner">
-    <img src="/assets/img/demeter.png" alt="Demeter">
-    <img src="/assets/img/organic_eu.png" alt="Økologisk">
-    <img src="/assets/img/okologi.png" alt="Statskontrolleret økologi">
-  </div>
-  <p class="pris">52,50 kr.</p>
-   <div class="center-btn-forside">
-  <button class="btn-filled-forside ">Tilføj til kurv</button>
-  </div>
-</div>
-    <div class="produktCard">
-  <div class="image-wrapper-forside">
-    <span class="badge">Nyhed</span>
-    <a href="/#" class="zoom-billede">
-      <img src="/assets/img/mt_fk_5.jpg" alt="Havremel - glutenfri" class="produkt-billede-forside">
-    </a>
-    <button class="wishlist"><img src="./assets/icons/Hvidhjerte.png" alt=""></button>
-  </div>
-  <h3>Havremel - glutenfri</h3>
-  <p class="vaegt">800 g</p>
-  <div class="ikoner">
-    <img src="/assets/img/demeter.png" alt="Demeter">
-    <img src="/assets/img/organic_eu.png" alt="Økologisk">
-    <img src="/assets/img/okologi.png" alt="Statskontrolleret økologi">
-  </div>
-  <p class="pris">52,50 kr.</p>
-   <div class="center-btn-forside">
-  <button class="btn-filled-forside ">Tilføj til kurv</button>
-  </div>
-</div>
+  <div class="swiper_wrap">
+    <div class="swiper-button-prev"></div>
+    <div class="swiper product-swiper">
+      <div class="swiper-wrapper">
+        <?php
+        // De 8 nyeste produkter vises
+        $args = array(
+          'post_type' => 'product',
+          'posts_per_page' => 8,
+          'orderby' => 'date',
+          'order' => 'DESC',
+        );
+        $query = new WP_Query($args);
+
+        if ($query->have_posts()) {
+          while ($query->have_posts()) {
+            $query->the_post();
+            ?>
+            <div class="swiper-slide">
+              <?php get_template_part('template-parts/cards/card', 'product'); ?>
+            </div>
+            <?php
+          }
+        }
+        wp_reset_postdata();
+        ?>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
   </div>
 </section>
 <section class="billede-tekst-sektion">
   <div class="indhold-wrapper-forside">
     <div class="billede-container">
-      <img src="/assets/img/kassen_1.jpg" alt="Beskrivende tekst">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Torsdagskassen.jpg" alt="Beskrivende tekst">
     </div>
     <div class="tekst-container">
       <h2>Torsdagskassen</h2>
       <p>
         Torsdagskassen er en ugentlig frugt og grøntsagskasse (uden binding), som vi sammensætter af det bedste fra vores egne og andres marker. Vi supplerer altid indholdet med hjælp fra danske kollegaer og udenlandske leverandører og producenter. Alt er biodynamisk eller økologisk. Varer fra egen avl er som udgangspunkt dyrket biodynamisk.
       </p>
-      <h3>229,00 kr.</h3> <br>
+      <h3>229,00 kr.</h3>
       <a href="/#" class="btn-filled ">Læs mere om denne uges torsdagskasse</a> <br>
-      <a href="/#" class="btn-filled btn-outline">Se andre måltidskasser</a>
+      <a href="<?php echo esc_url(site_url('/product-category/maltidskasser'));?>" class="btn-filled btn-outline">Se andre måltidskasser</a>      
+
+
     </div>
   </div>
 </section>
 
 <section class="produkterForside">
   <div class="spaceBetweenforside">
-  <h2>Gårdens favoritter</h2>
-  <a href="#" class="visAlle">Se flere produkter ></a>
+    <h2>Se vores nyeste produkter</h2>
+    <a href="<?php echo esc_url(site_url('/shop'));?>" class="visAlle">Se flere produkter <span class="material-symbols-rounded">keyboard_arrow_right</span></a>
   </div>
-  <div class="produktGrid-forside">
-    <div class="produktCard">
-  <div class="image-wrapper-forside">
-    <span class="badge">Nyhed</span>
-    <a href="/#" class="zoom-billede">
-      <img src="/assets/img/agurk.jpg" alt="Havremel - glutenfri" class="produkt-billede-forside">
-    </a>
-    <button class="wishlist" aria-pressed="false" > <img src="./assets/icons/Hvidhjerte.png" alt=""></button>
-  </div>
-  <h3>Havremel - glutenfri</h3>
-  <p class="vaegt">800 g</p>
-  <div class="ikoner">
-    <img src="/assets/img/demeter.png" alt="Demeter">
-    <img src="/assets/img/organic_eu.png" alt="Økologisk">
-    <img src="/assets/img/okologi.png" alt="Statskontrolleret økologi">
-  </div>
-  <p class="pris">52,50 kr.</p>
-  <div class="center-btn-forside">
-  <button class="btn-filled-forside ">Tilføj til kurv</button>
-  </div>
-</div>
-    <div class="produktCard">
-  <div class="image-wrapper-forside">
-    <span class="badge">Nyhed</span>
-    <a href="/#" class="zoom-billede">
-      <img src="/assets/img/hjertesalat.jpg" alt="Havremel - glutenfri" class="produkt-billede-forside">
-    </a>
-    <button class="wishlist" aria-pressed="false"><img src="./assets/icons/Hvidhjerte.png" alt=""></button>
-  </div>
-  <h3>Havremel - glutenfri</h3>
-  <p class="vaegt">800 g</p>
-  <div class="ikoner">
-    <img src="/assets/img/demeter.png" alt="Demeter">
-    <img src="/assets/img/organic_eu.png" alt="Økologisk">
-    <img src="/assets/img/okologi.png" alt="Statskontrolleret økologi">
-  </div>
-  <p class="pris">52,50 kr.</p>
-   <div class="center-btn-forside">
-  <button class="btn-filled-forside ">Tilføj til kurv</button>
-  </div>
-</div>
-   <div class="produktCard">
-  <div class="image-wrapper-forside">
-    <span class="badge">Nyhed</span>
-    <a href="/#" class="zoom-billede">
-      <img src="/assets/img/img_3842.jpg" alt="Havremel - glutenfri" class="produkt-billede-forside">
-    </a>
-    <button class="wishlist"><img src="./assets/icons/Hvidhjerte.png" alt=""></button>
-  </div>
-  <h3>Havremel - glutenfri</h3>
-  <p class="vaegt">800 g</p>
-  <div class="ikoner">
-    <img src="/assets/img/demeter.png" alt="Demeter">
-    <img src="/assets/img/organic_eu.png" alt="Økologisk">
-    <img src="/assets/img/okologi.png" alt="Statskontrolleret økologi">
-  </div>
-  <p class="pris">52,50 kr.</p>
-   <div class="center-btn-forside">
-  <button class="btn-filled-forside ">Tilføj til kurv</button>
-  </div>
-</div>
-    <div class="produktCard">
-  <div class="image-wrapper-forside">
-    <span class="badge">Nyhed</span>
-    <a href="/#" class="zoom-billede">
-      <img src="/assets/img/mt_fk_5.jpg" alt="Havremel - glutenfri" class="produkt-billede-forside">
-    </a>
-    <button class="wishlist"><img src="./assets/icons/Hvidhjerte.png" alt=""></button>
-  </div>
-  <h3>Havremel - glutenfri</h3>
-  <p class="vaegt">800 g</p>
-  <div class="ikoner">
-    <img src="/assets/img/demeter.png" alt="Demeter">
-    <img src="/assets/img/organic_eu.png" alt="Økologisk">
-    <img src="/assets/img/okologi.png" alt="Statskontrolleret økologi">
-  </div>
-  <p class="pris">52,50 kr.</p>
-   <div class="center-btn-forside">
-  <button class="btn-filled-forside ">Tilføj til kurv</button>
-  </div>
-</div>
+  <div class="swiper_wrap">
+    <div class="swiper-button-prev"></div>
+    <div class="swiper product-swiper">
+      <div class="swiper-wrapper">
+        <?php
+        $args = array(
+          'post_type' => 'product',
+          'posts_per_page' => 8,
+          'orderby' => 'date',
+          'order' => 'DESC',
+        );
+        $query = new WP_Query($args);
+
+        if ($query->have_posts()) {
+          while ($query->have_posts()) {
+            $query->the_post();
+            ?>
+            <div class="swiper-slide">
+              <?php get_template_part('template-parts/cards/card', 'product'); ?>
+            </div>
+            <?php
+          }
+        }
+        wp_reset_postdata();
+        ?>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
   </div>
 </section>
-  <hr class="divider">
+
+<hr class="divider">
+
 <section class="billed-sektion-forside">
   <a class="billede stort zoom-billede" href="#" >
     <img src="/assets/img/dauphinoise.jpg" alt="Opskrifter">
@@ -259,21 +159,21 @@
     <div class="pil-forside">→</div>
   </a>
 </section>
- <section class="restaurant-section">
-    <div class="text-restaurant-forside">
-      <h2>Gårdrestaurant</h2>
-      <p>
-        Hos Birkmosegaard er vi stolte af også at kunne byde velkommen i vores egen gårdrestaurant.
-      </p>
-      <p>
-        Restauranten er en hyggelig og stemningsfuld restaurant beliggende i landlige omgivelser, hvor fokus er på lokale råvarer og hjemmelavet mad.
-      </p>
-      <p>
-        Her kan du nyde sæsonens bedste smage i rolige, naturskønne omgivelser - perfekt til både hverdag og særlige lejligheder.
-      </p>
-     <a href="/#" class="btn-filled-forside ">Læs mere om restauranten</a>
-    </div>
-  </section>
+<section class="restaurant-section">
+  <div class="text-restaurant-forside">
+    <h2>Gårdrestaurant</h2>
+    <p>
+      Hos Birkmosegaard er vi stolte af også at kunne byde velkommen i vores egen gårdrestaurant.
+    </p>
+    <p>
+      Restauranten er en hyggelig og stemningsfuld restaurant beliggende i landlige omgivelser, hvor fokus er på lokale råvarer og hjemmelavet mad.
+    </p>
+    <p>
+      Her kan du nyde sæsonens bedste smage i rolige, naturskønne omgivelser - perfekt til både hverdag og særlige lejligheder.
+    </p>
+    <a href="/#" class="btn-filled-forside ">Læs mere om restauranten</a>
+  </div>
+</section>
 <section class="facebook-anmeldelser">
   <h2>Det siger vores  kunder om os</h2>
   <div class="anmeldelser-grid">
@@ -333,7 +233,5 @@
   
   </div>
 </section>
-
 </main>
-
 <?php get_footer(); ?>

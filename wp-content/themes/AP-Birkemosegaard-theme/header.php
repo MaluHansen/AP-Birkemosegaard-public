@@ -14,7 +14,7 @@
         <ul class="global-menu">
             <li><a <?php if(is_front_page()) echo 'class="active"';?>  href="<?php echo esc_url(site_url());?>">Forside</a></li>
             <li class="products-dropdown">
-                <a <?php if(is_shop()) echo 'class="active"';?>  href="<?php echo get_permalink( wc_get_page_id('shop')); ?>" aria-haspopup="true" aria-expanded="false">Produkter</a>
+                <a <?php if(is_shop()) echo 'class="active"';?>  href="<?php echo esc_url(site_url('/shop'));?>" aria-haspopup="true" aria-expanded="false">Produkter</a>
                <ul class="products-dropdown-container">
                     <?php
                     $parent_categories = get_terms([
@@ -32,11 +32,11 @@
                     ?>
                 </ul>
             </li>
-            <li><a href="#">Opskrifter</a></li>
-            <li><a href="#">Om gården</a></li>
-            <li><a href="#">Restaurant & Catering</a></li>
-            <li><a href="#">Afhentning & Levering</a></li>
-            <li><a href="<?php echo esc_url(site_url('/cart'));?>">Kontakt</a></li>
+            <li><a href="<?php echo esc_url(site_url('/opskrifter'));?>">Opskrifter</a></li>
+            <li><a href="<?php echo esc_url(site_url('/om-gaarden'));?>">Om gården</a></li>
+            <li><a href="<?php echo esc_url(site_url('/restaurant-catering'));?>">Restaurant & Catering</a></li>
+            <li><a href="<?php echo esc_url(site_url('/afhentning-levering'));?>">Afhentning & Levering</a></li>
+            <li><a href="<?php echo esc_url(site_url('/kontakt'));?>">Kontakt</a></li>
         </ul>
         <div class="global-menu-icons">
             
@@ -106,7 +106,7 @@
     
                     </div>
                     
-                    <button class="btn-filled">Log ind</button>
+                    <a href="<?php echo esc_url(site_url('/profil'));?>" class="btn-filled">Log ind</a>
                 </form>
             </div>
             

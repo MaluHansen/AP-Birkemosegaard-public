@@ -30,19 +30,19 @@
         <div class="footer-column">
             <h4>Information</h4>
             <ul class="footer-nav">
-                <li><a href="#">Om Birkemosegaard</a></li>
-                <li><a href="#">Kontakt</a></li>
-                <li><a href="#">For erhvervskunder</a></li>
-                <li><a href="#">Afhentning & Levering</a></li>
-                <li><a href="#">Handelsbetingelser</a></li>
-                <li><a href="#">Privatlivspolitik</a></li>
+                <li><a href="<?php echo esc_url(site_url('/om-gaarden'));?>">Om Birkemosegaard</a></li>
+                <li><a href="<?php echo esc_url(site_url('/kontakt'));?>">Kontakt</a></li>
+                <li><a href="<?php echo esc_url(site_url('/b2b'));?>">For erhvervskunder</a></li>
+                <li><a href="<?php echo esc_url(site_url('/afhentning-levering'));?>">Afhentning & Levering</a></li>
+                <li><a href="<?php echo esc_url(site_url('/handelsbetingelser'));?>">Handelsbetingelser</a></li>
+                <li><a href="<?php echo esc_url(site_url('/privatlivspolitik'));?>">Privatlivspolitik</a></li>
             </ul>
         </div>
 
         <div class="footer-column">
             <h4>Nyhedsbrev</h4>
             
-            <form class="news-form-footer" action="#">
+            <form class="news-form-footer">
                 <p>Tilmeld dig vores nyhedsbrev og gå aldrig glip af nyheder om gården, vores produkter og ugens torsdagskasse</p>
                 <!-- <div class="form-field">
                     <input type="text" id="email" placeholder=" " required>
@@ -80,14 +80,6 @@
     </div>
 
 </footer>
-<div id="variant-modal" class="variant-modal hidden">
-    <div class="variant-modal-inner">
-        <button class="close-variant-modal">×</button>
-        <div class="variant-modal-content">
-            <p>Indlæser...</p>
-        </div>
-    </div>
-</div>
 <?php wp_footer(); ?>
 </body>
 </html>

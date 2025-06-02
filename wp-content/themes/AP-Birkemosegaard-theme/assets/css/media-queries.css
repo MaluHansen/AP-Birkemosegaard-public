@@ -1,0 +1,188 @@
+
+@media (min-width: 1920px) {
+  html {
+    margin: 10rem;
+  }
+}
+@media (max-width: 1440px) {
+}
+@media (max-width: 1024px) {
+  :root {
+    --standard: 3rem;
+    --small: 2rem;
+  }
+  .heroForside {
+    height: 60vh;
+    padding-left: 2rem;
+  }
+
+  .heroContent p {
+    font-size: 1.1rem;
+  }
+
+  .omgaardenForside {
+    grid-template-columns: 1fr;
+  }
+
+  .omgaardenImg {
+    order: -1;
+  }
+  .bannerForside {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .produktGrid-forside {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .facebook-anmeldelser h2 {
+    margin: var(--small);
+  }
+
+  .indhold-wrapper-forside {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .billede-container img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  .billed-sektion-forside {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .billede.stort {
+    grid-row: auto;
+  }
+  .restaurant-section {
+    justify-content: center;
+
+    height: auto;
+    min-height: 30vh;
+    text-align: center;
+  }
+
+  .text-restaurant-forside {
+    padding: var(--small);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --standard: 1rem;
+  }
+  .heroForside {
+    height: 50vh;
+    padding-left: 1.5rem;
+    justify-content: center;
+    text-align: center;
+  }
+  .heroForside h1 {
+    font-size: 2rem;
+  }
+
+  .heroContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroContent p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .heroContent .btn-filled {
+    margin: 0 auto;
+  }
+
+  .omgaardenForside {
+    gap: 1rem;
+    margin: var(--small);
+  }
+
+  .spaceBetweenforside h2 {
+    font-size: 2rem;
+  }
+
+  .omgaardenImg img {
+    border-radius: 8px;
+  }
+  .bannerForside {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .ikonItem img {
+    width: 40px;
+    height: 40px;
+  }
+  .produktGrid-forside {
+    grid-template-columns: 1fr;
+  }
+  .produkterForside {
+    margin: var(--small);
+  }
+
+  .produktCard {
+    padding: 1rem;
+  }
+
+  .produktCard img {
+    max-height: 200px;
+  }
+
+  .wishlist {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .wishlist img {
+    width: 20px;
+    height: 20px;
+  }
+  .indhold-wrapper-forside {
+    margin: var(--small);
+  }
+
+  .indhold-wrapper h2 {
+    font-size: 1.5rem;
+  }
+  .billed-sektion-forside {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+    margin: var(--small);
+  }
+
+  .billede {
+    height: 200px;
+  }
+
+  .billede img {
+    height: 100%;
+  }
+
+  .billede.stort {
+    grid-row: auto;
+    height: 250px;
+  }
+
+  .gavekort-forside,
+  .pil-forside {
+    font-size: 1.2rem;
+  }
+  .text-restaurant-forside {
+    margin: var(--small);
+  }
+  .anmeldelser-grid {
+    margin: var(--small);
+  }
+  .facebook-anmeldelser {
+    padding: 0;
+  }
+}

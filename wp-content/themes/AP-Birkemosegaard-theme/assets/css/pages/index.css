@@ -1,4 +1,5 @@
-/* Hero billede sektion */
+
+/*————————————————————— Hero —————————————————————*/
 .heroForside {
   position: relative;
   height: 80vh;
@@ -9,32 +10,26 @@
   overflow: hidden;
   z-index: 0;
 }
-/* Her bliver lavet zoom effect på hero billedet */
-.heroForside::before {
-  content: "";
+
+.heroBackground {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/assets/img/Herobillede.JPG");
   background-size: cover;
   background-position: center;
   transform: scale(1);
   animation: zoomIn 3s ease forwards;
   z-index: -2;
 }
-@keyframes zoomIn {
-  to {
-    transform: scale(1.1);
-  }
-}
+
 
 .heroContent p {
   color: var(--white);
   font-weight: 700;
   font-size: 1.3rem;
 }
-/* Overlay på hero billedet */
+
 .heroForside::after {
   content: "";
   position: absolute;
@@ -42,13 +37,20 @@
   background-color: rgba(31, 31, 31, 0.5);
   z-index: -1;
 }
-/* Css til om gården sektion */
+@keyframes zoomIn {
+  to {
+    transform: scale(1.1);
+  }
+}
+/*————————————————————————————————————————————————*/
+
+
+/*—————————————————— Om gården ———————————————————*/
 .omgaardenForside {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   margin: var(--large);
-
   gap: var(--standard);
 }
 .omgaardenImg {
@@ -58,9 +60,12 @@
   width: 100%;
   height: 100%;
   border-radius: 12px;
+  object-fit: cover;
 }
+/*————————————————————————————————————————————————*/
 
-/* CSS til bannerforside sektion */
+
+/*————————————————— Ikon banner ——————————————————*/
 .bannerForside {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -74,88 +79,12 @@
   height: 50px;
   margin-bottom: 0.5rem;
 }
-/* CSS til Produkter på forsiden sektion */
+/*————————————————————————————————————————————————*/
+
+
+/*———————————————— Produkt loop ——————————————————*/
 .produkterForside {
   margin: var(--large);
-}
-.produkterForside h3 {
-  font-size: 1.5rem;
-}
-.produktGrid-forside {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-top: 2rem;
-}
-.produktCard {
-  border: 1px solid #ccc;
-  padding: 1.2rem;
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-}
-.produktCard img {
-  max-height: 240px;
-  max-width: 100%;
-}
-.wishlist {
-  position: absolute;
-  top: 0.3rem;
-  right: 0.5rem;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: var(--black);
-}
-.wishlist img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-.wishlist[aria-pressed="true"] img {
-  filter: hue-rotate(0deg) saturate(1000%) brightness(100%) contrast(100%);
-}
-/* Animation til hjerteikon på produkter */
-@keyframes pop {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.3);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.wishlist img.animate-pop {
-  animation: pop 0.3s ease;
-}
-.badge {
-  background-color: var(--orange);
-  color: white;
-  padding: 0.2rem 0.6rem;
-  font-size: 0.8rem;
-  border-radius: 5px;
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  z-index: 2;
-}
-.vaegt {
-  font-size: 0.9rem;
-  color: var(--green700);
-  margin: 0.5rem 0;
-}
-.ikoner img {
-  height: 20px;
-  margin: 0 2px;
-}
-.pris {
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin: 1rem 0 0.5rem;
 }
 .spaceBetweenforside {
   display: flex;
@@ -168,52 +97,14 @@
 }
 .visAlle {
   color: var(--grey);
-}
-.btn-filled-forside {
-  color: var(--white);
-  background-color: var(--green600);
-  padding: 12px 32px;
-  border-radius: 6px;
-  width: fit-content;
-  text-align: center;
-  cursor: pointer;
-  font-weight: 500;
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  height: 48px;
-  text-align: center;
 }
-.btn-filled-forside:hover {
-  background-color: var(--green500);
-  transition: 0.3s;
-  box-shadow: var(--boxShadow);
-}
+/*————————————————————————————————————————————————*/
 
-.btn-filled-forside:active {
-  background-color: var(--green700);
-}
 
-.image-wrapper-forside {
-  margin: -1.2rem -1.2rem 1rem -1.2rem; /* trækker billedet ud over paddingen */
-  position: relative;
-  overflow: hidden;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.produkt-billede-forside {
-  width: 100%;
-  height: 230px;
-  object-fit: fill;
-}
-.zoom-billede img {
-  transition: transform 0.4s ease;
-  display: block;
-}
-
-.zoom-billede:hover img {
-  transform: scale(1.05);
-}
-/* CSS til Torsdagskassen Forside sektion */
+/*———————————————— Torsdagskassen ————————————————*/
 .billede-tekst-sektion {
   background-color: var(--sand300);
 }
@@ -226,8 +117,11 @@
   gap: var(--standard);
   padding: 2.5rem 0 2.5rem 0;
 }
-.indhold-wrapper-forside h2 {
+.indhold-wrapper-forside h2, h3 {
   color: var(--green900);
+}
+.indhold-wrapper-forside h3{
+  margin-bottom: 32px;
 }
 
 .billede-container img {
@@ -238,7 +132,10 @@
 .tekst-container .btn-filled:hover {
   color: white;
 }
-/* CSS til billede sketion til gavekort opskrifter osv */
+/*————————————————————————————————————————————————*/
+
+
+/*———————————————— Bentogrid ——————————————————*/
 .billed-sektion-forside {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -291,8 +188,9 @@
   width: 90%;
   margin: 1rem auto;
 }
+/*————————————————————————————————————————————————*/
 
-/* CSS til restuarant sektion på forsiden */
+/*—————————————————— Restuarant ——————————————————*/
 .restaurant-section {
   display: flex;
   align-items: center;
@@ -325,8 +223,10 @@
   margin-top: 1rem;
   display: inline-block;
 }
+/*————————————————————————————————————————————————*/
 
-/* CSS til Anmeldelser sektion */
+
+/*———————————————— Andmeldelser ——————————————————*/
 .facebook-anmeldelser {
   padding: 4rem 2rem;
   text-align: center;
@@ -374,29 +274,10 @@
   width: 24px;
   height: 24px;
 }
-#toTopBtn:hover {
-  background-color: var(--green600);
-}
-#toTopBtn i {
-  color: var(--green900);
-}
-  #toTopBtn {
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  z-index: 100;
-  background-color: var(--grey); 
-  border: none;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-items: center; 
-  justify-content: center;
-  display: none;
-}
-#toTopBtn.visible {
-  display: flex;
-}
+/*————————————————————————————————————————————————*/
+
+
+
+/*———————————————— Produkt loop ——————————————————*/
+
+/*————————————————————————————————————————————————*/

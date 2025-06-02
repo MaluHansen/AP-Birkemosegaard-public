@@ -5,11 +5,7 @@ $available_variations = $product->get_available_variations();
 <div class="selected-price">
     <p class="vaegt-pris"><?= wc_price($product->get_price()); ?></p>
 </div>
-
-
-
 <div class="variant-btns">
-    
     <p class="vaegt-label">Variant: <span class="selected-vaegt"></span></p>
     <?php foreach ($available_variations as $variation){
         $variation_id = $variation['variation_id'];

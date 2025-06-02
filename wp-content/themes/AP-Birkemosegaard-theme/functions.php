@@ -10,17 +10,22 @@ function birkemosegaard_files(){
     // Ikoner - Google material icons
     wp_enqueue_style('icons', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
+    wp_enqueue_style('swiperJs-style', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+    wp_enqueue_script('swiperJs-script', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js');
+
     // Css og js filer registreres i et array for ikke at skulle queue hver fil enkeltvis
     $css_files = array(
         'general-css',
         'header',
         'footer',
-        'single-product',
+        'pages/single-product',
         'cards',
-        'archive',
+        'pages/archive',
         'cart',
         'test',
-        'index'
+        'pages/index',
+        'media-queries',
+        'pages/om-gaarden'
     );
     foreach ($css_files as $cssFileName){
         $cssFilePath = get_theme_file_uri() . '/assets/css/' . $cssFileName . '.css';
@@ -36,7 +41,8 @@ function birkemosegaard_files(){
         'variable-product',
         'update-quantity',
         'test',
-        'archive'
+        'archive',
+        'heart-icon'
     );
     foreach ($js_files as $jsFileName){
         $jsFilePath = get_theme_file_uri() . '/assets/js/' . $jsFileName . '.js';

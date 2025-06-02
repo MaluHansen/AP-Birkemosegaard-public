@@ -1,0 +1,162 @@
+/* General */
+.fade-in {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Intro */
+.intro {
+    margin: var(--large);
+    display: flex;
+    gap: var(--large);
+    justify-content: center;
+}
+
+.introTekst h1 {
+    margin-bottom: 32px;
+}
+
+.introBillede img{
+    width: 520px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Om gården sektion */
+.omGaarden {
+    gap: var(--large);
+    background-image: url(/assets/img/KungOgJesper.png);
+    background-size: cover;
+    width: 100vw;
+    align-items: center;
+}
+
+.omGaardenTekst {
+    display: inline-block;
+    padding: var(--standard);
+    margin: var(--large);
+    background-color: var(--sand300);
+    border-radius: 12px;
+    width: 600px;
+}
+
+.omGaardenTekst h2 {
+    display: inline-block;
+    border-bottom: 3px solid var(--green600);
+    padding-bottom: 8px;
+}
+
+/* Værdier sektion */
+.vaerdier {
+     margin: var(--large) var(--standard);
+}
+
+.vaerdier h2 {
+    text-align: center;
+}
+
+.vaerdierIndhold {
+    display: flex;
+        justify-content: center;
+    gap: var(--standard);
+}
+
+.vaerdierBillede img{
+    width: 520px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.vaerdierBoks {
+    background-color: var(--green100);
+    padding: var(--small);
+    border-radius: 12px;
+    margin-bottom: var(--small);
+}
+
+.vaerdierBoks span {
+    font-weight: 900;
+}
+
+.vaerdierBoks p {
+    margin: 0;
+}
+
+.vaerdierBoks i{
+    padding-right: 6px;
+    font-size: 32px;
+    color: var(--green500);
+}
+
+/* Gårdrestaurant sektion */
+.omGaardrestaurant {
+    gap: var(--large);
+    background-image: url(/assets/img/catering_2.jpg);
+    background-size: cover;
+    width: 100vw;
+    align-items: center;
+    height: 80vh;
+    display: flex;
+}
+
+.omGaardrestaurantTekst {
+    display: inline-block;
+    padding: var(--standard);
+    margin: var(--large);
+    background-color: var(--sand300);
+    border-radius: 12px;
+    width: 600px;
+}
+
+.omGaardrestaurantTekst h2 {
+    display: inline-block;
+    border-bottom: 3px solid var(--green600);
+    padding-bottom: 8px;
+}
+
+/* Rundvisnings sektion */
+.rundvisning {
+    margin: var(--large);
+    display: flex;
+    justify-content: center;
+    gap: var(--large);
+}
+
+.rundvisningBillede img{
+    width: 520px;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.rundvisningTekst a {
+    color: var(--green500);
+}
+
+/* Gårdbutik sektion */
+.omGaardbutik {
+    margin: var(--large);
+    display: flex;
+    gap: var(--large);
+    justify-content: center;
+}
+
+.omGaardbutikBillede img{
+    width: 520px;
+    height: 460px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.butikCTA {
+    display: flex;
+    gap: var(--small);
+}

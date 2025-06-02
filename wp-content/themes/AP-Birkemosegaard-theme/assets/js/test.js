@@ -102,3 +102,46 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  new Swiper('.product-swiper', {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    breakpoints: {
+      // Mobilvenlig opsætning
+      0: {
+        slidesPerView: 1.2
+      },
+      640: {
+        slidesPerView: 2
+      },
+      1024: {
+        slidesPerView: 4
+      }
+    }
+  });
+});
+
+
+window.onscroll = function () {
+  const btn = document.getElementById("toTopBtn");
+  if (window.scrollY > 200) {
+    btn.classList.add("visible");
+  } else {
+    btn.classList.remove("visible");
+  }
+};
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}

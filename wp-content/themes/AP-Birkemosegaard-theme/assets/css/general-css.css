@@ -253,3 +253,73 @@ span.checkbox-icon{
     color: var(--green600);
 }
 /*—————————————————————————————————————————————————————————————————————————————————*/
+
+/*———————————————————————————————————— Swiper —————————————————————————————————————*/
+.swiper-button-next:after, .swiper-button-prev:after{
+    font-size: 2rem;
+    color: var(--green700);
+}
+.swiper-button-next{
+    margin-top: 0px;
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    width: 45px;
+    height: 45px;
+    transform: translateY(-50%);
+}
+.swiper-button-prev{
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  width: 45px;
+  height: 45px;
+  transform: translateY(-50%);
+  margin-top: 0px;
+}
+.swiper{
+    padding: 1rem;
+    width: 100%;
+}
+.swiper_wrap{
+    padding: 2rem 0;
+    height:100%;
+    width: 100%;
+    position: relative;
+    display: block;
+    text-align: left;}
+
+.swiper-pagination-bullet-active{
+    background: var(--green600);
+}
+/*—————————————————————————————————————————————————————————————————————————————————*/
+
+/*———————————————————————————————————— To top btn —————————————————————————————————*/
+#toTopBtn:hover {
+  background-color: var(--green600);
+  color: var(--white);
+  opacity: 1;
+}
+#toTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 100;
+  background-color: var(--lightGrey); 
+  opacity: 0.6;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  align-items: center; 
+  justify-content: center;
+  display: none;
+}
+#toTopBtn.visible {
+  display: flex;
+}
+/*—————————————————————————————————————————————————————————————————————————————————*/
+
