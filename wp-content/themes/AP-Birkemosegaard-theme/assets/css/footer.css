@@ -1,5 +1,5 @@
 footer{
-    margin-top: 500px;
+    margin-top: var(--large);
     background-color: var(--white);
     padding: 2rem;
 }
@@ -24,7 +24,7 @@ footer h4, footer .logo{
 .footer-columns-container{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    margin: 3rem 0;
     gap: 2rem;
 }
 .footer-column div:not(.logo){

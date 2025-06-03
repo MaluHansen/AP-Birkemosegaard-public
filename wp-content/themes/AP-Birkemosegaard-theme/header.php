@@ -15,7 +15,7 @@
             <li><a <?php if(is_front_page()) echo 'class="active"';?>  href="<?php echo esc_url(site_url());?>">Forside</a></li>
             <li class="products-dropdown">
                 <a <?php if(is_shop()) echo 'class="active"';?>  href="<?php echo esc_url(site_url('/shop'));?>" aria-haspopup="true" aria-expanded="false">Produkter</a>
-               <ul class="products-dropdown-container">
+                <ul class="products-dropdown-container">
                     <?php
                     $parent_categories = get_terms([
                         'taxonomy'   => 'product_cat',
@@ -47,34 +47,17 @@
                 </button>
             </div>
 
-
-
-<div class="cart">
-  <span class="material-symbols-rounded icon-nav" id="cart-icon">shopping_cart</span>
-  <span class="cart-count cart-contents">
-    <?php echo WC()->cart->get_cart_contents_count(); ?>
-  </span>
-</div>
-            
-<div class="cart-modal">
-<?php get_template_part('template-parts/mini-cart'); ?>
-</div>
+            <div class="cart">
+            <span class="material-symbols-rounded icon-nav" id="cart-icon">shopping_cart</span>
+            <span class="cart-count cart-contents">
+                <?php echo WC()->cart->get_cart_contents_count(); ?>
+            </span>
+            </div>
+                        
+            <div class="cart-modal">
+            <?php get_template_part('template-parts/mini-cart'); ?>
+            </div>
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <span class="material-symbols-rounded icon-nav" id="profile-icon">account_circle</span>
             <div class="login-popup">
                 <h4>Log ind</h4>

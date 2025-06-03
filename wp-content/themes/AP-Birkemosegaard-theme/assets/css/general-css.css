@@ -103,10 +103,30 @@ p {
     color: var(--grey);
     margin-bottom: 8px;
 }
+.divider {
+  border: none;
+  border-top: 1px solid;
+  color: var(--green700);
+  width: 90%;
+  margin: 1rem auto;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
 
 /*—————————————————————————————————————————————————————————————————————————————————*/
 
-/*————————————————————————————————————— Buttons —————————————————————————————————————*/
+/*————————————————————————————————————— Buttons ———————————————————————————————————*/
 .btn-filled {
     color: var(--white);
     background-color: var(--green600);
@@ -323,3 +343,39 @@ span.checkbox-icon{
 }
 /*—————————————————————————————————————————————————————————————————————————————————*/
 
+/*————————————————— Pagination & Resualt count ————————————————————————*/
+.custom-pagination ul {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.custom-pagination li a,
+.custom-pagination li span {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    color: #333;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.custom-pagination li a:hover{
+    background: var(--green100);
+}
+
+.custom-pagination li .current {
+    background: var(--green600);
+    color: #fff;
+}
+
+.custom-result-count {
+    justify-self: center;
+    text-align: center;
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+/*—————————————————————————————————————————————————————————————————————————————————*/

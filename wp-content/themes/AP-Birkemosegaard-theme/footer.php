@@ -1,4 +1,5 @@
 <footer>
+    <hr>
     <div class="footer-columns-container">
         <div class="footer-column">
             <div class="logo">

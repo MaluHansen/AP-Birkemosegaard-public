@@ -25,7 +25,11 @@ function birkemosegaard_files(){
         'test',
         'pages/index',
         'media-queries',
-        'pages/om-gaarden'
+        'pages/om-gaarden',
+        'pages/handelsbetingelser',
+        'pages/kontakt',
+        'pages/levering',
+        'pages/restaurant'
     );
     foreach ($css_files as $cssFileName){
         $cssFilePath = get_theme_file_uri() . '/assets/css/' . $cssFileName . '.css';
@@ -42,7 +46,8 @@ function birkemosegaard_files(){
         'update-quantity',
         'test',
         'archive',
-        'heart-icon'
+        'heart-icon',
+        'parts'
     );
     foreach ($js_files as $jsFileName){
         $jsFilePath = get_theme_file_uri() . '/assets/js/' . $jsFileName . '.js';
@@ -56,9 +61,9 @@ add_action('wp_enqueue_scripts', 'birkemosegaard_files');
 
 
 function theme_features() {
-    add_theme_support('title-tag');
-    add_theme_support('post-thumbnails');
-    add_theme_support('woocommerce');
+  add_theme_support('title-tag');
+  add_theme_support('post-thumbnails');
+  add_theme_support('woocommerce');
 }
 add_action('after_setup_theme', 'theme_features');
 
@@ -91,8 +96,10 @@ add_filter('woocommerce_add_to_cart_fragments', function($fragments) {
 
 
 add_filter('loop_shop_per_page', function(){
-    return -1; // Ændr dette tal til det ønskede antal
+  return 20; // Antal viste produkter
 });
+
+
 
 add_filter('woocommerce_catalog_orderby', 'custom_catalog_orderby');
 function custom_catalog_orderby($sortby) {

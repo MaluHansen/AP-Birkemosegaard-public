@@ -11,14 +11,11 @@
         <?php woocommerce_catalog_ordering(); ?>
       </div>     
     </div>
-
   </div>
 
   <section class="products">
 
     <div class="product-filters">
-
-
       <form id="product-filter-form" method="get" action="<?= esc_url(get_permalink(wc_get_page_id('shop'))); ?>">
         <!-- Kategorier -->
         <div class="filter-section">
@@ -128,13 +125,18 @@
     <!-- Produktgrid -->
     <div class="product-grid">
       <?php
+      
       while (have_posts()) {
         the_post();
         get_template_part('template-parts/cards/card', 'product');
       }
       wp_reset_postdata();
       ?>
-    </div>
+    </div> 
   </section>
+    <?php 
+      woocommerce_pagination();
+      woocommerce_result_count();
+    ?> 
 </main>
 <?php get_footer(); ?>

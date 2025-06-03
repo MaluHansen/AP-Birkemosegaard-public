@@ -186,3 +186,220 @@
     padding: 0;
   }
 }
+
+
+
+
+
+@media (min-width: 1920px) {
+  html {
+    margin: 10rem;
+  }
+}
+@media (max-width: 1440px) {
+}
+@media (max-width: 1024px) {
+   .omgaardenForside {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  
+  .omgaardenImg {
+    order: -1;
+     justify-content: center;
+  }
+
+
+  }
+  @media (max-width: 768px) {
+  :root {
+    --standard: 1rem;
+  }
+  .omgaardenForside {
+    gap: 1rem;
+    margin: var(--small);
+  }
+  .omgaardenImg img {
+    border-radius: 8px;
+   
+     height: 500px;
+  }
+  .accordion-section{
+    margin: var(--small);
+    padding: 0;
+  }
+  .accordion.open .accordion-content {
+    max-height: 300px;
+    } 
+}
+
+
+
+
+@media (min-width: 1920px) {
+  html{
+    margin: 10rem;
+  }
+}
+@media (max-width: 1440px) {
+}
+@media (max-width: 1024px) {
+  :root {
+    --standard: 3rem;
+    --small: 2rem;
+  }
+  .omgaardenForside {
+    grid-template-columns: 1fr;
+  }
+  .omgaardenImg {
+    order: -1;
+  }
+  .torsdags-grid {
+    grid-template-columns: 1fr;
+  }
+  .grid-venstre,
+  .grid-hoejre {
+    background-color: var(--sand300);
+    padding: 1rem 2rem 2rem 2rem;
+  }
+  .grid-venstre p { 
+    color: black;
+  }
+
+  .grid-header {
+    text-align: center;
+  }
+  .kort-sektion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .kort-container {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .accordion-container {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .info-boks {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .kort-container,
+  .accordion-container {
+    height: 400px;
+  }
+
+  .info-boks img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+  }
+  .info-boks img {
+    display: none;
+  }
+  .fredags-sektion {
+    margin: 3rem 2rem;
+  }
+
+  .vareture-container {
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .varetur-box {
+    max-height: 400px;
+  }
+}
+@media (max-width: 768px) {
+  :root {
+    --standard: 1rem;
+  }
+  .omgaardenForside {
+    gap: 1rem;
+    margin: var(--small);
+  }
+  .torsdags-grid {
+    margin: 2rem 1rem;
+    border-radius: 12px;
+  }
+
+  .grid-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .grid-venstre p,
+  .grid-hoejre li {
+    font-size: 1rem;
+  }
+
+  .grid-hoejre ul {
+    padding-left: 1.2rem;
+  }
+  .kort-sektion {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .info-boks {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .accordion-container {
+    grid-column: 1;
+    grid-row: 2;
+    height: auto;
+  }
+
+  .kort-container {
+    display: none;
+  }
+
+  .info-boks img {
+    display: none;
+  }
+  .fredags-sektion {
+    margin: 3rem 2rem;
+  }
+
+  .vareture-container {
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .varetur-box {
+    max-height: 400px;
+  }
+  .fredags-sektion {
+    margin: 2rem 1rem;
+  }
+
+  .vareture-container {
+    gap: 1rem;
+  }
+
+  .varetur-box {
+    width: 100%;
+  }
+
+  .varetur-box h3 {
+    font-size: 1.2rem;
+  }
+
+  .varetur-box li {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,148 @@
+/* Intro */
+.introGaardrestaurant {
+    margin: var(--large);
+    display: flex;
+    gap: var(--large);
+}
+
+.introGaardrestaurant h1 {
+    margin-bottom: 32px;
+}
+
+.introGaardrestaurantBillede img{
+    width: 520px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+
+/* Event */
+.events {
+    margin: var(--large);
+}
+
+.events h2 {
+    text-align: center;
+}
+
+.eventCards {
+  margin: var(--small);
+  display: flex;
+  justify-content: center;
+  gap: var(--small);
+}
+
+
+.eventCard {
+    display: flex;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-play-state: paused;
+}
+
+.eventCard:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.eventCard:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eventTekst{
+    width: 265px;
+    height: 540px;
+    background-color: var(--green100);
+    padding-top: var(--small);
+    border-radius: 12px 0 0 12px;
+}
+
+.eventTekst h3 {
+    text-align: center;
+    padding-bottom: var(--small);
+}
+
+.eventTekst p{
+    padding: 10px 25px;
+}
+
+.eventTekst a {
+    justify-self: center;
+    margin-top: var(--small);
+}
+
+.eventTekst i {
+    padding-right: 6px;
+}
+
+.eventBillede img{
+    width: 265px;
+    height: 540px;
+    border-radius: 0 12px 12px 0;
+    object-fit: cover;
+}
+
+/* Catering */
+.catering {
+    margin: var(--large);
+    display: flex;
+    gap: var(--large);
+}
+
+.cateringBillede img {
+    height: 620px;
+    width: 520px;
+    border-radius: 12px;
+}
+
+/* Restaurant gavekort */
+.restaurantGavekort {
+    margin: 0, var(--large);
+    gap: var(--large);
+    background-image: url(/assets/img/catering_2.jpg);
+    background-size: cover;
+    width: 100vw;
+    align-items: center;
+    display: flex;
+}
+
+.restaurantGavekortTekst {
+    display: inline-block;
+    padding: var(--standard);
+    margin: var(--large);
+    background-color: var(--sand300);
+    border-radius: 12px;
+    width: 600px;
+}
+
+.restaurantGavekortTekst h2 {
+    display: inline-block;
+    border-bottom: 3px solid var(--green600);
+    padding-bottom: 8px;
+}
+
+/* Hvem er vi sektion */
+.hvemErVi {
+    margin: var(--large);
+    display: flex;
+    gap: var(--large);
+}
+
+.hvemErViBillede img{
+    width: 520px;
+    height: 420px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 12px;
+}
