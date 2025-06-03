@@ -74,6 +74,7 @@ header{
     border-radius: 6px;
     width: 260px;
     box-shadow: var(--boxShadow);
+    z-index: 1;
 }
 .products-dropdown-container li a{
     display: inline-block;
@@ -148,10 +149,6 @@ span.icon-nav:hover{
 }
 
 
-
-
-
-
 /*------------Search bar----------*/
 .search-bar{
     background-color: var(--white);
@@ -205,4 +202,12 @@ span.icon-nav:hover{
 }
 .search-bar:focus-within #search-icon{
     color: var(--white);
+}
+
+/*------------Burger menu----------*/
+span.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: var(--green800);
+  cursor: pointer;
 }

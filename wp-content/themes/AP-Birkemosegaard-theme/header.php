@@ -92,9 +92,7 @@
                     <a href="<?php echo esc_url(site_url('/profil'));?>" class="btn-filled">Log ind</a>
                 </form>
             </div>
-            
-            
-            
         </div>
     </nav>
+    <span class="material-symbols-rounded menu-toggle" id="burger-toggle">menu</span>
 </header>

@@ -27,6 +27,7 @@ footer h4, footer .logo{
     margin: 3rem 0;
     gap: 2rem;
 }
+
 .footer-column div:not(.logo){
     display: flex;
     margin-bottom: 1rem;
