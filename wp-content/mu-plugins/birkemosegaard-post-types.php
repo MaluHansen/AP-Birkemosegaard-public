@@ -10,7 +10,7 @@ function birkemosegaard_post_types() {
       'custom-fields'
     ),
     'rewrite' => array(
-      'slug' => 'opskrifter',
+      'slug' => 'opskrifter'
       
   ),
     'has_archive' => true,

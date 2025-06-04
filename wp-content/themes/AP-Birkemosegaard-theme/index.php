@@ -10,7 +10,7 @@
     <a href="<?php echo esc_url(site_url('/shop'));?>" class="btn-filled">Udforsk vores produkter</a>
   </div>
 </section>
-<?php get_template_part('template-parts/to-top-btn') ?>
+<?php get_template_part('template-parts/to-top-btn'); ?>
 <section class="omgaardenForside">
   <div class="omgaardenImg">
     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Ejere-mark.jpg" alt="Kung og Jesper i marken">
@@ -77,11 +77,13 @@
         wp_reset_postdata();
         ?>
       </div>
+      <div class="swiper-pagination"></div>
     </div>
     <div class="swiper-button-next"></div>
-    <div class="swiper-pagination"></div>
+   
   </div>
 </section>
+
 <section class="billede-tekst-sektion">
   <div class="indhold-wrapper-forside">
     <div class="billede-container">
@@ -103,7 +105,7 @@
 
 <section class="produkterForside">
   <div class="spaceBetweenforside">
-    <h2>Se vores nyeste produkter</h2>
+    <h2>Gårdens favoritter</h2>
     <a href="<?php echo esc_url(site_url('/shop'));?>" class="visAlle">Se flere produkter <span class="material-symbols-rounded">keyboard_arrow_right</span></a>
   </div>
   <div class="swiper_wrap">
@@ -116,6 +118,13 @@
           'posts_per_page' => 8,
           'orderby' => 'date',
           'order' => 'DESC',
+          'meta_query' => array(
+            array(
+              'key'     => 'favorit_produkt', // Navnet på custom field
+              'value'   => true,                // Eller 'true' afhængigt af hvordan det er gemt
+              
+            ),
+          ),
         );
         $query = new WP_Query($args);
 
@@ -132,9 +141,10 @@
         wp_reset_postdata();
         ?>
       </div>
+      <div class="swiper-pagination"></div>
     </div>
     <div class="swiper-button-next"></div>
-    <div class="swiper-pagination"></div>
+    
   </div>
 </section>
 

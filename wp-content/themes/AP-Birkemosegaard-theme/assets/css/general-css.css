@@ -298,7 +298,7 @@ span.checkbox-icon{
   margin-top: 0px;
 }
 .swiper{
-    padding: 1rem;
+    padding: 2rem 1rem;
     width: 100%;
 }
 .swiper_wrap{
@@ -307,7 +307,8 @@ span.checkbox-icon{
     width: 100%;
     position: relative;
     display: block;
-    text-align: left;}
+    text-align: left;
+}
 
 .swiper-pagination-bullet-active{
     background: var(--green600);
@@ -379,3 +380,109 @@ span.checkbox-icon{
     font-size: 0.9rem;
 }
 /*—————————————————————————————————————————————————————————————————————————————————*/
+
+
+#search-results {
+  position: absolute;
+  top: 100%;
+  right: var(--small);
+  width: 30%;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  z-index: 999;
+  margin-top: 4px;
+  padding: 0.5rem 0;
+}
+
+#search-results div {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+#search-results div:hover {
+  background-color: #f4f8e8;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+
+
+.kort-sektion {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 1rem;
+  background-color: #eae5d3;
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+ 
+.info-boks {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.4s ease;
+}
+.info-boks h3 {
+  font-size: 1.5rem;
+}
+ 
+.info-boks.fade {
+  opacity: 0;
+}
+ 
+.info-boks img {
+  width: 60%;
+}
+ 
+.kort-container {
+  height: 500px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+ 
+.accordion-container {
+  background-color: white;
+  padding: 0;
+  border-radius: 12px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+ 
+button.accordion-button {
+  all: unset;
+  cursor: pointer;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid #3e491e;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  box-sizing: border-box;
+}
+ 
+button.accordion-button:hover {
+  transform: scale(1.05);
+  background-color: var(--green500);
+  border-radius: 0;
+}
+ 
+button.accordion-button:active {
+  transform: scale(0.97);
+}
+.afhentningssteder h2 {
+  text-align: center;
+  color: var(--green800);
+}
+
+.test{
+    width: 200px;
+    height: 200px;
+}

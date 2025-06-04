@@ -13,6 +13,9 @@ function birkemosegaard_files(){
     wp_enqueue_style('swiperJs-style', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
     wp_enqueue_script('swiperJs-script', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js');
 
+    wp_enqueue_script('map', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js');
+    wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+
     // Css og js filer registreres i et array for ikke at skulle queue hver fil enkeltvis
     $css_files = array(
         'general-css',
@@ -47,7 +50,9 @@ function birkemosegaard_files(){
         'test',
         'archive',
         'heart-icon',
-        'parts'
+        'parts',
+        'search',
+        'custom-test'
     );
     foreach ($js_files as $jsFileName){
         $jsFilePath = get_theme_file_uri() . '/assets/js/' . $jsFileName . '.js';
@@ -55,6 +60,10 @@ function birkemosegaard_files(){
         wp_enqueue_script($jsFileName, $jsFilePath, array(), null, true);
     };
 
+
+    wp_localize_script('custom-test', 'themeData', array(
+        'imgUrl' => get_template_directory_uri() . '/assets/img/',
+    ));
 }
 add_action('wp_enqueue_scripts', 'birkemosegaard_files');
 
@@ -152,4 +161,35 @@ add_action('woocommerce_product_query', function($query) {
     $query->set('tax_query', $tax_query);
   }
 });
+
+add_action('wp_ajax_live_search', 'custom_live_search');
+add_action('wp_ajax_nopriv_live_search', 'custom_live_search');
+
+function custom_live_search() {
+    $query = sanitize_text_field($_GET['query'] ?? '');
+
+    $args = [
+        'post_type' => ['product'],
+        's' => $query,
+        'posts_per_page' => 5,
+    ];
+
+    $search = new WP_Query($args);
+
+    $results = [];
+
+    if ($search->have_posts()) {
+        while ($search->have_posts()) {
+            $search->the_post();
+            $results[] = [
+                'title' => get_the_title(),
+                'link' => get_permalink(),
+            ];
+        }
+    }
+
+    wp_reset_postdata();
+    wp_send_json($results);
+}
+
 

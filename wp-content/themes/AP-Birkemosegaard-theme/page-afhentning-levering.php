@@ -16,6 +16,7 @@ Birkemosegaard ligger på Sjællands Odde mellem Overby og Havnebyen og dyrker k
     <a href="/#" class="btn-filled">Læs mere om gården</a>
   </div>
 </section>
+<div class="test"></div>
 <hr class="divider">
 <section class="torsdags-grid">
   <div class="grid-header">
@@ -28,7 +29,7 @@ Birkemosegaard ligger på Sjællands Odde mellem Overby og Havnebyen og dyrker k
     </p>
     <p>Hjemmelevering om torsdagen koster 69 kr. og er gratis ved minimumskøb for 600 kr.</p>
   </div>
-
+ 
   <div class="grid-hoejre">
     <ul>
       <li><strong>OBS</strong> Man behøver ikke købe Torsdagskassen for at få leveret varer torsdag, så længe man bestiller for minimum 230 kr.</li>
@@ -41,22 +42,22 @@ Birkemosegaard ligger på Sjællands Odde mellem Overby og Havnebyen og dyrker k
     <h2>Se vores afhentningssteder</h2>
   </div>
  <section class="kort-sektion">
-  
+ 
     <!-- Venstre infoboks -->
     <div class="info-boks" id="infoBox">
       <h3>Vælg en lokation på kortet</h3>
       <p>Info kommer frem her...</p>
     </div>
-
+ 
     <!-- Midterste kort -->
     <div class="kort-container" id="kort"></div>
-
+ 
     <!-- Højre liste over byer -->
     <div class="accordion-container" id="accordionContainer"></div>
   </section>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+ 
   <!-- Din egen JS -->
-  <script src="assets/js/Levering.js" defer></script>
+
   <section class="torsdags-grid">
   <div class="grid-header">
     <h2>Hjemmelevering hver anden fredag</h2>
@@ -68,7 +69,7 @@ Birkemosegaard ligger på Sjællands Odde mellem Overby og Havnebyen og dyrker k
     <p>Hjemmelevering om fredagen koster 69 kr. og er gratis ved minimumskøb for 600 kr.
 HUSK at bestille 24 timer inden leveringsdato!</p>
   </div>
-
+ 
   <div class="grid-hoejre">
     <ul>
       <li><strong>OBS</strong> Man behøver ikke købe Torsdagskassen for at få leveret varer torsdag, så længe man bestiller for minimum 230 kr.</li>

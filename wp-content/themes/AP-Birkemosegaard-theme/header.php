@@ -40,12 +40,16 @@
         </ul>
         <div class="global-menu-icons">
             
-            <div class="search-bar">
-                <input type="text" class="search-input" placeholder="Søg...">
-                <button class="search-submit">
-                    <span class="material-symbols-rounded icon-nav" id="search-icon">search</span>    
-                </button>
-            </div>
+<div class="search-bar-wrapper" style="position: relative;">
+  <div class="search-bar">
+    <input type="text" class="search-input" placeholder="Søg..." id="live-search" autocomplete="off">
+    <button class="search-submit">
+      <span class="material-symbols-rounded icon-nav" id="search-icon">search</span>    
+    </button>
+  </div>
+  
+</div>
+<div id="search-results" class="hidden"></div>
 
             <div class="cart">
             <span class="material-symbols-rounded icon-nav" id="cart-icon">shopping_cart</span>

@@ -23,7 +23,7 @@
   height: 48px;
 
 }
-.products {
+.products, .opskrifter {
   display: flex;
   justify-content: space-between;
   margin: var(--standard);
@@ -33,6 +33,12 @@
   height: fit-content;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+}
+.opskrift-grid{
+  height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
 }
 .product-grid-small {
@@ -77,4 +83,9 @@
 #product-filter-form button{
   width: 100%;
   margin: 1rem 0;
+}
+
+.test{
+  width: 200px;
+  height: 200px;
 }

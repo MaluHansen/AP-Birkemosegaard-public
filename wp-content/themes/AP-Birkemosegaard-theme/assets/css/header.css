@@ -136,7 +136,7 @@ span.icon-nav:hover{
 .form-field input:focus{
     outline: 1px solid var(--green600);
 }
-.login-popup-container button{
+.login-popup-container a{
     width: auto;
 }
 
