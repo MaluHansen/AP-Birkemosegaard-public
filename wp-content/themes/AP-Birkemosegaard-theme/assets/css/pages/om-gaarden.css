@@ -29,30 +29,6 @@
     border-radius: 12px;
 }
 
-/* Om gården sektion */
-.omGaarden {
-    gap: var(--large);
-    background-image: url(/assets/img/KungOgJesper.png);
-    background-size: cover;
-    width: 100vw;
-    align-items: center;
-}
-
-.omGaardenTekst {
-    display: inline-block;
-    padding: var(--standard);
-    margin: var(--large);
-    background-color: var(--sand300);
-    border-radius: 12px;
-    width: 600px;
-}
-
-.omGaardenTekst h2 {
-    display: inline-block;
-    border-bottom: 3px solid var(--green600);
-    padding-bottom: 8px;
-}
-
 /* Værdier sektion */
 .vaerdier {
      margin: var(--large) var(--standard);
@@ -96,18 +72,17 @@
     color: var(--green500);
 }
 
-/* Gårdrestaurant sektion */
-.omGaardrestaurant {
+/* Teksboks med billede sektion */
+.tekstboksMedBaggrund {
     gap: var(--large);
-    background-image: url(/assets/img/catering_2.jpg);
     background-size: cover;
-    width: 100vw;
+    background-position: center;
     align-items: center;
-    height: 80vh;
+    height: 80%;
     display: flex;
 }
 
-.omGaardrestaurantTekst {
+.tekstboksMedBaggrundTekst {
     display: inline-block;
     padding: var(--standard);
     margin: var(--large);
@@ -116,7 +91,7 @@
     width: 600px;
 }
 
-.omGaardrestaurantTekst h2 {
+.tekstboksMedBaggrundTekst h2 {
     display: inline-block;
     border-bottom: 3px solid var(--green600);
     padding-bottom: 8px;
@@ -132,7 +107,7 @@
 
 .rundvisningBillede img{
     width: 520px;
-    height: 520px;
+    height: 420px;
     object-fit: cover;
     border-radius: 12px;
 }
@@ -159,4 +134,123 @@
 .butikCTA {
     display: flex;
     gap: var(--small);
+}
+
+@media (min-width: 1921px) {
+  html {
+    margin: 10rem;
+  }
+
+  .tekstboksMedBaggrund {
+    height: 100%;
+        width: 100%;
+
+}
+
+}
+
+@media(max-width: 1439px) {
+    .intro {
+        margin-left: var(--small);
+        margin-right: var(--small);
+    }
+
+  .introBillede img {
+    height: 400px;
+    width: 470px;
+  }
+
+
+.vaerdierBillede img{
+    width: 370px;
+}
+
+.tekstboksMedBaggrund {
+    height: 100%;
+}
+
+.tekstboksMedBaggrundTekst {
+    margin-left: var(--small);
+    margin-right: var(--small);
+  }
+
+.rundvisning {
+    margin-left: var(--small);
+    margin-right: var(--small);
+  }
+
+  .rundvisningBillede img {
+    height: 500px;
+    width: 470px;
+  }
+
+  .omGaardbutik {
+    margin-left: var(--small);
+    margin-right: var(--small);
+  }
+
+  .omGaardbutikBillede img {
+    height: 500px;
+    width: 470px;
+  }
+
+}
+
+@media (max-width: 1024px) {
+    .intro {
+        flex-direction: column;
+        gap: var(--standard);
+        justify-content: center;
+    }
+
+    .introBillede img {
+        justify-content: center;
+        width: 100%;
+        height: 400px;
+        object-position: center top;
+    }
+
+    .vaerdier {
+        margin-bottom: 96px;
+    }
+
+    .vaerdierIndhold {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .vaerdierBillede img {
+        display: none;
+    }
+
+     .rundvisning {
+        flex-direction: column-reverse;
+        gap: var(--standard);
+    }
+
+    .rundvisningBillede img {
+        justify-content: center;
+        width: 100%;
+        height: 400px;
+        object-position: center top;
+    }
+
+     .omGaardbutik {
+        flex-direction: column;
+        gap: var(--standard);
+    }
+
+    .omGaardbutikBillede img {
+        justify-content: center;
+        width: 100%;
+        height: 400px;
+    }
+}
+   
+  @media (max-width: 767px) {
+  .vaerdier {
+    margin-left: var(--small);
+    margin-right: var(--small);
+  }
 }

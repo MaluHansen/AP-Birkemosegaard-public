@@ -1,0 +1,94 @@
+/* Css til om gården sektion */
+.omgaardenForside {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin: var(--large);
+ 
+  gap: var(--standard);
+}
+.omgaardenImg {
+  height: 100%;
+}
+.omgaardenImg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+.omgaardenContent h2{
+color: var(--green900);
+}
+ 
+.text-restaurant-forside {
+  background-color: var(--sand300);
+  padding: var(--standard);
+  margin: var(--large);
+  max-width: 450px;
+  border-radius: 12px;
+  text-align: center;
+ 
+}
+.btn-filled-forside {
+  color: var(--white);
+  background-color: var(--green600);
+  padding: 12px 32px;
+  border-radius: 6px;
+  width: fit-content;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  height: 48px;
+  margin-top: 1rem;
+  display: inline-block;
+}
+.btn-filled-forside:hover {
+  background-color: var(--green500);
+    transition: 0.3s;
+    box-shadow: var(--boxShadow);
+}
+ 
+.btn-filled-forse:active {
+  background-color: var(--green700);
+}
+
+ 
+@media (min-width: 1920px) {
+  html {
+    margin: 10rem;
+  }
+}
+@media (max-width: 1440px) {
+}
+@media (max-width: 1024px) {
+  .omgaardenForside {
+    grid-template-columns: 1fr;
+  }
+ 
+  .omgaardenImg {
+    order: -1;
+  }
+ 
+  .text-restaurant-forside {
+    padding: var(--small);
+  }
+ 
+  }
+ 
+@media (max-width: 768px) {
+  .text-restaurant-forside {
+    margin: var(--small);
+  }
+ 
+  .omgaardenForside {
+    gap: 1rem;
+    margin: var(--small);
+  }
+  .omgaardenImg img {
+    border-radius: 8px;
+  }
+  }
+ 
+ 
+ 
+/* CSS til b2b side slut */

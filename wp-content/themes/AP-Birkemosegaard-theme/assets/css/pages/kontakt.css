@@ -1,0 +1,93 @@
+/* CSS til kontakt os siden start */
+.contact-section-kontaktside {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+  gap: 3rem;
+  background-color: #fff;
+  max-width: 1200px;
+  justify-content: center;
+  margin: var(--large);
+}
+ 
+.contact-form-kontaktside,
+.contact-details-kontaktside {
+  flex: 1 1 300px;
+}
+ 
+.contact-form-kontaktside h2,
+.contact-details-kontaktside h2 {
+  margin-bottom: 1rem;
+  color: var(--green900);
+}
+ 
+
+
+.contact-details-kontaktside p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+ 
+.contact-details-kontaktside a {
+  color: var(--green600);
+  text-decoration: none;
+}
+ 
+.contact-details-kontaktside a:hover {
+  text-decoration: underline;
+}
+#kontaktForm-kontaktside{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-details-kontaktside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+ 
+.kontakt-item-kontaktside {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+ 
+.ikon-wrapper-kontaktside {
+  background-color: var(--green600);
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+ 
+.ikon-kontaktside {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+ 
+.kontakt-tekst-kontaktside a {
+  color: var(--green600);
+  text-decoration: none;
+}
+ 
+.kontakt-tekst-kontaktside a:hover {
+  text-decoration: underline;
+}
+@media (min-width: 1921px) {
+  html {
+    margin: 10rem;
+  }
+}
+
+@media (max-width: 767px) {
+    .form-group-kontaktside {
+        width: 350px;
+    }
+}
+/* CSS til kontakt os side start */

@@ -10,6 +10,9 @@ function birkemosegaard_files(){
     // Ikoner - Google material icons
     wp_enqueue_style('icons', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
+      // Ikoner - Font Awesome icons
+  wp_enqueue_style('fa-icons', "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+
     wp_enqueue_style('swiperJs-style', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
     wp_enqueue_script('swiperJs-script', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js');
 
@@ -32,7 +35,8 @@ function birkemosegaard_files(){
         'pages/handelsbetingelser',
         'pages/kontakt',
         'pages/levering',
-        'pages/restaurant'
+        'pages/restaurant',
+        'pages/b2b'
     );
     foreach ($css_files as $cssFileName){
         $cssFilePath = get_theme_file_uri() . '/assets/css/' . $cssFileName . '.css';
@@ -52,18 +56,13 @@ function birkemosegaard_files(){
         'heart-icon',
         'parts',
         'search',
-        'custom-test'
+        'levering'
     );
     foreach ($js_files as $jsFileName){
         $jsFilePath = get_theme_file_uri() . '/assets/js/' . $jsFileName . '.js';
 
         wp_enqueue_script($jsFileName, $jsFilePath, array(), null, true);
     };
-
-
-    wp_localize_script('custom-test', 'themeData', array(
-        'imgUrl' => get_template_directory_uri() . '/assets/img/',
-    ));
 }
 add_action('wp_enqueue_scripts', 'birkemosegaard_files');
 

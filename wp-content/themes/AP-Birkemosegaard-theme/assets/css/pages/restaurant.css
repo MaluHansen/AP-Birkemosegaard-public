@@ -1,3 +1,17 @@
+/* GÅRDRESTAURANT START */
+
+/* General */
+.fade-in {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
 /* Intro */
 .introGaardrestaurant {
     margin: var(--large);
@@ -14,6 +28,12 @@
     height: 420px;
     object-fit: cover;
     border-radius: 12px;
+}
+
+.introGaardrestaurant,
+.catering,
+.hvemErVi {
+    justify-content: center;
 }
 
 
@@ -146,3 +166,130 @@
     object-position: center top;
     border-radius: 12px;
 }
+
+@media (min-width: 1921px) {
+  html {
+    margin: 10rem;
+  }
+}
+
+@media (max-width: 1439px) {
+  .introGaardrestaurant {
+        margin-left: var(--small);
+        margin-right: var(--small);
+    }
+
+  .introGaardrestaurantBillede img {
+    height: 400px;
+    width: 470px;
+  }
+
+  .events {
+    margin: var(--small);
+    justify-content: center;
+  }
+
+  .eventTekst{
+    width: 200px;
+    height: 540px;
+    background-color: var(--green100);
+    padding-top: var(--small);
+    border-radius: 12px 0 0 12px;
+}
+
+.eventBillede img{
+    width: 200px;
+}
+
+  .catering {
+        margin-left: var(--small);
+        margin-right: var(--small);
+    }
+
+  .cateringBillede img {
+    height: 700px;
+    width: 470px;
+  }
+
+  .restaurantGavekort {
+    height: 100%;
+  }
+
+  .restaurantGavekortTekst {
+    margin-left: var(--small);
+        margin-right: var(--small);
+  }
+
+  .hvemErVi {
+        margin-left: var(--small);
+        margin-right: var(--small);
+    }
+
+  .hvemErViBillede img {
+    height: 470px;
+    width: 470px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .introGaardrestaurant {
+    flex-direction: column-reverse;
+    gap: var(--small);
+  }
+
+  .introGaardrestaurantBillede img {
+    width: 100%;
+  }
+
+  .eventCards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .eventTekst{
+    width: 265px;
+    height: 540px;
+}
+
+.eventBillede img{
+    width: 265px;
+    height: 540px;
+}
+
+.catering {
+  flex-direction: column;
+  gap: var(--small);
+}
+
+.cateringBillede img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.hvemErVi {
+  flex-direction: column-reverse;
+  gap: var(--small);
+}
+
+.hvemErViBillede img {
+  width: 100%;
+}
+}
+
+@media (max-width: 767px){
+.eventCards {
+  margin: 0;
+}
+   .eventTekst{
+    width: 200px;
+    height: 550px;
+}
+
+.eventBillede img{
+    width: 200px;
+    height: 550px;
+}
+}
+
+/* GÅRDRESTAURANT SLUT */

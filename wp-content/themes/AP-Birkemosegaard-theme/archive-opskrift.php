@@ -2,12 +2,7 @@
 <main>
   <div class="archive-hero">
     <h1 class="archive-heading">Opskrifter</h1>
-
-    <!-- <input type="text" id="live-search" placeholder="Søg produkter..." autocomplete="off">
-<div id="search-results"></div> -->
-
   </div>
-
   <section class="opskrifter">
     <div class="opskrift-grid">
       <?php
@@ -24,9 +19,5 @@
       ?>
     </div> 
   </section>
-    <?php 
-      woocommerce_pagination();
-      woocommerce_result_count();
-    ?> 
 </main>
 <?php get_footer(); ?>

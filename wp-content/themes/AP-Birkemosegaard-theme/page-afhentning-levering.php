@@ -1,84 +1,80 @@
 <?php get_header(); ?>
-  <main>
-    <section class="omgaardenForside">
-  <div class="omgaardenImg">
-    <img src="/assets/img/Leveringsbillede.jpg" alt="Kung og Jesper i marken">
-  </div>
-  <div class="omgaardenContent">
-    <h2>Afhentning og levering</h2>
-    <p>
-     Kung og Jesper
-Birkemosegaard ligger på Sjællands Odde mellem Overby og Havnebyen og dyrker korn kartofler, grønt og frugt. Herudover opdrætter Birkemosegaard kvæg og har 30 moderdyr og 50 opdrætsdyr.
-    </p>
-    <p>
-      Vi tror på gennemsigtighed, kvalitet og det nære møde mellem jord og bord. Derfor inviterer vi også dig til at komme tættere på, hvad vi laver - om det er gennem vores gårdbutik, markvandringer, events eller samarbejder med lokale aktører.
-    </p>
-    <a href="/#" class="btn-filled">Læs mere om gården</a>
-  </div>
-</section>
-<div class="test"></div>
-<hr class="divider">
-<section class="torsdags-grid">
-  <div class="grid-header">
-    <h2>Gratis levering om Torsdagen</h2>
-  </div>
-  <div class="grid-venstre">
-    <p>
-      Om torsdagen leverer vi varer gratis til vores afhentningssteder i Nykøbing Sjælland, Roskilde, København, Charlottenlund og Lyngby.
-      Til torsdagslevering kan man både bestille vores Torsdagskasse samt alle andre fra vores webshop, herunder kolonialvarer og kød.
-    </p>
-    <p>Hjemmelevering om torsdagen koster 69 kr. og er gratis ved minimumskøb for 600 kr.</p>
-  </div>
- 
-  <div class="grid-hoejre">
-    <ul>
-      <li><strong>OBS</strong> Man behøver ikke købe Torsdagskassen for at få leveret varer torsdag, så længe man bestiller for minimum 230 kr.</li>
-      <li>Ved køb af ekstra varer uden Torsdagskasse, skal der minimum bestilles for 230 kr</li>
-      <li>Ved tilkøb af ekstra varer udover Torsdagskassen, skal der minimum bestilles for 150 kr</li>
-    </ul>
-  </div>
-</section>
-<div class="afhentningssteder">
+<main>
+  <section class="omgaardenForside">
+    <div class="omgaardenImg fade-in">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Leveringsbillede.jpg" alt="billede af grøntsagskasse" />
+    </div>
+    <div class="omgaardenContent">
+      <h2>Afhentning og levering</h2>
+      <p>
+        Kung og Jesper
+        Birkemosegaard ligger på Sjællands Odde mellem Overby og Havnebyen og dyrker korn kartofler, grønt og frugt. Herudover opdrætter Birkemosegaard kvæg og har 30 moderdyr og 50 opdrætsdyr.
+      </p>
+      <p>
+        Vi tror på gennemsigtighed, kvalitet og det nære møde mellem jord og bord. Derfor inviterer vi også dig til at komme tættere på, hvad vi laver - om det er gennem vores gårdbutik, markvandringer, events eller samarbejder med lokale aktører.
+      </p>
+      <a href="/#" class="btn-filled">Læs mere om gården</a>
+    </div>
+  </section>
+  <hr class="divider">
+  <section class="torsdags-grid">
+    <div class="grid-header">
+      <h2>Gratis levering om Torsdagen</h2>
+    </div>
+    <div class="grid-venstre">
+      <p>
+        Om torsdagen leverer vi varer gratis til vores afhentningssteder i Nykøbing Sjælland, Roskilde, København, Charlottenlund og Lyngby.
+        Til torsdagslevering kan man både bestille vores Torsdagskasse samt alle andre fra vores webshop, herunder kolonialvarer og kød.
+      </p>
+      <p>Hjemmelevering om torsdagen koster 69 kr. og er gratis ved minimumskøb for 600 kr.</p>
+    </div>
+
+    <div class="grid-hoejre">
+      <ul>
+        <li><strong>OBS</strong> Man behøver ikke købe Torsdagskassen for at få leveret varer torsdag, så længe man bestiller for minimum 230 kr.</li>
+        <li>Ved køb af ekstra varer uden Torsdagskasse, skal der minimum bestilles for 230 kr</li>
+        <li>Ved tilkøb af ekstra varer udover Torsdagskassen, skal der minimum bestilles for 150 kr</li>
+      </ul>
+    </div>
+  </section>
+  <div class="afhentningssteder">
     <h2>Se vores afhentningssteder</h2>
   </div>
- <section class="kort-sektion">
- 
+  <section class="kort-sektion">
+
     <!-- Venstre infoboks -->
     <div class="info-boks" id="infoBox">
       <h3>Vælg en lokation på kortet</h3>
       <p>Info kommer frem her...</p>
     </div>
- 
+
     <!-- Midterste kort -->
     <div class="kort-container" id="kort"></div>
- 
+
     <!-- Højre liste over byer -->
     <div class="accordion-container" id="accordionContainer"></div>
   </section>
- 
-  <!-- Din egen JS -->
-
   <section class="torsdags-grid">
-  <div class="grid-header">
-    <h2>Hjemmelevering hver anden fredag</h2>
-  </div>
-  <div class="grid-venstre">
-    <p>
-      Vi kører varetur hver fredag og skifter mellem to forskellige ruter i Storkøbenhavn, Roskilde og Nordøstsjælland. Dvs. Man kan på en adresse inden for vores ruteplan få leveret varer hver anden fredag.
-    </p>
-    <p>Hjemmelevering om fredagen koster 69 kr. og er gratis ved minimumskøb for 600 kr.
-HUSK at bestille 24 timer inden leveringsdato!</p>
-  </div>
- 
-  <div class="grid-hoejre">
-    <ul>
-      <li><strong>OBS</strong> Man behøver ikke købe Torsdagskassen for at få leveret varer torsdag, så længe man bestiller for minimum 230 kr.</li>
-      <li>Ved køb af ekstra varer uden Torsdagskasse, skal der minimum bestilles for 230 kr</li>
-      <li>Ved tilkøb af ekstra varer udover Torsdagskassen, skal der minimum bestilles for 150 kr</li>
-    </ul>
-  </div>
-</section>
-<section class="fredags-sektion">
+    <div class="grid-header">
+      <h2>Hjemmelevering hver anden fredag</h2>
+    </div>
+    <div class="grid-venstre">
+      <p>
+        Vi kører varetur hver fredag og skifter mellem to forskellige ruter i Storkøbenhavn, Roskilde og Nordøstsjælland. Dvs. Man kan på en adresse inden for vores ruteplan få leveret varer hver anden fredag.
+      </p>
+      <p>Hjemmelevering om fredagen koster 69 kr. og er gratis ved minimumskøb for 600 kr.
+        HUSK at bestille 24 timer inden leveringsdato!</p>
+    </div>
+
+    <div class="grid-hoejre">
+      <ul>
+        <li><strong>OBS</strong> Man behøver ikke købe Torsdagskassen for at få leveret varer torsdag, så længe man bestiller for minimum 230 kr.</li>
+        <li>Ved køb af ekstra varer uden Torsdagskasse, skal der minimum bestilles for 230 kr</li>
+        <li>Ved tilkøb af ekstra varer udover Torsdagskassen, skal der minimum bestilles for 150 kr</li>
+      </ul>
+    </div>
+  </section>
+  <section class="fredags-sektion">
     <h2>Fredagsvareture</h2>
     <p>Bemærk: Ingen levering uge 22 (Kristi himmelfartsdag)</p>
     <div class="vareture-container">

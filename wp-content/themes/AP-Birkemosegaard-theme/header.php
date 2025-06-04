@@ -39,23 +39,23 @@
             <li><a href="<?php echo esc_url(site_url('/kontakt'));?>">Kontakt</a></li>
         </ul>
         <div class="global-menu-icons">
-            
-<div class="search-bar-wrapper" style="position: relative;">
-  <div class="search-bar">
-    <input type="text" class="search-input" placeholder="Søg..." id="live-search" autocomplete="off">
-    <button class="search-submit">
-      <span class="material-symbols-rounded icon-nav" id="search-icon">search</span>    
-    </button>
-  </div>
-  
-</div>
-<div id="search-results" class="hidden"></div>
+
+            <div class="search-bar-wrapper" style="position: relative;">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Søg..." id="live-search" autocomplete="off">
+                    <button class="search-submit">
+                        <span class="material-symbols-rounded icon-nav" id="search-icon">search</span>    
+                    </button>
+                </div>
+                
+            </div>
+            <div id="search-results" class="hidden"></div>
 
             <div class="cart">
-            <span class="material-symbols-rounded icon-nav" id="cart-icon">shopping_cart</span>
-            <span class="cart-count cart-contents">
-                <?php echo WC()->cart->get_cart_contents_count(); ?>
-            </span>
+                <span class="material-symbols-rounded icon-nav" id="cart-icon">shopping_cart</span>
+                <span class="cart-count cart-contents">
+                    <?php echo WC()->cart->get_cart_contents_count(); ?>
+                </span>
             </div>
                         
             <div class="cart-modal">
@@ -67,36 +67,28 @@
                 <h4>Log ind</h4>
                 <p>Ny kunde? <a href="#" class="preHeader">Opret profil her</a></p>
                 <form class="login-popup-container" action="" id="login-popup-form">
-    
                     <div class="form-field">
                         <input type="text" id="email" placeholder=" " required>
                         <label for="email">E-mail</label>
                     </div>
-                    
-                    
-    
                     <div class="form-field">
                         <input type="password" id="psw" placeholder=" " required>
                         <label for="psw">Adgangskode</label>
                         <span class="material-symbols-rounded toggle-password">visibility_off</span>
                     </div>
-                
                     <div class="login-popup-last">
-    
-                    <label class="checkbox-custom">
-                        <input type="checkbox">
-                        <span class="material-symbols-rounded checkbox-icon"></span>
-                        Husk mig
-                    </label>
-    
-                    <a href="#" class="detaljer">Glemt adgangskode?</a>
-    
+                        <label class="checkbox-custom">
+                            <input type="checkbox">
+                            <span class="material-symbols-rounded checkbox-icon"></span>
+                            Husk mig
+                        </label>
+                        <a href="#" class="detaljer">Glemt adgangskode?</a>
                     </div>
-                    
-                    <a href="<?php echo esc_url(site_url('/profil'));?>" class="btn-filled">Log ind</a>
+                    <a href="<?php echo esc_url(site_url('/profil'));?>" class="btn-filled btn-login">Log ind</a>
                 </form>
             </div>
         </div>
     </nav>
     <span class="material-symbols-rounded menu-toggle" id="burger-toggle">menu</span>
+    <?php get_template_part('template-parts/to-top-btn'); ?>
 </header>
