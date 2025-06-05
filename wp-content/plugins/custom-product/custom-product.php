@@ -77,19 +77,19 @@ $selected = get_post_meta( $post->ID, '_custom_bundle_products', true ) ?: [];
     echo '<span class="description">Vælg hvilke produkter der er en del af bundlen.</span>';
 
 
-echo '<ul id="_custom_bundle_products">';
-foreach ( $products as $product ) {
-    $id = $product->get_id();
-    $name = $product->get_name();
-    $is_selected = in_array( $id, $selected ) ? 'checked' : '';
-    ?>
-    <li>
-        <input type="checkbox" name="_custom_bundle_products[]" value="<?php echo esc_attr( $id ); ?>" <?php echo $is_selected; ?>>
-        <?php echo esc_html( $name ); ?>
-    </li>
-    <?php
-}
-echo '</ul>';
+    echo '<ul id="_custom_bundle_products">';
+    foreach ( $products as $product ) {
+        $id = $product->get_id();
+        $name = $product->get_name();
+        $is_selected = in_array( $id, $selected ) ? 'checked' : '';
+        ?>
+        <li>
+            <input type="checkbox" name="_custom_bundle_products[]" value="<?php echo esc_attr( $id ); ?>" <?php echo $is_selected; ?>>
+            <?php echo esc_html( $name ); ?>
+        </li>
+        <?php
+    }
+    echo '</ul>';
 
     echo '</div>';
 });

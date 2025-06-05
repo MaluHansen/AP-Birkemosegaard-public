@@ -79,11 +79,7 @@
 .kontakt-tekst-kontaktside a:hover {
   text-decoration: underline;
 }
-@media (min-width: 1921px) {
-  html {
-    margin: 10rem;
-  }
-}
+
 
 @media (max-width: 767px) {
     .form-group-kontaktside {

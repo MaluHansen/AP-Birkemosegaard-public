@@ -1,0 +1,208 @@
+/* Single opskrift side */
+.opskriftTitel {
+    text-align: center;
+    margin: var(--standard);
+}
+
+.ingredienser {
+    display: flex;
+    margin: var(--standard);
+    gap: var(--standard);
+    justify-content: center;
+}
+
+.ingredienserBillede img {
+    object-fit: cover;
+    height: 800px;
+    width: 600px;
+    border-radius: 12px;
+}
+
+.ingredienser ul li {
+    padding-bottom: 12px;
+}
+
+.ingredienserTekst span {
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.fremgangsmetode {
+    margin: var(--large) var(--large);
+    display: flex;
+    justify-content: center;
+}
+
+.fremgangsmetodeTekst h2 {
+    text-align: center;
+}
+
+.fremgangsmetodeTekst ol li::marker {
+font-weight: 900;
+font-size: 1.2rem;
+}
+
+.andreOpskrifter h2 {
+    text-align: center;
+}
+
+/* andre opskrifter sektion */
+.andreOpskrifter {
+  margin: var(--large);
+}
+.andreOpskrifter h3 {
+  font-size: 1.5rem;
+}
+.opskriftGrid-singleOpskrift {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.opskriftCard {
+  border: 1px solid #ccc;
+  padding: 1.2rem;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 430px;
+}
+.opskriftCard img {
+  height: 240px;
+  width: 430px;
+  object-fit: cover;
+}
+
+.btn-filled-singleOpskrift {
+  color: var(--white);
+  background-color: var(--green600);
+  padding: 12px 32px;
+  border-radius: 6px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  height: 48px;
+  text-align: center;
+}
+.btn-filled-singleOpskrift:hover {
+  background-color: var(--green500);
+  transition: 0.3s;
+  box-shadow: var(--boxShadow);
+}
+
+.btn-filled-singleOpskrift:active {
+  background-color: var(--green700);
+}
+
+.image-wrapper-singleOpskrift {
+  margin: -1.2rem -1.2rem 1rem -1.2rem; /* trækker billedet ud over paddingen */
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.zoom-billede img {
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.zoom-billede:hover img {
+  transform: scale(1.05);
+}
+
+@media(max-width: 1439px) {
+  .ingredienserBillede img {
+    height: 800px;
+    width: 470px;
+  }
+  .opskriftGrid-singleOpskrift {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .opskriftCard {
+    max-width: 100%;
+  }
+
+  .opskriftCard img,
+  .opskrift-billede-singleOpskrift {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .btn-filled-singleOpskrift {
+    width: 100%;
+  }
+
+  .opskriftGrid-singleOpskrift .opskriftCard:nth-child(4) {
+    display: none;
+  }
+}
+
+@media(max-width: 1024px) {
+  .ingredienser {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ingredienserBillede img {
+    height: 300px;
+    width: 600px;
+    
+  }
+
+  .opskriftGrid-singleOpskrift {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .opskriftCard {
+    max-width: 100%;
+  }
+
+  .opskriftCard img,
+  .opskrift-billede-singleOpskrift {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .btn-filled-singleOpskrift {
+    width: 100%;
+  }
+
+  .opskriftGrid-singleOpskrift .opskriftCard:nth-child(3),
+  .opskriftGrid-singleOpskrift .opskriftCard:nth-child(4) {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .ingredienser {
+    margin: var(--small);
+  }
+
+  .ingredienserBillede img {
+    height: 300px;
+    width: 400px;
+    
+  }
+
+  .fremgangsmetode {
+    margin: var(--small);
+  }
+
+  .andreOpskrifter {
+    margin: var(--small);
+  }
+
+  .opskriftCard h3 {
+   font-size: 1.1rem;
+  }
+}
+
+/* Single opskrift side slut*/

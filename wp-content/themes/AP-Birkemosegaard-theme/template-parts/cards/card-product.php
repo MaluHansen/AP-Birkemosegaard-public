@@ -12,8 +12,7 @@
         if ($created_date->getTimestamp() >= strtotime( '-1 week' ) ) {
         echo '<span class="badge">Nyhed</span>'; 
         }?>
-
-      <?php echo $product->get_image(); ?>
+        <?php echo $product->get_image(); ?>
     </div>
     
     <div class="card-content">

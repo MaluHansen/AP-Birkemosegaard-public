@@ -1,0 +1,27 @@
+.error-container {
+  max-width: 600px;
+  margin: 6rem auto;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+ 
+.error-container h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: var(--green600);
+}
+ 
+.error-container img {
+  width: 150px;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+ 
+.error-container p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #444;
+}

@@ -73,11 +73,11 @@
     <hr>
     <div class="footer-bottom">
         <div class="socials">
-            <img src="./assets/icons/icons8-facebook (1).svg" alt="">
-            <img src="./assets/icons/icons8-instagram (1).svg" alt="">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-square-facebook"></i>
         </div>
         <p class="copyright">&copy; 2025 Birkemosegaard</p>
-        <img class="payment-icons" src="<?php echo get_template_directory_uri(); ?>/assets/img/betalingsmetoder.png" alt="">
+        <img class="payment-icons" src="<?php echo get_template_directory_uri(); ?>/assets/img/Betalingsmetoder.png" alt="">
     </div>
 
 </footer>

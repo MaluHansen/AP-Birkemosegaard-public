@@ -101,9 +101,6 @@
 
 /* ----- Under 1921px: Tablet-visning ----- */
 @media (min-width: 1921px) {
-  main {
-    margin: 10rem;
-  }
   .products {
     justify-content: center;
     gap: 3rem;

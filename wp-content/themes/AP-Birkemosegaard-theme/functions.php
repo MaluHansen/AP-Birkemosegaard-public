@@ -25,6 +25,7 @@ function birkemosegaard_files(){
         'header',
         'footer',
         'pages/single-product',
+        'pages/single-opskrift',
         'cards',
         'pages/archive',
         'cart',
@@ -36,7 +37,8 @@ function birkemosegaard_files(){
         'pages/kontakt',
         'pages/levering',
         'pages/restaurant',
-        'pages/b2b'
+        'pages/b2b',
+        'pages/404'
     );
     foreach ($css_files as $cssFileName){
         $cssFilePath = get_theme_file_uri() . '/assets/css/' . $cssFileName . '.css';
@@ -56,7 +58,8 @@ function birkemosegaard_files(){
         'heart-icon',
         'parts',
         'search',
-        'levering'
+        'levering',
+        'fly-to-cart'
     );
     foreach ($js_files as $jsFileName){
         $jsFilePath = get_theme_file_uri() . '/assets/js/' . $jsFileName . '.js';
@@ -107,20 +110,23 @@ add_filter('loop_shop_per_page', function(){
   return 20; // Antal viste produkter
 });
 
-
+add_filter('woocommerce_default_catalog_orderby', 'custom_default_catalog_orderby');
+function custom_default_catalog_orderby($default) {
+    return 'date'; // 'date' viser nyeste produkter først
+}
 
 add_filter('woocommerce_catalog_orderby', 'custom_catalog_orderby');
 function custom_catalog_orderby($sortby) {
     // Fjern uønskede og tilføj egne muligheder
     $sortby = array(
-        'menu_order' => 'Sorter efter',
+        'date' => 'Nyeste først',
         'popularity' => 'Mest populære',
-        'date'       => 'Nyeste',
         'price'      => 'Pris: Lav til høj',
         'price-desc' => 'Pris: Høj til lav',
     );
     return $sortby;
 }
+
 
 
 add_action('woocommerce_product_query', function($query) {

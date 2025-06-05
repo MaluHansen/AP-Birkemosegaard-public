@@ -53,9 +53,10 @@
 
             <div class="cart">
                 <span class="material-symbols-rounded icon-nav" id="cart-icon">shopping_cart</span>
-                <span class="cart-count cart-contents">
+
+               <div class="cart-counts cart-contents">
                     <?php echo WC()->cart->get_cart_contents_count(); ?>
-                </span>
+               </div> 
             </div>
                         
             <div class="cart-modal">

@@ -4,6 +4,7 @@ header{
     background-color: var(--white);
     padding: 0 2rem;
     position: sticky;
+    top: 0px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -106,6 +107,28 @@ span.icon-nav:hover{
 }
 
 
+.cart {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-count {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+    background-color: var(--green600);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
 
 /*---------log ind form------------*/
 .login-popup{
@@ -208,33 +231,6 @@ span.checkbox-icon{
     font-size: 0.75rem;
 }
 /*--------------------------------*/
-/*--------------------------------*/
-
-/*------------Cart modal-----------*/
-.cart-modal{
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    background-color: var(--overlay);
-}
-.cart-modal-content{
-    background-color: var(--white);
-    width: 50%;
-    height: 100%;
-    padding: 32px;
-    margin-left: auto;
-}
-.cart-modal-header{
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--green600);
-}
-/*---------------------------------*/
-
 
 /*------------Search bar----------*/
 .search-bar{

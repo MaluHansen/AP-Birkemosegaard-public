@@ -259,7 +259,7 @@
 
 @media (min-width: 1921px) {
   html {
-    margin: 10rem;
+    margin: 0 10rem;
     box-shadow: var(--boxShadow);
   }
 }
@@ -357,10 +357,7 @@
     padding: 1.5rem 1rem;
   }
 
-  .ikonItem i {
-    width: 40px;
-    height: 40px;
-  }
+
   .produktGrid-forside {
     grid-template-columns: 1fr;
   }

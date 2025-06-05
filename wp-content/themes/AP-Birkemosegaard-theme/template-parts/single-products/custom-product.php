@@ -26,5 +26,4 @@ $bundle_ids = get_post_meta($product->get_id(), '_custom_bundle_products', true)
     </div>
     <!-- <div class="tab-content" data-content="2">content 2</div>
     <div class="tab-content" data-content="3">content 3</div> -->
-    
 </div>
