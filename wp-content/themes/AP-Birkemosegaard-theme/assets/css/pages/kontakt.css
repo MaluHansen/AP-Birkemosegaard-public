@@ -6,8 +6,8 @@
   gap: 3rem;
   background-color: #fff;
   max-width: 1200px;
-  justify-content: center;
-  margin: var(--large);
+  justify-content: space-between;
+  margin: var(--standard);
 }
  
 .contact-form-kontaktside,
@@ -84,6 +84,10 @@
 @media (max-width: 767px) {
     .form-group-kontaktside {
         width: 350px;
+    }
+    .contact-section-kontaktside{
+      margin: unset;
+      margin-top: var(--small);
     }
 }
 /* CSS til kontakt os side start */

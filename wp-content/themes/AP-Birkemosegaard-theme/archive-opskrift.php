@@ -6,18 +6,20 @@
   <section class="opskrifter">
     <div class="opskrift-grid">
       <?php
-        $opskrifter = new WP_Query(array(
+      // Opretter en WP_Query til at hente alle indlæg af typen 'opskrift'
+      $opskrifter = new WP_Query(array(
         'post_type' => 'opskrift',
         'posts_per_page' => -1
-        
+
       ));
-      while ($opskrifter -> have_posts()) {
-        $opskrifter -> the_post();
+      // Looper gennem alle fundne opskrifter og indlæser en skabelon til visning af hver
+      while ($opskrifter->have_posts()) {
+        $opskrifter->the_post();
         get_template_part('template-parts/cards/card', 'opskrift');
       }
       wp_reset_postdata();
       ?>
-    </div> 
+    </div>
   </section>
 </main>
 <?php get_footer(); ?>

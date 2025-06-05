@@ -104,7 +104,7 @@
         omgivelser - perfekt til både hverdag og særlige lejligheder.
       </p>
       <br />
-      <a class="btn-filled" href="#">Læs mere om restauranten</a>
+      <a class="btn-filled" href="<?php echo esc_url(site_url('/restaurant-catering'));?>">Læs mere om restauranten</a>
     </div>
   </section>
   <section class="rundvisning">
@@ -122,7 +122,7 @@
         marken, hvis sæsonen tillader det.
         <br /><br />
         Vi aftaler dato og tidspunkt direkte – skriv til os på
-        <a href="#">info@birkemosegaard.dk</a>, så finder vi en løsning.
+        <a href="mailto:info@birkemosegaard.dk">info@birkemosegaard.dk</a>, så finder vi en løsning.
       </p>
     </div>
     <div class="rundvisningBillede fade-in">
@@ -153,8 +153,8 @@
       </p>
       <br />
       <div class="butikCTA">
-        <a class="btn-filled" href="#">Se vores produkter</a>
-        <a class="btn-filled" href="#">Læs mere om levering</a>
+        <a class="btn-filled" href="<?php echo esc_url(site_url('/shop'));?>">Se vores produkter</a>
+        <a class="btn-filled" href="<?php echo esc_url(site_url('/afhentning-levering'));?>">Læs mere om levering</a>
       </div>
     </div>
   </section>

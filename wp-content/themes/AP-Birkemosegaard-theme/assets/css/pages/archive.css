@@ -43,17 +43,6 @@
 .product-grid-small {
   grid-template-columns: repeat(3, 1fr);
 }
-/* .product-filters{
-  height: fit-content;
-  display: none;
-  flex-direction: column;
-  box-shadow: var(--boxShadow);
-}
-.product-filters.show {
-  display: block;
-  padding: 1rem;
-  float: left;
-} */
  .product-filters {
   max-width: 0;
   opacity: 0;
@@ -64,7 +53,7 @@
 }
 
 .product-filters.show {
-  max-width: fit-content; /* eller noget stort nok */
+  max-width: fit-content;
   opacity: 1;
   padding: 1rem;
   transition: max-width 1s ease, opacity 1s ease;
@@ -154,6 +143,12 @@
     padding: 1rem;
     flex-direction: column;
   }
+
+  /* OPSKRIFTS ARCHIVE */
+  .opskrift-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
 }
 @media (max-width: 767px) {
    .product-grid {
@@ -202,6 +197,11 @@
   .product-filters {
     max-height: 0;
     overflow: hidden;
+  }
+
+  /* OPSKRIFTS ARCHIVE */
+  .opskrift-grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 @media (max-width: 500px) {

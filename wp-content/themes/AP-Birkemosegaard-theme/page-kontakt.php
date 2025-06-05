@@ -40,8 +40,11 @@
         </div>
         <div class="kontakt-tekst-kontaktside">
           <strong>Telefon:</strong><br>
-          59 32 72 41<br>
-          26 23 82 33
+          <p>
+          Generel info: <a href="tel:+4559327241"> 59 32 72 41</a> / <a href="tel:+4526238233">26 23 82 33</a>
+          <br>
+          Produktion - Drift og Landbrug: <a href="tel:+4520458233">20 45 82 33</a>
+          </p>
         </div>
       </div>
 

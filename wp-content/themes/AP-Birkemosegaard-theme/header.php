@@ -32,11 +32,11 @@
                     ?>
                 </ul>
             </li>
-            <li><a href="<?php echo esc_url(site_url('/opskrifter'));?>">Opskrifter</a></li>
-            <li><a href="<?php echo esc_url(site_url('/om-gaarden'));?>">Om gården</a></li>
-            <li><a href="<?php echo esc_url(site_url('/restaurant-catering'));?>">Restaurant & Catering</a></li>
-            <li><a href="<?php echo esc_url(site_url('/afhentning-levering'));?>">Afhentning & Levering</a></li>
-            <li><a href="<?php echo esc_url(site_url('/kontakt'));?>">Kontakt</a></li>
+            <li><a <?php if(is_post_type_archive('opskrift')) echo 'class="active"';?> href="<?php echo esc_url(site_url('/opskrifter'));?>">Opskrifter</a></li>
+            <li><a <?php if(is_page('om-gaarden')) echo 'class="active"';?> href="<?php echo esc_url(site_url('/om-gaarden'));?>">Om gården</a></li>
+            <li><a <?php if(is_page('restaurant-catering')) echo 'class="active"';?> href="<?php echo esc_url(site_url('/restaurant-catering'));?>">Restaurant & Catering</a></li>
+            <li><a <?php if(is_page('afhentning-levering')) echo 'class="active"';?> href="<?php echo esc_url(site_url('/afhentning-levering'));?>">Afhentning & Levering</a></li>
+            <li><a <?php if(is_page('kontakt')) echo 'class="active"';?> href="<?php echo esc_url(site_url('/kontakt'));?>">Kontakt</a></li>
         </ul>
         <div class="global-menu-icons">
 
@@ -85,7 +85,7 @@
                         </label>
                         <a href="#" class="detaljer">Glemt adgangskode?</a>
                     </div>
-                    <a href="<?php echo esc_url(site_url('/profil'));?>" class="btn-filled btn-login">Log ind</a>
+                    <a href="<?php echo esc_url(site_url('/profil'));?>" class="btn-filled btn-login btn-card">Log ind</a>
                 </form>
             </div>
         </div>

@@ -13,7 +13,6 @@
                 Priser og Virksomhedsoplysninger
                 Alle priser på hjemmesiden er angivet i DKK og inkluderer moms, afgifter og eventuel told Birkemosegaard v/ Gårdejer Jesper Andersen Oddenvej 165 4583 Sjællands Odde, Danmark Kontakt
             </p>
-            <a href="/#" class="btn-filled">Læs mere om gården</a>
         </div>
     </section>
 

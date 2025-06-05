@@ -203,3 +203,28 @@ span.error-icon, .variant-error-message p{
     text-align: center;
     min-width: 24px;
 }
+
+@media (max-width: 1024px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-img {
+        width: 80%;
+    }
+
+    .related-product {
+        flex-flow: wrap;
+    }
+}
+
+@media (max-width: 767px) {
+    .product-img {
+        width: 100%;
+    }
+
+    .product {
+        margin: var(--small);
+    }
+}

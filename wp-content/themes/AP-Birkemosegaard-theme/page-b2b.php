@@ -12,7 +12,7 @@
             <p>
                 Vi tilbyder fleksible løsninger, der passer til forskellige behov og størrelser af virksomheder. Kontakt os, hvis du vil høre mere om mulighederne for et samarbejde.
             </p>
-            <a href="" class="btn-filled">Læs mere om gården</a>
+            <a href="<?php echo esc_url(site_url('/om-gaarden'));?>" class="btn-filled">Læs mere om gården</a>
         </div>
     </section>
     <section class="tekstboksMedBaggrund" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/catering.jpg)">
@@ -22,7 +22,7 @@
                 Opret en B2B-profil og få adgang til vores økologiske sortiment, særlige priser og nem bestilling direkte fra gården.
             </p>
             <br />
-            <a class="btn-filled" href="#">Opret et profil</a>
+            <a class="btn-filled" href="<?php echo esc_url(site_url('/profil'));?>">Opret et profil</a>
         </div>
     </section>
     <section class="omgaardenForside">
@@ -35,7 +35,6 @@
             <p>
                 Ved at samarbejde med Birkemosegaard vælger du ikke kun kvalitet – du støtter også lokal økologi, biodiversitet og miljøvenlige dyrkningsmetoder.
             </p>
-            <a href="" class="btn-filled">Læs mere om gården</a>
         </div>
         <div class="omgaardenImg fade-in">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/b2bbillede.jpg" alt="billede af grøntsager" />

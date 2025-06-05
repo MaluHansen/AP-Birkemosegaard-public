@@ -90,7 +90,9 @@
   </div>
 
   <div class="btn-filled-kurv"> 
- <a href="./checkout_levering.html" class="btn-filled">Gå til Levering →</a>
+ <a href="./checkout_levering.html" class="btn-filled">Gå til Levering <span class="material-symbols-rounded">
+chevron_right
+</span></a>
   </div>
   </aside>
 </div>

@@ -32,7 +32,7 @@
           <p><i class="fa-solid fa-clock"></i> KL. 18.30</p>
           <p>Italiensk aften med gæstekokke fra Nørrebro</p>
           <p>450 kr forudbetales ved booking</p>
-          <a class="btn-filled" href="#">Læs mere</a>
+          <a class="btn-filled" href="https://shop.fresto.io/en/birkemosegaard/events">Læs mere</a>
         </div>
         <div class="eventBillede">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Riccardo_1_stor.jpeg" alt="billede af riccardo" />
@@ -48,7 +48,7 @@
           <p><i class="fa-solid fa-clock"></i> KL. 18.30</p>
           <p>Thailandsk aften i fællesskab med Ranee og sit team</p>
           <p>450 kr forudbetales ved booking</p>
-          <a class="btn-filled" href="#">Læs mere</a>
+          <a class="btn-filled" href="https://shop.fresto.io/en/birkemosegaard/events">Læs mere</a>
         </div>
         <div class="eventBillede">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Ranees.jpg" alt="billede af mad" />
@@ -80,13 +80,13 @@
         Sheila Avila kan bookes til små og store selskaber privat og i
         restauranten samt cateringopgaver.
       </p>
-      <a class="btn-filled" href="#">Book Sheila</a>
+      <a class="btn-filled" href="mailto:sheavila@birkemosegaard.dk">Book Sheila</a>
       <br />
       <p>
         Kung kan bookes til mindre thaiopgaver. Både i restauranten og som
         catering.
       </p>
-      <a class="btn-filled" href="#">Book Kung</a>
+      <a class="btn-filled" href="mailto:info@birkemosegaard.dk">Book Kung</a>
     </div>
   </section>
   <section class="restaurantGavekort" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/catering.jpg)">
@@ -103,7 +103,7 @@
         herunder.
       </p>
       <br />
-      <a class="btn-filled" href="#">Bestil gavekort</a>
+      <a class="btn-filled" href="https://shop.fresto.io/da/birkemosegaard/giftcards" target="_blank">Bestil gavekort</a>
     </div>
   </section>
   <section class="hvemErVi">
@@ -121,7 +121,7 @@
         grøntsager og kvæg til café, restaurant og fællesskab.
       </p>
       <br />
-      <a class="btn-filled" href="#">Læs mere om os</a>
+      <a class="btn-filled" href="<?php echo esc_url(site_url('/om-gaarden'));?>">Læs mere om os</a>
     </div>
     <div class="hvemErViBillede fade-in">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hvemervi.png" alt="billede af ejerne af birkemosegaard" />

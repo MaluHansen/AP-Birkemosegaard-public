@@ -45,10 +45,10 @@
             
             <form class="news-form-footer">
                 <p>Tilmeld dig vores nyhedsbrev og gå aldrig glip af nyheder om gården, vores produkter og ugens torsdagskasse</p>
-                <!-- <div class="form-field">
+                <div class="form-field">
                     <input type="text" id="email" placeholder=" " required>
                     <label for="email">E-mail</label>
-                </div> -->
+                </div>
 
                 <p><b>Jeg vil have nyheder om:</b></p>
                 <label class="checkbox-custom">

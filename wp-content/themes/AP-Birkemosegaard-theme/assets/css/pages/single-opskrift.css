@@ -97,7 +97,7 @@ font-size: 1.2rem;
 }
 
 .image-wrapper-singleOpskrift {
-  margin: -1.2rem -1.2rem 1rem -1.2rem; /* trækker billedet ud over paddingen */
+  margin: -1.2rem -1.2rem 1rem -1.2rem;
   position: relative;
   overflow: hidden;
   border-top-left-radius: 8px;

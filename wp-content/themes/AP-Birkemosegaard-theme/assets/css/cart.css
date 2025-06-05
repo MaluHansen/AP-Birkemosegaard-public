@@ -360,7 +360,7 @@ body.modal-open {
   }
    .checkout-wrapper {
     flex-direction: column;
-      margin: var(--small) !important;  /* denne skal overskrive */
+      margin: var(--small) !important;
       
   }
     .checkout-left,
@@ -380,7 +380,7 @@ body.modal-open {
   flex-wrap: nowrap; 
   gap: 4rem;
   margin: 0 var(--large) var(--large);
-  align-items: flex-start; /* ← Dette sikrer at toppen af begge kolonner flugter */
+  align-items: flex-start;
 }
 
 .checkout-left,

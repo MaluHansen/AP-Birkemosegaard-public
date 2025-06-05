@@ -7,13 +7,15 @@
     <div class="omgaardenContent">
       <h2>Afhentning og levering</h2>
       <p>
-        Kung og Jesper
-        Birkemosegaard ligger på Sjællands Odde mellem Overby og Havnebyen og dyrker korn kartofler, grønt og frugt. Herudover opdrætter Birkemosegaard kvæg og har 30 moderdyr og 50 opdrætsdyr.
+        Når du handler hos Birkemosegaard, kan du nemt hente dine varer direkte på gården eller få dem leveret til udvalgte lokalområder. Vi tilbyder fleksible løsninger, så du kan vælge den leveringsform, der passer dig bedst.
       </p>
       <p>
-        Vi tror på gennemsigtighed, kvalitet og det nære møde mellem jord og bord. Derfor inviterer vi også dig til at komme tættere på, hvad vi laver - om det er gennem vores gårdbutik, markvandringer, events eller samarbejder med lokale aktører.
+        Ved afhentning på gården pakker vi dine varer klar til det aftalte tidspunkt. Hvis du vælger levering, sørger vi for, at dine varer bliver leveret friske og forsvarligt pakket – lige til døren eller til et lokalt udleveringssted.
+        Du vælger afhentnings- eller leveringsmetode ved bestilling, og vi informerer dig om næste mulige afhentnings- eller leveringsdag.        
       </p>
-      <a href="/#" class="btn-filled">Læs mere om gården</a>
+
+      
+  
     </div>
   </section>
   <hr class="divider">

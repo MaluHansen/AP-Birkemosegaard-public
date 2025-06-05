@@ -2,12 +2,12 @@
 
 <main>
   <section class="heroForside">
-    <div class="heroBackground" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/Gårdbutik-udefra.jpg') ?>);"></div>
+    <div class="heroBackground" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/Gaardbutik-udefra.jpg') ?>);"></div>
     <div class="heroContent">
       <h1 class="heroH1">Velkommen til Birkemosegaard</h1>
       <br>
       <p>Økologi, fællesskab og kærlighed til naturen -<br> fra jord til bord</p>
-      <a href="<?php echo esc_url(site_url('/shop'));?>" class="btn-filled">Udforsk vores produkter</a>
+      <a href="<?php echo esc_url(site_url('/shop')); ?>" class="btn-filled">Udforsk vores produkter</a>
     </div>
   </section>
 
@@ -51,14 +51,14 @@
   <section class="produkterForside">
     <div class="spaceBetweenforside">
       <h2>Se vores nyeste produkter</h2>
-      <a href="<?php echo esc_url(site_url('/shop'));?>" class="visAlle">Se flere produkter <span class="material-symbols-rounded">keyboard_arrow_right</span></a>
+      <a href="<?php echo esc_url(site_url('/shop')); ?>" class="visAlle">Se flere produkter <span class="material-symbols-rounded">keyboard_arrow_right</span></a>
     </div>
     <div class="swiper_wrap">
       <div class="swiper-button-prev"></div>
       <div class="swiper product-swiper">
         <div class="swiper-wrapper">
           <?php
-          // De 8 nyeste produkter vises
+          // WP_Query: Henter de nyeste produkter fra WooCommerce til brug i Swiper-karussellen
           $args = array(
             'post_type' => 'product',
             'posts_per_page' => 8,
@@ -70,20 +70,21 @@
           if ($query->have_posts()) {
             while ($query->have_posts()) {
               $query->the_post();
-              ?>
+          ?>
               <div class="swiper-slide">
+                <!-- Indlæser produktkort skabelon -->
                 <?php get_template_part('template-parts/cards/card', 'product'); ?>
               </div>
-              <?php
+          <?php
             }
           }
-          wp_reset_postdata();
+          wp_reset_postdata(); // Nulstil efter loopet, så andre queries ikke påvirkes
           ?>
         </div>
         <div class="swiper-pagination"></div>
       </div>
       <div class="swiper-button-next"></div>
-    
+
     </div>
   </section>
 
@@ -99,7 +100,7 @@
         </p>
         <h3>229,00 kr.</h3>
         <a href="/#" class="btn-filled ">Læs mere om denne uges torsdagskasse</a> <br>
-        <a href="<?php echo esc_url(site_url('/product-category/maltidskasser'));?>" class="btn-filled btn-outline">Se andre måltidskasser</a>      
+        <a href="<?php echo esc_url(site_url('/product-category/maltidskasser')); ?>" class="btn-filled btn-outline">Se andre måltidskasser</a>
 
 
       </div>
@@ -109,13 +110,14 @@
   <section class="produkterForside">
     <div class="spaceBetweenforside">
       <h2>Gårdens favoritter</h2>
-      <a href="<?php echo esc_url(site_url('/shop'));?>" class="visAlle">Se flere produkter <span class="material-symbols-rounded">keyboard_arrow_right</span></a>
+      <a href="<?php echo esc_url(site_url('/shop')); ?>" class="visAlle">Se flere produkter <span class="material-symbols-rounded">keyboard_arrow_right</span></a>
     </div>
     <div class="swiper_wrap">
       <div class="swiper-button-prev"></div>
       <div class="swiper product-swiper">
         <div class="swiper-wrapper">
           <?php
+          // WP_Query: Henter produkter fra WooCommerce hvor ACF-feltet 'favorit_produkt' er true
           $args = array(
             'post_type' => 'product',
             'posts_per_page' => 8,
@@ -133,11 +135,11 @@
           if ($query->have_posts()) {
             while ($query->have_posts()) {
               $query->the_post();
-              ?>
+          ?>
               <div class="swiper-slide">
                 <?php get_template_part('template-parts/cards/card', 'product'); ?>
               </div>
-              <?php
+          <?php
             }
           }
           wp_reset_postdata();
@@ -146,26 +148,26 @@
         <div class="swiper-pagination"></div>
       </div>
       <div class="swiper-button-next"></div>
-      
+
     </div>
   </section>
 
   <hr class="divider">
 
   <section class="billed-sektion-forside">
-    <a class="billede stort zoom-billede" href="<?php echo esc_url(site_url('/opskrifter'));?>">
+    <a class="billede stort zoom-billede" href="<?php echo esc_url(site_url('/opskrifter')); ?>">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/img/dauphinoise.jpg" alt="Opskrifter" />
       <div class="gavekort-forside">Opskrifter</div>
       <div class="pil-forside">→</div>
     </a>
 
-    <a class="billede lille zoom-billede" href="<?php echo esc_url(site_url('/afhentning-levering'));?>">
+    <a class="billede lille zoom-billede" href="<?php echo esc_url(site_url('/afhentning-levering')); ?>">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Leevering.jpg" alt="Levering" />
       <div class="gavekort-forside">Levering</div>
       <div class="pil-forside">→</div>
     </a>
 
-    <a class="billede lille zoom-billede" href="#">
+    <a class="billede lille zoom-billede" href="https://shop.fresto.io/da/birkemosegaard/giftcards" target="_blank">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Torsdagskassen.jpg" alt="Gavekort" />
       <div class="gavekort-forside">Gavekort</div>
       <div class="pil-forside">→</div>
@@ -187,66 +189,67 @@
         omgivelser - perfekt til både hverdag og særlige lejligheder.
       </p>
       <br />
-      <a class="btn-filled" href="<?php echo esc_url(site_url('/restaurant-catering'));?>">Læs mere om restauranten</a>
+      <a class="btn-filled" href="<?php echo esc_url(site_url('/restaurant-catering')); ?>">Læs mere om restauranten</a>
     </div>
   </section>
   <section class="facebook-anmeldelser">
-    <h2>Det siger vores  kunder om os</h2>
+    <h2>Det siger vores kunder om os</h2>
     <div class="anmeldelser-grid">
       <div class="anmeldelse-card">
         <a class="facebook-logo" href="https://www.facebook.com/profile.php?id=100063862530530&sk=reviews" target="_blank" aria-label="Se anmeldelsen på Facebook">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-        <path d="M22 12c0-5.5228-4.4772-10-10-10S2 6.4772 2 12c0 4.9916 3.657 9.1284 8.438 9.8787v-6.988H7.8984V12h2.5396V9.797c0-2.5074 1.4923-3.8908 3.7774-3.8908 1.094 0 2.2386.195 2.2386.195v2.462h-1.2609c-1.2424 0-1.6309.7716-1.6309 1.562V12h2.7731l-.4437 2.8907h-2.3294v6.988C18.343 21.1284 22 16.9916 22 12z"/>
-      </svg>
-    </a>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M22 12c0-5.5228-4.4772-10-10-10S2 6.4772 2 12c0 4.9916 3.657 9.1284 8.438 9.8787v-6.988H7.8984V12h2.5396V9.797c0-2.5074 1.4923-3.8908 3.7774-3.8908 1.094 0 2.2386.195 2.2386.195v2.462h-1.2609c-1.2424 0-1.6309.7716-1.6309 1.562V12h2.7731l-.4437 2.8907h-2.3294v6.988C18.343 21.1284 22 16.9916 22 12z" />
+          </svg>
+        </a>
         <p>"Endnu en dejlig smagsoplevelse. Enkel mad og gode råvarer fra lokalområdet😋😋😋"</p>
         <span>- Helle Colmorten.</span>
       </div>
       <div class="anmeldelse-card">
-          <a class="facebook-logo" href="https://www.facebook.com/profile.php?id=100063862530530&sk=reviews" target="_blank" aria-label="Se anmeldelsen på Facebook">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-        <path d="M22 12c0-5.5228-4.4772-10-10-10S2 6.4772 2 12c0 4.9916 3.657 9.1284 8.438 9.8787v-6.988H7.8984V12h2.5396V9.797c0-2.5074 1.4923-3.8908 3.7774-3.8908 1.094 0 2.2386.195 2.2386.195v2.462h-1.2609c-1.2424 0-1.6309.7716-1.6309 1.562V12h2.7731l-.4437 2.8907h-2.3294v6.988C18.343 21.1284 22 16.9916 22 12z"/>
-      </svg>
-    </a>
+        <a class="facebook-logo" href="https://www.facebook.com/profile.php?id=100063862530530&sk=reviews" target="_blank" aria-label="Se anmeldelsen på Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M22 12c0-5.5228-4.4772-10-10-10S2 6.4772 2 12c0 4.9916 3.657 9.1284 8.438 9.8787v-6.988H7.8984V12h2.5396V9.797c0-2.5074 1.4923-3.8908 3.7774-3.8908 1.094 0 2.2386.195 2.2386.195v2.462h-1.2609c-1.2424 0-1.6309.7716-1.6309 1.562V12h2.7731l-.4437 2.8907h-2.3294v6.988C18.343 21.1284 22 16.9916 22 12z" />
+          </svg>
+        </a>
         <p>"Skønne, duftende saftige grøntsager lige til døren. Masse andre produkter af høj kvalitet, alt fra kød, mel, frugt og vin. Jesper og Kung gør det super godt!"</p>
         <span>- Idun Varvin.</span>
       </div>
       <div class="anmeldelse-card">
         <a class="facebook-logo" href="https://www.facebook.com/profile.php?id=100063862530530&sk=reviews" target="_blank" aria-label="Se anmeldelsen på Facebook">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-        <path d="M22 12c0-5.5228-4.4772-10-10-10S2 6.4772 2 12c0 4.9916 3.657 9.1284 8.438 9.8787v-6.988H7.8984V12h2.5396V9.797c0-2.5074 1.4923-3.8908 3.7774-3.8908 1.094 0 2.2386.195 2.2386.195v2.462h-1.2609c-1.2424 0-1.6309.7716-1.6309 1.562V12h2.7731l-.4437 2.8907h-2.3294v6.988C18.343 21.1284 22 16.9916 22 12z"/>
-      </svg>
-    </a>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M22 12c0-5.5228-4.4772-10-10-10S2 6.4772 2 12c0 4.9916 3.657 9.1284 8.438 9.8787v-6.988H7.8984V12h2.5396V9.797c0-2.5074 1.4923-3.8908 3.7774-3.8908 1.094 0 2.2386.195 2.2386.195v2.462h-1.2609c-1.2424 0-1.6309.7716-1.6309 1.562V12h2.7731l-.4437 2.8907h-2.3294v6.988C18.343 21.1284 22 16.9916 22 12z" />
+          </svg>
+        </a>
         <p>"Masser af gode grøntsager af høj kvalitet.. en glæde at købe mine grøntsager der ..hver uge."</p>
         <span>- Susanne Wex.</span>
       </div>
       <div class="anmeldelse-card">
         <a class="facebook-logo" href="https://www.facebook.com/profile.php?id=100063862530530&sk=reviews" target="_blank" aria-label="Se anmeldelsen på Facebook">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-        <path d="M22 12c0-5.5228-4.4772-10-10-10S2 6.4772 2 12c0 4.9916 3.657 9.1284 8.438 9.8787v-6.988H7.8984V12h2.5396V9.797c0-2.5074 1.4923-3.8908 3.7774-3.8908 1.094 0 2.2386.195 2.2386.195v2.462h-1.2609c-1.2424 0-1.6309.7716-1.6309 1.562V12h2.7731l-.4437 2.8907h-2.3294v6.988C18.343 21.1284 22 16.9916 22 12z"/>
-      </svg>
-    </a>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M22 12c0-5.5228-4.4772-10-10-10S2 6.4772 2 12c0 4.9916 3.657 9.1284 8.438 9.8787v-6.988H7.8984V12h2.5396V9.797c0-2.5074 1.4923-3.8908 3.7774-3.8908 1.094 0 2.2386.195 2.2386.195v2.462h-1.2609c-1.2424 0-1.6309.7716-1.6309 1.562V12h2.7731l-.4437 2.8907h-2.3294v6.988C18.343 21.1284 22 16.9916 22 12z" />
+          </svg>
+        </a>
         <p>"Dejlig afslappet stemning, god, kyndig og hyggelig betjening. Lækker og inspirerende mad. Kan varmt anbefale spisestedet. 5 stjerner"</p>
         <span>- Stine Invernizzi.</span>
       </div>
       <div class="anmeldelse-card">
         <a class="facebook-logo" href="https://www.facebook.com/profile.php?id=100063862530530&sk=reviews" target="_blank" aria-label="Se anmeldelsen på Facebook">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-        <path d="M22 12c0-5.5228-4.4772-10-10-10S2 6.4772 2 12c0 4.9916 3.657 9.1284 8.438 9.8787v-6.988H7.8984V12h2.5396V9.797c0-2.5074 1.4923-3.8908 3.7774-3.8908 1.094 0 2.2386.195 2.2386.195v2.462h-1.2609c-1.2424 0-1.6309.7716-1.6309 1.562V12h2.7731l-.4437 2.8907h-2.3294v6.988C18.343 21.1284 22 16.9916 22 12z"/>
-      </svg>
-    </a>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M22 12c0-5.5228-4.4772-10-10-10S2 6.4772 2 12c0 4.9916 3.657 9.1284 8.438 9.8787v-6.988H7.8984V12h2.5396V9.797c0-2.5074 1.4923-3.8908 3.7774-3.8908 1.094 0 2.2386.195 2.2386.195v2.462h-1.2609c-1.2424 0-1.6309.7716-1.6309 1.562V12h2.7731l-.4437 2.8907h-2.3294v6.988C18.343 21.1284 22 16.9916 22 12z" />
+          </svg>
+        </a>
         <p>"En fornøjelse at handle lokalt - fantastisk udvalg."</p>
         <span>- Camilla H.</span>
-      </div><div class="anmeldelse-card">
+      </div>
+      <div class="anmeldelse-card">
         <a class="facebook-logo" href="https://www.facebook.com/profile.php?id=100063862530530&sk=reviews" target="_blank" aria-label="Se anmeldelsen på Facebook">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-        <path d="M22 12c0-5.5228-4.4772-10-10-10S2 6.4772 2 12c0 4.9916 3.657 9.1284 8.438 9.8787v-6.988H7.8984V12h2.5396V9.797c0-2.5074 1.4923-3.8908 3.7774-3.8908 1.094 0 2.2386.195 2.2386.195v2.462h-1.2609c-1.2424 0-1.6309.7716-1.6309 1.562V12h2.7731l-.4437 2.8907h-2.3294v6.988C18.343 21.1284 22 16.9916 22 12z"/>
-      </svg>
-    </a>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M22 12c0-5.5228-4.4772-10-10-10S2 6.4772 2 12c0 4.9916 3.657 9.1284 8.438 9.8787v-6.988H7.8984V12h2.5396V9.797c0-2.5074 1.4923-3.8908 3.7774-3.8908 1.094 0 2.2386.195 2.2386.195v2.462h-1.2609c-1.2424 0-1.6309.7716-1.6309 1.562V12h2.7731l-.4437 2.8907h-2.3294v6.988C18.343 21.1284 22 16.9916 22 12z" />
+          </svg>
+        </a>
         <p>"Super kvalitet og rimelige priser, når man ser på, hvor gode, friske økologiske varer, I leverer."</p>
         <span>- Miriam Feilberg.</span>
       </div>
-    
+
     </div>
   </section>
 </main>

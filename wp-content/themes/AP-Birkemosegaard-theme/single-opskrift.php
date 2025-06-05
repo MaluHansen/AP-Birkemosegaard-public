@@ -6,16 +6,18 @@
             <?php the_post_thumbnail(); ?>
         </div>
         <div class="ingredienserTekst">
+            <!-- Henter ACF-felt for antal personer -->
             <h2>Indgredienser til <?php the_field('antal_personer'); ?> personer</h2>
             <ul>
                 <?php
+                // Henter ACF-feltet 'ingrediens_liste' og splitter det op i punkter baseret på <p>-tags
                 $ingrediens_liste = get_field('ingrediens_liste');
                 if ($ingrediens_liste) {
                     $paragraffer = explode("</p>", $ingrediens_liste);
                     foreach ($paragraffer as $p) {
-                        $tekst = trim(strip_tags($p));
+                        $tekst = trim(strip_tags($p)); // Fjerner HTML og mellemrum
                         if (!empty($tekst)) {
-                            echo '<li>' . esc_html($tekst) . '</li>';
+                            echo '<li>' . esc_html($tekst) . '</li>'; // Viser som listeelement
                         }
                     }
                 }
@@ -28,6 +30,7 @@
             <h2>Fremgangsmåde</h2>
             <ol>
                 <?php
+                // Henter ACF-feltet 'fremgangsmade' og viser hvert afsnit som et punkt i en ordnet liste
                 $fremgangs_liste = get_field('fremgangsmade');
                 if ($fremgangs_liste) {
                     $paragraffer = explode("</p>", $fremgangs_liste);
