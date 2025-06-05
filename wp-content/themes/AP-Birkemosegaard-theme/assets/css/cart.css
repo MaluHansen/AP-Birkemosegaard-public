@@ -309,11 +309,7 @@ body.modal-open {
   padding: 0 1rem;
   box-sizing: border-box;
 }
-@media (min-width: 1920px) {
-  html {
-    margin: 10rem;
-  }
-}
+
 @media (max-width: 1440px) {
 }
 @media (max-width: 1024px) {

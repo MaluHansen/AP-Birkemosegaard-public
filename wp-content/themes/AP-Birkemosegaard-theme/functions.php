@@ -127,7 +127,6 @@ function custom_default_catalog_orderby($default)
 add_filter('woocommerce_catalog_orderby', 'custom_catalog_orderby');
 function custom_catalog_orderby($sortby)
 {
-  // Fjern uønskede og tilføj egne muligheder
   $sortby = array(
     'date' => 'Nyeste først',
     'popularity' => 'Mest populære',

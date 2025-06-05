@@ -18,3 +18,5 @@ $parentCat = $category ? get_term($category->parent, 'product_cat') : null;
     <?php endif; ?>
     <li><?php the_title(); ?></li>
 </ul>
+
+

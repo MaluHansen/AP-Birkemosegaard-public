@@ -14,7 +14,7 @@ $product = wc_get_product(get_the_ID());
     // Hvis produktet er i kategorien 'torsdagskassen', bruges en speciel skabelon og resten springes over
     if (has_term('torsdagskassen', 'product_cat', $product->get_id())) {
         wc_get_template_part('template-parts/single-products/torsdagskassen');
-        return; // Stop loaderen af resten af standardskabelonen
+        // return; // Stop loaderen af resten af standardskabelonen
     }
     ?>
 

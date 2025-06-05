@@ -1,0 +1,84 @@
+== Ordforklaring over WordPress- og WooCommerce-funktioner ==
+
+
+-- Hooks og filtre --
+add_action(): 
+Knytter en funktion til en bestemt handling i WordPress (fx når temaet loader eller et produkt vises).
+
+add_filter(): 
+Giver mulighed for at ændre eksisterende output eller data fra WordPress eller WooCommerce.
+
+do_action(): 
+Kører alle funktioner, der er tilknyttet en given action hook.
+
+woocommerce_product_query:
+ WooCommerce-hook som ændrer produkt-forespørgsler før de vises på shoppen. Bruges til fx filtre.
+
+woocommerce_add_to_cart_fragments:
+ Bruges til AJAX-opdatering af fx kurv-ikonet når der tilføjes varer.
+
+loop_shop_per_page:
+ Filtrerer hvor mange produkter der vises pr. side i produkt-arkivet.
+
+after_setup_theme: 
+Hook til at aktivere tema-support (fx thumbnails, WooCommerce etc.)
+
+wp_enqueue_scripts: 
+Hook til at tilføje CSS og JavaScript-filer korrekt i temaet.
+
+
+-- WooCommerce-funktioner --
+wc_get_product($id):
+ Returnerer et produktobjekt ud fra et post-ID. Bruges til at hente Woo-produktdata.
+
+WC()->cart:
+ Giver adgang til WooCommerce-kurvobjektet. Bruges fx til at hente antal produkter.
+
+$product->get_id():
+ Returnerer ID for det nuværende produktobjekt.
+
+$product->get_price_html():
+ Returnerer HTML for produktets pris, inkl. evt. tilbud.
+
+$product->is_type('variable'):
+ Tjekker om produktet er af typen 'variable'.
+
+$product->get_available_variations():
+ Henter variationer for et variabelt produkt.
+
+$product->get_attribute('pa_xxx'):
+ Henter en bestemt produktattribut (fx vægt).
+
+woocommerce_pagination():
+ Viser paginering på produkt-arkiv.
+
+woocommerce_result_count():
+ Viser fx “Viser 1–12 af 36 produkter”.
+
+-- WordPress-funktioner og template tags --
+get_the_ID(): 
+Returnerer ID’et for det nuværende post (typisk i loops eller single-sider).
+
+the_title(): 
+Viser titlen på det aktuelle indlæg eller produkt.
+
+get_post_meta($id, $key, $single): 
+Henter metadata (fx custom fields) for et givent post.
+
+get_field():
+ Bruger ACF-plugin til at hente et felt (Advanced Custom Fields).
+
+get_template_part():
+ Indlæser en PHP-skabelon fra dit tema (modulær visning).
+
+has_term():
+ Tjekker om et indlæg/produkt har en bestemt kategori eller taksonomi.
+
+get_the_terms() / wp_get_post_terms():
+ Henter taksonomi-værdier (fx produkt-brand eller kategori).
+
+wp_reset_postdata():
+ Nulstiller global $post efter en custom query-loop.
+ 
+WP_Query:
+ Laver brugerdefinerede forespørgsler efter indhold (fx opskrifter, produkter).
